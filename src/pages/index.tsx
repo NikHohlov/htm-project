@@ -1,6 +1,8 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-
+import styles from "@/styles/Home.module.scss";
+import Link from "next/link";
+import Image from "next/image";
+import logo from "../assets/pictures/logo.png";
 
 export default function Home() {
     return (
@@ -12,8 +14,17 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main className={styles.main}>
-                <div>HELLO</div>
+            <main className={styles.fontTest}>
+                <div className={styles.navbar}>
+                    <Image alt="image" src={logo} width={130} height={91}/>
+                    <div className={styles.links}>
+                        <Link href="/">О НАС</Link>
+                        <Link href="/services">УСЛУГИ</Link>
+                        <Link href="/partners">ПАРТНЕРЫ</Link>
+                        <Link href="/cases">КЕЙСЫ</Link>
+                    </div>
+                    <div className={styles.button}>CONTACTS</div>
+                </div>
             </main>
         </>
     );

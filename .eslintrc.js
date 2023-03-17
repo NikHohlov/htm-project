@@ -13,6 +13,11 @@ module.exports = {
     project: ["./tsconfig.json"],
     tsconfigRootDir: __dirname,
   },
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+    },
+  ],
   rules: {
     indent: [2, 4],
     "react-hooks/rules-of-hooks": "error",
