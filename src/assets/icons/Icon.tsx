@@ -4,7 +4,7 @@ import { isUndefined } from "@/lib/utils/typeCheckers";
 
 import type { IconProps } from "@/lib/types";
 
-import styles from "./slyles.module.scss";
+import styles from "@/assets/icons/styles.module.scss";
 
 type IconPropsWithChildren = IconProps & {
   children: JSX.Element | JSX.Element[];

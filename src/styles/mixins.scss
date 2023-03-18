@@ -1,0 +1,49 @@
+@property --gradient-dark-color {
+    syntax: '<color>';
+    initial-value: #615AF4;
+    inherits: false;
+  }
+  
+  @property --gradient-light-color {
+    syntax: '<color>';
+    initial-value: #34C3FB;
+    inherits: false;
+  }
+
+@mixin text($font-family: Craftwork Grotesk, $font-size: 20px, $line-height: 24px, $font-weight: 700, $color: white) {
+    font-family: $font-family, sans-serif;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color;
+}
+
+@mixin fontBackground($first-color: var(--gradient-dark-color), $second-color: var(--gradient-light-color), $first-percentage: 2%, $second-percentage: 98%) {
+    background: linear-gradient(91.91deg, $first-color $first-percentage, $second-color $second-percentage);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@mixin button($width: 178px, $height: 38px, $border-radius: 30px, $first-percentage: 2%, $second-percentage: 98%) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: $width;
+    height: $height;
+    background: linear-gradient(90.09deg, var(--gradient-dark-color) $first-percentage, var(--gradient-light-color) $second-percentage);
+    border-radius: $border-radius;
+    transition: --gradient-dark-color 0.7s, --gradient-light-color 0.7s;
+
+    &:hover {
+        --gradient-dark-color: #34C3FB;
+        --gradient-light-color: #615AF4;
+    }
+}
+
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

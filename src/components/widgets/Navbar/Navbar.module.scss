@@ -1,0 +1,41 @@
+@import "../../../styles/mixins.scss";
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    margin: 0 50px 0 50px;
+    gap: 65px;
+
+    &.dark {
+        a {
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: white;
+            background-clip: unset;
+            text-decoration: none;
+        }
+    }
+
+    a {
+        @include text();
+        @include fontBackground();
+        text-decoration: none;
+
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.button {
+    @include text();
+
+    &:not(.dark) {
+        @include button();
+    }
+}

@@ -9,3 +9,8 @@ export type IconProps = {
   className?: string;
   onClick?: MouseEventHandler<SVGSVGElement>;
 };
+
+export enum Theme  {
+  Light = "light",
+  Dark = "dark"
+}

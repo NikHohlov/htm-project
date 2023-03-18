@@ -4,6 +4,15 @@
   margin: 0;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --gradient-dark-color: #615AF4;
+  --gradient-light-color: #34C3FB;
+}
+
 @font-face {
   font-family: 'Codenext';
   src: url('../assets/fonts/CodeNext-ExtraBold.ttf');
