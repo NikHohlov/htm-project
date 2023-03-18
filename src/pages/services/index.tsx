@@ -7,6 +7,9 @@ import ourServices from "@/assets/pictures/servicesPage/ourServices.png";
 import { Theme } from "@/lib/types";
 
 import styles from "@/styles/pages/Services.module.scss";
+import { services } from "@/data/services";
+import ServiceItem from "@/components/ui/ServiceItem/ServiceItem";
+import Button from "@/components/ui/Button/Button";
 
 export default function index() {
     return (
@@ -19,6 +22,16 @@ export default function index() {
                 </div>
 
                 <Image className={styles.image} fill src={ourServices} alt="image" quality={100}/>
+            </div>
+
+            <div className={styles.secondSection}>
+                <p className={styles.primaryTextTwo}>ЧТО МЫ МОЖЕМ</p>
+
+                <div className={styles.servicesContainer}>
+                    {services.map(({ title, icon }) => <ServiceItem key={title} title={title} icon={icon}/>)}
+                </div>
+
+                <Button title="КОНТАКТЫ" theme={Theme.Light}/>
             </div>
         </Layout>
     );

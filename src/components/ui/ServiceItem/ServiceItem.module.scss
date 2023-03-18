@@ -3,6 +3,7 @@
 .box {
     @include flexCenter();
     flex-direction: column;
+    gap: 1em;
     width: 224px;
     height: 210px;
 
@@ -30,4 +31,5 @@
 .title {
     @include text(24px, 29px, 400);
     color: black;
+    text-align: center;
 }

@@ -23,6 +23,13 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+
+    transition: --gradient-dark-color 1s, --gradient-light-color 1s;
+
+    &:hover {
+        --gradient-dark-color: #34C3FB;
+        --gradient-light-color: #615AF4;
+    }
 }
 
 @mixin button($width: 178px, $height: 38px, $border-radius: 30px, $first-percentage: 2%, $second-percentage: 98%) {
@@ -32,7 +39,9 @@
     height: $height;
     background: linear-gradient(90.09deg, var(--gradient-dark-color) $first-percentage, var(--gradient-light-color) $second-percentage);
     border-radius: $border-radius;
-    transition: --gradient-dark-color 0.7s, --gradient-light-color 0.7s;
+    border: none;
+    cursor: pointer;
+    transition: --gradient-dark-color 1s, --gradient-light-color 1s;
 
     &:hover {
         --gradient-dark-color: #34C3FB;

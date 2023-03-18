@@ -5,7 +5,7 @@ import { Gradient } from "./gradient";
 
 import { Icon } from "./Icon";
 
-export const Youtube = ({ fill = "none", width="37", height="37", viewBox="0 0 37 37", className, gradient }: IconProps): JSX.Element => (
+export const Youtube = ({ fill = "none", width="39", height="28", viewBox="0 0 39 28", className, gradient }: IconProps): JSX.Element => (
     <Icon {...{ fill, width, height, viewBox, className }}>
         <path d="M32.1925 0H6.80753C3.0538 0 0 3.03995 0 6.77644V21.2237C0 24.9602 3.0538 28 6.80753 28H32.1927C35.9462 28 39 24.9602 39 21.2237V6.77644C38.9998 3.03995 35.946 0 32.1925 0ZM36.2098 21.2236C36.2098 23.4291 34.4076 25.2233 32.1925 25.2233H6.80753C4.59223 25.2233 2.79005 23.4291 2.79005 21.2236V6.77626C2.79005 4.57075 4.59223 2.77655 6.80753 2.77655H32.1927C34.4078 2.77655 36.21 4.57075 36.21 6.77626L36.2098 21.2236Z"
             fill={gradient ? "url(#gradient)" : "white"}/>

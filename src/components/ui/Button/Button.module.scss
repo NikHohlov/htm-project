@@ -1,0 +1,15 @@
+@import "@/styles/mixins.scss";
+
+.button {
+    @include button();
+    @include text();
+
+    &.dark {        
+        background: white;
+        text-decoration: none;
+
+        p {
+           @include fontBackground();
+        }
+    }
+}

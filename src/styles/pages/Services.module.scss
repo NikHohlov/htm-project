@@ -5,6 +5,11 @@
     background: linear-gradient(5deg, #34C3FB 1%, #5149e0 99%);
 }
 
+.secondSection{
+    min-height: 100vh;
+    margin: 2% 7% 7% 7%;
+}
+
 .image {
     object-fit: cover;
     height: 85% !important; 
@@ -17,11 +22,24 @@
     @include text(96px, 140.64px, 800, Codenext);
 }
 
+.primaryTextTwo {
+    @include text(48px, 70.32px, 800, Codenext);
+    @include fontBackground(#6158F3, #41C0FF, 0.82%, 47.36%);
+}
+
 .textContainer {
     display: flex;
     position: absolute;
     z-index: 1;
-    gap: 69%;
+    gap: 82%;
     top: 54%;
     left: 7%;
+}
+
+.servicesContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 6em;
+    margin: 7% 0 7% 0;
 }
