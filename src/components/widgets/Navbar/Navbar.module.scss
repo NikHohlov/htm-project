@@ -1,14 +1,16 @@
 @import "../../../styles/mixins.scss";
 
 .navbar {
+    position: absolute;
+    z-index: 5;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .links {
     display: flex;
-    margin: 0 50px 0 50px;
     gap: 65px;
 
     &.dark {
@@ -25,17 +27,14 @@
         @include text();
         @include fontBackground();
         text-decoration: none;
-
-        &:focus {
-            text-decoration: underline;
-        }
     }
 }
 
 .button {
     @include text();
+    @include button();
 
-    &:not(.dark) {
-        @include button();
+    &.dark {
+        background: transparent;
     }
 }

@@ -1,0 +1,27 @@
+@import "../mixins.scss";
+
+.firstSection {
+    height: 100vh;
+    background: linear-gradient(5deg, #34C3FB 1%, #5149e0 99%);
+}
+
+.image {
+    object-fit: cover;
+    height: 85% !important; 
+    left: 13% !important;
+    top: auto !important;
+    width: auto !important;
+}
+
+.primaryText {
+    @include text(96px, 140.64px, 800, Codenext);
+}
+
+.textContainer {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    gap: 69%;
+    top: 54%;
+    left: 7%;
+}

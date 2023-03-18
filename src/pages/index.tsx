@@ -8,6 +8,7 @@ import second from "@/assets/pictures/aboutPage/second.png";
 
 import third from "@/assets/pictures/aboutPage/third.png";
 
+import hell from "@/assets/pictures/main.gif";
 
 import { Arrow } from "@/assets/icons/Arrow";
 
@@ -15,7 +16,7 @@ import { isNull } from "@/lib/utils/typeCheckers";
 
 import { Theme } from "@/lib/types";
 
-import styles from "@/styles/About.module.scss";
+import styles from "@/styles/pages/About.module.scss";
 
 
 export default function About() {
@@ -28,8 +29,12 @@ export default function About() {
     return (
         <Layout theme={Theme.Light}>
             <div className={styles.firstSection}>
-                <p>ПОПАДЕМ</p>
-                <p>В ТВОЮ АУДИТОРИЮ</p>
+                <Image className={styles.logo} src={hell} alt="image" quality={100}/>
+
+                <div className={styles.textContainer}>
+                    <p>ПОПАДЕМ</p>
+                    <p>В ТВОЮ АУДИТОРИЮ</p>
+                </div>
 
                 <div onClick={scrollDown} className={styles.arrowCircle}>
                     <Arrow />

@@ -10,7 +10,7 @@
     inherits: false;
   }
 
-@mixin text($font-family: Craftwork Grotesk, $font-size: 20px, $line-height: 24px, $font-weight: 700, $color: white) {
+@mixin text($font-size: 20px, $line-height: 24px, $font-weight: 700, $font-family: Craftwork Grotesk, $color: white) {
     font-family: $font-family, sans-serif;
     font-weight: $font-weight;
     font-size: $font-size;
@@ -26,9 +26,7 @@
 }
 
 @mixin button($width: 178px, $height: 38px, $border-radius: 30px, $first-percentage: 2%, $second-percentage: 98%) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter();
 
     width: $width;
     height: $height;

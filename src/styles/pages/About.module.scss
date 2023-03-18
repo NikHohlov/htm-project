@@ -1,0 +1,67 @@
+@import "../mixins.scss";
+
+.firstSection {
+    @include flexCenter();
+    flex-direction: column;
+    height: 100vh;
+}
+
+.secondSection {
+    @include flexCenter();
+    position: relative;
+    height: 100vh;
+    object-fit: contain;
+    overflow: hidden
+}
+
+.thirdSection {
+    @include flexCenter();
+    position: relative;
+    height: 100vh;
+}
+
+.image {
+    object-fit: cover;
+}
+
+.logo {
+    object-fit: contain;
+    position: relative;
+    width: 55%;
+}
+
+.arrowCircle {
+    position: absolute;
+    bottom: 13.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49px;
+    height: 49px;
+    background: linear-gradient(142.34deg, #615AF4 12.37%, #41C0FF 83.85%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.textContainer {
+    @include text(40px, 48px, 800, Codenext);
+    @include fontBackground(#6158F3, #41C0FF, 19.19%, 96.56%);
+    position: absolute;
+    top: 78%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secondText {
+    @include text(64px, 93.76px, 800, Codenext);
+    width: 524px;
+    position: absolute;
+    left: 60px;
+    z-index: 5;
+
+    .secondaryText {
+        @include text(40px, 48px, 400);
+        text-transform: uppercase;
+    }
+}

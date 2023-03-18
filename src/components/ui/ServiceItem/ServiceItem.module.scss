@@ -1,0 +1,33 @@
+@import "@/styles/mixins.scss";
+
+.box {
+    @include flexCenter();
+    flex-direction: column;
+    width: 224px;
+    height: 210px;
+
+    background: linear-gradient(white, white) padding-box,
+              linear-gradient(to right, var(--gradient-dark-color), var(--gradient-light-color)) border-box;
+    border: 3px solid transparent;
+
+    box-shadow: -29px 23px 15px rgba(126, 124, 124, 0.01), -17px 13px 13px rgba(126, 124, 124, 0.05), -7px 6px 9px rgba(126, 124, 124, 0.09), -2px 1px 5px rgba(126, 124, 124, 0.1), 0px 0px 0px rgba(126, 124, 124, 0.1);
+    border-radius: 20px;
+}
+
+.icon {
+    @include flexCenter();
+    height: 97px;
+    width: 97px;
+    background: linear-gradient(180deg, var(--gradient-dark-color) 0%, var(--gradient-light-color) 100%);
+    border-radius: 50%;
+}
+
+.serviceIcon {
+    display: flex;
+    position: absolute;
+}
+
+.title {
+    @include text(24px, 29px, 400);
+    color: black;
+}

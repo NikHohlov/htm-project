@@ -1,6 +1,7 @@
 import type { MouseEventHandler } from "react";
 
 export type IconProps = {
+  gradient?: boolean;
   width?: string | number;
   height?: string | number;
   fill?: string;

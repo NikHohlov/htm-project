@@ -3,6 +3,8 @@ import Head from "next/head";
 import Navbar from "../widgets/Navbar";
 import { Theme } from "@/lib/types";
 
+import styles from "./Layout.module.scss";
+
 interface LayoutProps {
     children?: ReactNode;
     theme?: Theme
@@ -19,8 +21,11 @@ export default function Layout({ children, theme = Theme.Light }: LayoutProps) {
             </Head>
 
             <main>
-                <Navbar theme={theme}/>
+                <div className={styles.navbarWrapper}>
+                    <Navbar theme={theme}/>
+                </div>
                 {children}
+
             </main>
         </>
     );
