@@ -1,0 +1,55 @@
+@import "../mixins.scss";
+
+.firstSection {
+    @include flexCenter();
+    flex-direction: column;
+    height: 100vh;
+}
+
+.secondSection {
+    @include flexCenter();
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(5deg, #34C3FB 1%, #5149e0 99%);
+}
+
+.counter {
+    @include text(270px, 324px, 700);
+    @include fontBackground();
+}
+
+.partnersButton {
+    @include text(60px, 88px, 800, Codenext);
+    @include button(642px, 123px, 70px);
+    cursor: default;
+}
+
+.secondaryText {
+    @include text(24px, 29px, 400);
+    color: black;
+    margin-top: 32px;
+}
+
+.logo {
+    object-fit: cover;
+    width: 80% !important;
+    position: relative !important;
+}
+
+.partnerLogo{
+    object-fit: contain
+}
+
+.logosContainer{
+    @include flexCenter();
+    flex-wrap: wrap;
+    gap: 9em;
+    margin-bottom: 10em;
+}
+
+.wrapper {
+    position: relative;
+    width: 300px;
+    height: 200px;
+}

@@ -14,27 +14,56 @@
     gap: 6em;
 
     &.dark {
-        a {
+        a:not(#darklink) {
             background: none;
             -webkit-background-clip: unset;
             -webkit-text-fill-color: white;
             background-clip: unset;
             text-decoration: none;
+
+            
+             &:global(.services) {
+                @include linkUnderscoreDark();
+             }
+             
+             &:global(.cases) {
+                @include linkUnderscoreDark();
+             }
         }
     }
 
     a {
         @include text();
-        @include fontBackground();
         text-decoration: none;
+
+        &:global(.about) {
+           @include fontBackground(#605BF4, #596DF5, 1.15%, 98.86%);
+           @include linkUnderscore(#605BF4, #596DF5, 1.15%, 98.86%);
+        }
+        &:global(.services) {
+            @include fontBackground(#5A6BF5, #4E85F7, 5.06%, 100%);
+        }
+        &:global(.partners) {
+            @include fontBackground(#4797F8, #40A8F9, 0%, 98.43%);
+            @include linkUnderscore(#4797F8, #40A8F9, 0%, 98.43%);
+
+        }
+        &:global(.cases) {
+            color: #41A5F9;
+        }
     }
 }
 
 .button {
     @include text();
     @include button();
+    text-decoration: none;
 
     &.dark {
         background: transparent;
     }
+}
+
+.hidden {
+    display: none;
 }

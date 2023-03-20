@@ -8,7 +8,7 @@ import second from "@/assets/pictures/aboutPage/second.png";
 
 import third from "@/assets/pictures/aboutPage/third.png";
 
-import hell from "@/assets/pictures/main.gif";
+import main from "@/assets/pictures/main.gif";
 
 import { Arrow } from "@/assets/icons/Arrow";
 
@@ -29,7 +29,7 @@ export default function About() {
     return (
         <Layout theme={Theme.Light}>
             <div className={styles.firstSection}>
-                <Image className={styles.logo} src={hell} alt="image" quality={100}/>
+                <Image className={styles.logo} src={main} alt="image" quality={100}/>
 
                 <div className={styles.textContainer}>
                     <p>ПОПАДЕМ</p>

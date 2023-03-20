@@ -23,13 +23,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
-    transition: --gradient-dark-color 1s, --gradient-light-color 1s;
-
-    &:hover {
-        --gradient-dark-color: #34C3FB;
-        --gradient-light-color: #615AF4;
-    }
 }
 
 @mixin button($width: 178px, $height: 38px, $border-radius: 30px, $first-percentage: 2%, $second-percentage: 98%) {
@@ -53,4 +46,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin linkUnderscore($color-one, $color-two, $percentage-one, $percentage-two) {
+    & > :global(.border) {
+        background: linear-gradient(white, white) padding-box,
+          linear-gradient(to right, $color-one $percentage-one, $color-two $percentage-two) border-box;
+        border: 1px solid transparent;
+       }
+}
+
+@mixin linkUnderscoreDark($color: white) {
+    & > :global(.border) {
+        border: 1px solid $color;
+       }
 }
