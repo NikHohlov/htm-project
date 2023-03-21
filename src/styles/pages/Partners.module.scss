@@ -1,5 +1,20 @@
 @import "../mixins.scss";
 
+@property --num {
+    syntax: "<integer>";
+    initial-value: 57;
+    inherits: false;
+  }
+
+  @keyframes counter {
+    from {
+      --num: 1;
+    }
+    to {
+      --num: 57;
+    }
+  }
+
 .firstSection {
     @include flexCenter();
     flex-direction: column;
@@ -17,6 +32,13 @@
 .counter {
     @include text(270px, 324px, 700);
     @include fontBackground();
+    animation: counter 14s 1 cubic-bezier(.65,.1,.28,.94);
+    counter-set: num var(--num);
+
+    &::after {
+        content: counter(num);
+        transition: 0.3s
+    }
 }
 
 .partnersButton {
@@ -33,7 +55,6 @@
 
 .logo {
     object-fit: cover;
-    width: 80% !important;
     position: relative !important;
 }
 

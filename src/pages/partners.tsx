@@ -6,15 +6,17 @@ import handshake from "@/assets/pictures/partnersPage/handshake.png";
 
 import { logos } from "@/data/partnerLogos";
 
+
 import styles from "@/styles/pages/Partners.module.scss";
 
-export default function partners() {
+export default function Partners() {
+
     return (
         <Layout>
             <div className={styles.firstSection}>
 
                 <div className={styles.counter}>
-                    <p>1</p>
+                    <p></p>
                 </div>
 
                 <div className={styles.partnersButton}>
