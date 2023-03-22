@@ -13,66 +13,82 @@ import { Telegram } from "@/assets/icons/Telegram";
 import { Tiktok } from "@/assets/icons/Tiktok";
 import { Vk } from "@/assets/icons/Vk";
 import { Youtube } from "@/assets/icons/Youtube";
+import { IconProps } from "@/lib/types";
 
 export const services = [
     {
         title: "Продвижение в Вконтакте",
-        icon: <Vk />
+        icon: (props?: IconProps) => <Vk  {...props}/>,
+        name: "vk"
     },
     {
         title: "Продвижение в Telegram",
-        icon: <Telegram />
+        icon: (props?: IconProps) => <Telegram  {...props}/>,
+        name: "telegram"
     },
     {
         title: "Продвижение в Instagram",
-        icon: <Instagram />
+        icon: (props?: IconProps) => <Instagram  {...props}/>,
+        name: "instagram"
     },
     {
         title: "Продвижение в TikTok",
-        icon: <Tiktok />
+        icon: (props?: IconProps) => <Tiktok  {...props}/>,
+        name: "tiktok"
     },
     {
         title: "Продвижение в Youtube",
-        icon: <Youtube />
+        icon: (props?: IconProps) => <Youtube  {...props}/>,
+        name: "youtube"
     },
     {
         title: "Комплексное продвижение",
-        icon: <Complex />
+        icon: (props?: IconProps) => <Complex  {...props}/>,
+        name: "complex"
     },
     {
         title: "Продвижение в Apple Music",
-        icon: <AppleMusic />
+        icon: (props?: IconProps) => <AppleMusic  {...props}/>,
+        name: "apple"
     },
     {
         title: "Продвижение концертов и мероприятий",
-        icon: <Events />
+        icon: (props?: IconProps) => <Events {...props}/>,
+        name: "events"
     },
     {
         title: "SMM ведение аккаунта",
-        icon: <Smm />
+        icon: (props?: IconProps) => <Smm  {...props}/>,
+        name: "smm"
     },
     {
         title: "Реклама у блогеров",
-        icon: <Blogers />
+        icon: (props?: IconProps) => <Blogers  {...props}/>,
+        name: "blogers"
     },
     {
         title: "Студия дизайна",
-        icon: <DesignStudio />
+        icon: (props?: IconProps) => <DesignStudio  {...props}/>,
+        name: "design"
     },
     {
         title: "Студия анимации",
-        icon: <AnimationStudio />
+        icon: (props?: IconProps) => <AnimationStudio  {...props}/>,
+        name: "animation"
     },
     {
         title: "Интервью",
-        icon: <Interview />
+        icon: (props?: IconProps) => <Interview  {...props}/>,
+        name: "interview"
     },
     {
         title: "Продюсирование",
-        icon: <Produce />
+        icon: (props?: IconProps) => <Produce  {...props}/>,
+        name: "producing"
     },
     {
         title: "Обучение",
-        icon: <Learning />
+        icon: (props?: IconProps) => <Learning  {...props}/>,
+        name: "learning"
     },
 ];

@@ -6,12 +6,21 @@ import ourServices from "@/assets/pictures/servicesPage/ourServices.png";
 
 import { Theme } from "@/lib/types";
 
-import styles from "@/styles/pages/Services.module.scss";
 import { services } from "@/data/services";
+
 import ServiceItem from "@/components/ui/ServiceItem/ServiceItem";
+
 import Button from "@/components/ui/Button/Button";
 
-export default function index() {
+import { useRouter } from "next/router";
+
+import styles from "@/styles/pages/Services.module.scss";
+
+export default function Services() {
+    const router = useRouter();
+
+    const redirect =  () => router.push("/contacts");
+
     return (
         <Layout theme={Theme.Dark}>
             <div className={styles.firstSection}>
@@ -28,10 +37,10 @@ export default function index() {
                 <p className={styles.primaryTextTwo}>ЧТО МЫ МОЖЕМ</p>
 
                 <div className={styles.servicesContainer}>
-                    {services.map(({ title, icon }) => <ServiceItem key={title} title={title} icon={icon}/>)}
+                    {services.map(({ title, icon, name }) => <ServiceItem name={name} key={title} title={title} icon={icon()}/>)}
                 </div>
 
-                <Button title="КОНТАКТЫ" theme={Theme.Light}/>
+                <Button onClick={redirect} title="КОНТАКТЫ" theme={Theme.Light}/>
             </div>
         </Layout>
     );
