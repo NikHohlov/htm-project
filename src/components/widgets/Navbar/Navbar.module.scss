@@ -1,4 +1,4 @@
-@import "../../../styles/mixins.scss";
+@import "@/styles/mixins.scss";
 
 .navbar {
     position: absolute;
@@ -58,12 +58,20 @@
     @include text();
     @include button();
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
 
     &.dark {
         background: transparent;
+
+        &:global(.contacts) {
+            div {
+                @include linkUnderscoreDark();
+            }
+         }
     }
 }
 
 .hidden {
-    display: none;
+    visibility: hidden;
 }

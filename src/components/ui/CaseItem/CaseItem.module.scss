@@ -1,0 +1,40 @@
+@import "@/styles/mixins.scss";
+
+.logo {
+    object-fit: contain;
+    position: relative !important;
+    height: 336px !important;
+    width: auto !important;
+
+    filter: drop-shadow(-62px 50px 32px rgba(97, 97, 97, 0.01)) drop-shadow(-35px 28px 27px rgba(97, 97, 97, 0.05)) drop-shadow(-16px 12px 20px rgba(97, 97, 97, 0.09)) drop-shadow(-4px 3px 11px rgba(97, 97, 97, 0.1)) drop-shadow(0px 0px 0px rgba(97, 97, 97, 0.1));
+}
+
+.logoContainer {
+    @include flexCenter();
+    align-items: flex-start;
+    flex-direction: column;
+    min-width: 336px;
+    height: 336px;
+    position: relative;
+}
+
+.descriptionContainer {
+    position: relative;
+    left: 1.5em;
+}
+
+.title {
+    @include text(24px, 35.16px, 800, Codenext);
+    color: black;
+}
+
+.secondaryText {
+    @include text(16px, 17.28px, 400);
+    color: black;
+}
+
+.serviceText {
+    @include text(14px, 17.8px, 700);
+    @include fontBackground();
+    margin: 1em 0 2em 0;
+}

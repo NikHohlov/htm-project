@@ -1,0 +1,75 @@
+@import "../mixins.scss";
+
+.firstSection {
+    @include flexCenter();
+    gap: 9em;
+    height: 100vh;
+    background: linear-gradient(5deg, #34C3FB 1%, #5149e0 99%);
+}
+
+.text {
+    @include text(48px, 63.36px, 700);
+    width: 6em;
+    position: relative;
+    left: 0.5em;
+}
+
+.iconBackground{
+    @include flexCenter();
+    width: 73px;
+    height: 73px;
+    background: white;
+    border-radius: 50%;
+}
+
+.iconsContainer {
+    @include flexCenter();
+    gap: 1em;
+}
+
+.leftSection {
+    @include flexCenter();
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3em;
+}
+
+.feedbackForm {
+    @include flexCenter();
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3em;
+
+    .title {
+        @include text(36px, 41.76px, 800, Codenext);
+    }
+
+    .inputName {
+        @include text(24px, 28.8px, 700);
+    }
+
+    .input {
+        @include text(24px, 28.8px, 700);
+        background: transparent;
+        width: 100%;
+        border-bottom: 3px solid white;
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: #92E0FF;
+        }
+    }
+
+    .inputField {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+    }
+}

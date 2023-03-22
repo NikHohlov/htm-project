@@ -9,6 +9,7 @@ import { Theme } from "@/lib/types";
 import { caseItems } from "@/data/caseItem";
 
 import styles from "@/styles/pages/Cases.module.scss";
+import CaseItem from "@/components/ui/CaseItem/CaseItem";
 
 export default function index() {
     return (
@@ -27,18 +28,7 @@ export default function index() {
 
                 <div className={styles.casesContainer}>
                     {caseItems.map(({ logo, name, description }) =>
-                        <div className={styles.logoContainer} key={name}>
-
-                            <Image className={styles.logo} fill src={logo} alt="image" quality={100}/>
-
-                            <div className={styles.descriptionContainer}>
-                                <p className={styles.serviceText}>{name}</p>
-
-                                <p className={styles.title}>{name}</p>
-
-                                <p className={styles.secondaryText}>{description}</p>
-                            </div>
-                        </div>)}
+                        <CaseItem key={name} logo={logo} name={name} description={description} />)}
                 </div>
 
             </div>

@@ -55,7 +55,12 @@ export default function Navbar({ theme }: NavbarProps) {
                 </Link>
             </div>
 
-            <Link className={`${styles.button} ${theme === Theme.Dark ? styles.dark : ""}`} href="/contacts">КОНТАКТЫ</Link>
+            <Link className={`${styles.button} ${theme === Theme.Dark ? styles.dark : ""} contacts`} href="/contacts">
+                <div>
+                    КОНТАКТЫ
+                    <div className={isActiveRoute(Route.Contacts)}></div>
+                </div>
+            </Link>
         </div>
     );
 }
