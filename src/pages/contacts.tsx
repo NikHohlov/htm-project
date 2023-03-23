@@ -3,15 +3,38 @@ import { Nameless } from "@/assets/icons/contactsPage/Nameless";
 import { Telegram } from "@/assets/icons/contactsPage/Telegram";
 import { Vk } from "@/assets/icons/contactsPage/Vk";
 import { Youtube } from "@/assets/icons/contactsPage/Youtube";
+
 import Layout from "@/components/layout";
 import Button from "@/components/ui/Button/Button";
 
 import { Theme } from "@/lib/types";
 
+import { useState } from "react";
+
 import styles from "@/styles/pages/Contacts.module.scss";
 
 
-export default function index() {
+export default function Contacts() {
+    const [data, setData] = useState<{ name: string; phone: string}>({
+        name: "",
+        phone: ""
+    });
+
+    const handleSubmit = () => {
+        fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+    };
+
+
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+        setData(prev => ({ ...prev, [event.target.name]: event.target.value }));
+
     const icons = [
         { icon: <Instagram /> },
         { icon: <Youtube /> },
@@ -43,16 +66,16 @@ export default function index() {
 
                     <div className={styles.inputField}>
                         <p className={styles.inputName}>ИМЯ</p>
-                        <input className={styles.input} placeholder="ИВАН ИВАНОВ"/>
+                        <input name="name" onChange={onChange} className={styles.input} placeholder="ИВАН ИВАНОВ"/>
                     </div>
 
                     <div className={styles.inputField}>
                         <p className={styles.inputName}>ТЕЛЕФОН</p>
-                        <input className={styles.input} placeholder="+7"/>
+                        <input name="phone" onChange={onChange} className={styles.input} placeholder="+7"/>
                     </div>
 
 
-                    <Button title="ОТПРАВИТЬ" theme={Theme.Dark}/>
+                    <Button onClick={handleSubmit} title="ОТПРАВИТЬ" theme={Theme.Dark}/>
 
                 </div>
 

@@ -10,12 +10,12 @@ export const Youtube = ({ fill = "none", width="37", height="25", viewBox="0 0 3
         <path d="M13.8027 16.4807L21.8574 12.5L13.8027 8.51938V16.4807Z" fill="url(#paint1_linear_255_569)"/>
         <defs>
             <linearGradient id="paint0_linear_255_569" x1="18.5" y1="0" x2="18.5" y2="25" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#615AF4"/>
-                <stop offset="1" stop-color="#34C3FB"/>
+                <stop stopColor="#615AF4"/>
+                <stop offset="1" stopColor="#34C3FB"/>
             </linearGradient>
             <linearGradient id="paint1_linear_255_569" x1="18.5" y1="0" x2="18.5" y2="25" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#615AF4"/>
-                <stop offset="1" stop-color="#34C3FB"/>
+                <stop stopColor="#615AF4"/>
+                <stop offset="1" stopColor="#34C3FB"/>
             </linearGradient>
         </defs>
 
