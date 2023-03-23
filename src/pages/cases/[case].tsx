@@ -4,52 +4,51 @@ import { Theme } from "@/lib/types";
 
 import { useRouter } from "next/router";
 
-import { services } from "@/data/services";
-
-import { Target } from "@/assets/icons/Target";
-
 import Button from "@/components/ui/Button/Button";
 
-import styles from "@/styles/pages/Service.module.scss";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+import Image from "next/image";
+
+import { caseItems } from "@/data/caseItem";
+
+import styles from "@/styles/pages/Case.module.scss";
 
 
 export default function Service() {
     const router = useRouter();
 
-    const service = services.find((item) => item.name === router.query.service);
-
     const redirect = (path: string) => () => router.push(`/${path}`);
 
-    const mockDescriptions =
-    [
-        "Анализ продвигаемого контента",
-        "Поиск и выбор целевой аудитории",
-        "Выявление наиболее эффективной стратегии",
-        "Выявление наиболее эффективной стратегии",
-        "Анализ продвигаемого контента",
-        "Поиск и выбор целевой аудитории",
-        "Выявление наиболее эффективной стратегии",
-        "Выявление наиболее эффективной стратегии",
-    ];
-
-
     return (
-        <Layout theme={Theme.Dark}>
+        <Layout>
             <div className={styles.firstSection}>
 
                 <div className={styles.leftSection}>
 
-                    <div className={styles.iconBackground}>
-                        <Target gradient width={229} height={229}/>
-                        <div className={styles.serviceIcon}>
-                            {service?.icon({ width: 109, height: 109, gradient: true })}
-                        </div>
-                    </div>
+                    <Carousel
+                        showStatus={false}
+                        showIndicators={false}
+                        className={styles.carousel}>
+
+                        {caseItems.map(({ logo }) => (
+                            <div key={logo.src}>
+                                <Image src={logo} alt="image" height={592}/>
+                            </div>
+                        ))}
+                    </Carousel>
 
                 </div>
 
                 <div className={styles.descriptionSection}>
-                    <p className={styles.title}>{service?.title}</p>
+                    <div className={styles.descriptionContainer}>
+                        <p className={styles.serviceText}>Дизайн, продвижение</p>
+
+                        <p className={styles.title}>Desert Rose</p>
+
+                        <p className={styles.secondaryText}>Ресторан</p>
+                    </div>
 
                     <p className={styles.description}>
                         Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie,
@@ -60,8 +59,7 @@ export default function Service() {
                     </p>
 
                     <div className={styles.buttons}>
-                        <Button onClick={redirect("contacts")} theme={Theme.Dark} title="Заказать"/>
-                        <Button onClick={redirect("cases")} theme={Theme.Dark} title="К кейсам"/>
+                        <Button onClick={redirect("cases")} theme={Theme.Light} title="К кейсам"/>
                     </div>
                 </div>
 

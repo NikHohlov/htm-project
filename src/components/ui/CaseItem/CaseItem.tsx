@@ -6,11 +6,12 @@ interface CaseItemProps {
     logo: StaticImageData;
     name: string;
     description: string;
+    onClick: () => void;
 }
 
-export default function CaseItem({ logo, name, description }: CaseItemProps) {
+export default function CaseItem({ logo, name, description, onClick }: CaseItemProps) {
     return (
-        <div className={styles.logoContainer} key={name}>
+        <div onClick={onClick} className={styles.logoContainer} key={name}>
 
             <Image className={styles.logo} fill src={logo} alt="image" quality={100}/>
 

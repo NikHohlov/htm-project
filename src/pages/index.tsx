@@ -26,6 +26,13 @@ export default function About() {
         if (!isNull(ref.current)) ref.current.scrollIntoView({ behavior: "smooth" });
     };
 
+    const points = [
+        "Разработаем индивидуальную рекламную стратегию",
+        "Подберем релевантный контент",
+        "Эффективно проконтролируем бюджет",
+        "Повысим узнаваемость"
+    ];
+
     return (
         <Layout theme={Theme.Light}>
             <div className={styles.firstSection}>
@@ -51,12 +58,27 @@ export default function About() {
             </div>
 
             <div className={styles.thirdSection}>
-                <div className={styles.secondText}>
-                    <p>HIT THE MARKET</p>
-                    <p className={styles.secondaryText}>независимое<br/> SOCIAL & digital агентство</p>
+                <Image className={styles.qaImage} fill src={third} alt="image" quality={100}/>
+
+                <div className={styles.description}>
+                    <p className={styles.thirdText}>HIT THE MARKET УВЕЛИЧИВАЕТ ПРОДАЖИ</p>
+
+                    <p className={styles.secondaryText}>
+                        Наша цель не только предоставить стратегии
+                        и инструменты, но и достичь результата вместе с вами :
+                    </p>
+
+                    {points.map((point, index) => (
+                        <div key={index} className={styles.point}>
+                            <p>{index + 1}</p>
+                            <p className={styles.secondaryText}>
+                                {point}
+                            </p>
+                        </div>
+                    ))}
+
                 </div>
 
-                <Image className={styles.image} fill src={third} alt="image" quality={100}/>
             </div>
         </Layout>
     );

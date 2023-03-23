@@ -1,0 +1,56 @@
+@import "../mixins.scss";
+
+.firstSection {
+    @include flexCenter();
+    height: 100vh;
+    padding: 15% 15% 7% 15%;
+    gap: 3em;
+
+}
+
+.title {
+    @include text(36px, 53px, 800, Codenext);
+    color: black;
+}
+
+.description {
+    @include text(16px, 22.88px, 400);
+    color: black
+}
+
+.secondaryText {
+    @include text(16px, 19px, 400);
+    color: black;
+}
+
+.serviceText {
+    @include text(24px, 29px, 700);
+    @include fontBackground();
+    margin: 1em 0 2em 0;
+}
+
+.carousel {
+    width: 592px;
+    height: 592px;
+
+    :global(.carousel.carousel-slider .control-arrow:hover) {
+        background: none;
+    }
+
+    :global(button.control-arrow.control-next)::before{
+        content: url("../../assets/icons/ArrowNext.svg");
+        border-left: none;
+    }
+
+    :global(button.control-arrow.control-prev)::before{
+        content: url("../../assets/icons/ArrowNext.svg");
+        border-right: none;
+        transform: scale(-1, -1);
+    }
+}
+
+.descriptionSection {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
