@@ -3,13 +3,14 @@
 .firstSection {
     @include flexCenter();
     flex-direction: column;
-    height: 110vh;
+    height: 100vh;
 }
 
 .secondSection {
     @include flexCenter();
+    justify-content: space-between;
     position: relative;
-    height: 100vh;
+    height: 120vh;
     object-fit: contain;
     overflow: hidden
 }
@@ -18,7 +19,7 @@
     @include flexCenter();
     position: relative;
     height: 100vh;
-    padding: 5% 10%;
+    padding: 3% 7%;
 }
 
 .image {
@@ -28,12 +29,15 @@
 .qaImage {
     object-fit: contain;
     position: relative !important;
+    width: 55% !important;
 }
 
 .logo {
     object-fit: contain;
     position: relative;
-    width: 55%;
+    width: 99%;
+    height: 90%;
+    bottom: 10%;
 }
 
 .arrowCircle {
@@ -61,6 +65,8 @@
 
 .secondText {
     @include text(64px, 93.76px, 800, Codenext);
+    left: 1em;
+    position: relative;
     width: 524px;
     left: 60px;
     z-index: 5;
@@ -75,6 +81,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 45%;
     gap: 1em;
 }
 

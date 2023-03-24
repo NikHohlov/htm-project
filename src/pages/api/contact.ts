@@ -12,7 +12,7 @@ export default function SendContact (req: NextApiRequest, res: NextApiResponse) 
 
     const mailOptions = {
         from: "htmproject@mail.ru",
-        to: "htmproject@mail.ru",
+        to: "i@htmteam.ru",
         subject: "Новая заявка HTM",
         text: `Имя: ${req.body.name}   Телефон: ${req.body.phone}`,
         html: `<div>Имя: ${req.body.name}</div><p>Телефон:

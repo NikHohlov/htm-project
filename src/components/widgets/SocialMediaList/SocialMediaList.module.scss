@@ -1,0 +1,14 @@
+@import "@/styles/mixins.scss";
+
+.iconBackground{
+    @include flexCenter();
+    width: 73px;
+    height: 73px;
+    background: white;
+    border-radius: 50%;
+}
+
+.iconsContainer {
+    @include flexCenter();
+    gap: 1em;
+}
