@@ -20,19 +20,6 @@ export default function Service() {
 
     const redirect = (path: string) => () => router.push(`/${path}`);
 
-    const mockDescriptions =
-    [
-        "Анализ продвигаемого контента",
-        "Поиск и выбор целевой аудитории",
-        "Выявление наиболее эффективной стратегии",
-        "Выявление наиболее эффективной стратегии",
-        "Анализ продвигаемого контента",
-        "Поиск и выбор целевой аудитории",
-        "Выявление наиболее эффективной стратегии",
-        "Выявление наиболее эффективной стратегии",
-    ];
-
-
     return (
         <Layout theme={Theme.Dark}>
             <div className={styles.firstSection}>
@@ -52,36 +39,36 @@ export default function Service() {
                     <p className={styles.title}>{service?.title}</p>
 
                     <p className={styles.description}>
-                        Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie,
-                        dictum est a, mattis tellus. Sed dignissim,
-                         metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
-                  Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis.
-                 Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis.
+                        {service?.description}
                     </p>
 
                     <div className={styles.buttons}>
-                        <Button onClick={redirect("contacts")} theme={Theme.Dark} title="Заказать"/>
-                        <Button onClick={redirect("cases")} theme={Theme.Dark} title="К кейсам"/>
+                        {service?.points &&
+                        <>
+                            <Button onClick={redirect("contacts")} theme={Theme.Dark} title="Заказать"/>
+                            <Button onClick={redirect("cases")} theme={Theme.Dark} title="К кейсам"/>
+                        </>
+                        }
                     </div>
                 </div>
 
 
             </div>
 
-            <div className={styles.secondSection}>
-                <p className={styles.secondTitle}>В услугу входит</p>
+            {service?.points && (
+                <div className={styles.secondSection}>
+                    <p className={styles.secondTitle}>В услугу входит</p>
 
-                <div className={styles.pointsContainer}>
-                    {mockDescriptions.map((item) => (
-                        <div key={item} className={styles.point}>
-                            <div className={styles.circle}/>
-                            {item}
-                        </div>
-                    ))}
+                    <div className={styles.pointsContainer}>
+                        {service?.points.map((item) => (
+                            <div key={item} className={styles.point}>
+                                <div className={styles.circle}/>
+                                {item}
+                            </div>
+                        ))}
+                    </div>
                 </div>
-
-
-            </div>
+            )}
         </Layout>
     );
 }

@@ -14,7 +14,6 @@
     margin-top: 3em;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 100vh;
 }
 
 .description {
@@ -79,6 +78,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;
+    justify-items: flex-start;
     gap: 6em;
     padding: 6em;
 }
