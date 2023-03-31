@@ -1,42 +1,68 @@
-import Layout from "@/components/layout";
-
 import Image from "next/image";
 
 import cases from "@/assets/pictures/casesPage/cases.png";
 
-import { Theme } from "@/lib/types";
-
 import { caseItems } from "@/data/caseItem";
 
-import styles from "@/styles/pages/Cases.module.scss";
+import { motion } from "framer-motion";
+
 import CaseItem from "@/components/ui/CaseItem/CaseItem";
+
 import { useRouter } from "next/router";
+
+import { usePageTransition } from "@/lib/hooks/usePageTransition";
+
+import styles from "@/styles/pages/Cases.module.scss";
 
 export default function Cases() {
     const router = useRouter();
 
-    const redirect = (path: string) => () => router.push(`/cases/${path}`);
+    const { variants, transitionHandler } = usePageTransition();
+
+    const onClick = (next: string) => () => {
+        transitionHandler(router.pathname, next);
+    };
 
     return (
-        <Layout theme={Theme.Dark}>
-            <div className={styles.firstSection}>
-                <div className={styles.textContainer}>
+        <>
+            <motion.div
+                className={styles.firstSection}
+                variants={variants}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+            >
+                <motion.div
+                    className={styles.textContainer}
+                    animate={{ opacity: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+                >
                     <p className={styles.primaryText}>НАШИ</p>
                     <p className={styles.primaryText}>КЕЙСЫ</p>
 
-                </div>
+                </motion.div>
 
-                <Image className={styles.image} fill src={cases} alt="image" quality={100}/>
-            </div>
+                <Image priority className={styles.image} fill src={cases} alt="image" quality={100}/>
+            </motion.div>
 
-            <div className={styles.secondSection}>
+            <motion.div
+                className={styles.secondSection}
+                variants={variants}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+            >
 
                 <div className={styles.casesContainer}>
                     {caseItems.map(({ logo, name, description }) =>
-                        <CaseItem key={name} logo={logo} name={name} description={description} onClick={redirect(name)}/>)}
+                        <CaseItem key={name} logo={logo} name={name} description={description} onClick={onClick("/cases/[case]")}/>)}
                 </div>
 
-            </div>
-        </Layout>
+            </motion.div>
+        </>
     );
 }

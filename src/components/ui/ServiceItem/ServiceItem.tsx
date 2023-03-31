@@ -2,22 +2,21 @@ import { ReactElement } from "react";
 
 import { Target } from "@/assets/icons/Target";
 
+import Link from "next/link";
+
 import styles from "./ServiceItem.module.scss";
-import { useRouter } from "next/router";
 
 interface ServiceItemProps {
     title: string;
     icon: ReactElement;
     name: string;
+    onClick: () => void;
 }
 
-export default function ServiceItem({ title, icon, name }: ServiceItemProps) {
-    const router = useRouter();
-
-    const goToService = () => router.push(`/services/${name}`);
+export default function ServiceItem({ title, icon, name, onClick }: ServiceItemProps) {
 
     return (
-        <div className={styles.box} onClick={goToService}>
+        <Link onClick={onClick} scroll={false} href={`/services/${name}`} className={styles.box} >
             <div className={styles.icon}>
                 <Target />
                 <div className={styles.serviceIcon}>
@@ -28,6 +27,6 @@ export default function ServiceItem({ title, icon, name }: ServiceItemProps) {
             <p className={styles.title}>
                 {title}
             </p>
-        </div>
+        </Link>
     );
 }

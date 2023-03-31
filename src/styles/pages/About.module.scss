@@ -4,19 +4,23 @@
     @include flexCenter();
     flex-direction: column;
     height: 100vh;
+    margin-bottom: 5em;
 }
 
 .secondSection {
     @include flexCenter();
     justify-content: space-between;
     position: relative;
-    height: 120vh;
+    height: 105vh;
     object-fit: contain;
-    overflow: hidden
+    overflow: hidden;
+    margin-bottom: 2em;
 }
 
 .thirdSection {
     @include flexCenter();
+    max-height: 100vh;
+    overflow: hidden;
     position: relative;
     height: 100vh;
     padding: 3% 7%;
@@ -29,19 +33,29 @@
 .qaImage {
     object-fit: contain;
     position: relative !important;
-    width: 55% !important;
+    width: 85% !important;
 }
 
 .logo {
     object-fit: contain;
-    position: relative;
-    width: 99%;
-    height: 90%;
-    bottom: 10%;
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    bottom: 14%;
+}
+
+.arrowContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 2em;
+    bottom: 1%;
 }
 
 .arrowCircle {
-    position: absolute;
+    position: relative;
     bottom: 13.5px;
     display: flex;
     justify-content: center;
@@ -56,7 +70,7 @@
 .textContainer {
     @include text(40px, 48px, 800, Codenext);
     @include fontBackground(#6158F3, #41C0FF, 19.19%, 96.56%);
-    position: absolute;
+    position: relative;
     top: 78%;
     display: flex;
     flex-direction: column;
@@ -103,4 +117,11 @@
         @include text(40px, 48px, 500);
         color: black;
     }
+}
+
+.logoHolder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

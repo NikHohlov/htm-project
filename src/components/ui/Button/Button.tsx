@@ -6,7 +6,7 @@ import styles from "./Button.module.scss";
 interface ButtonProps {
     title: string;
     theme: Theme;
-    onClick?: MouseEventHandler<HTMLButtonElement>
+    onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function Button({ title, theme, onClick }: ButtonProps) {

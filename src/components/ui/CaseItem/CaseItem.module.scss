@@ -6,7 +6,6 @@
     height: 336px !important;
     width: auto !important;
 
-    filter: drop-shadow(-62px 50px 32px rgba(97, 97, 97, 0.01)) drop-shadow(-35px 28px 27px rgba(97, 97, 97, 0.05)) drop-shadow(-16px 12px 20px rgba(97, 97, 97, 0.09)) drop-shadow(-4px 3px 11px rgba(97, 97, 97, 0.1)) drop-shadow(0px 0px 0px rgba(97, 97, 97, 0.1));
 }
 
 .logoContainer {
@@ -16,6 +15,15 @@
     min-width: 336px;
     height: 336px;
     position: relative;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(101%)
+    }
+
+    transition: all 0.5s;
+
+    text-decoration: none;
 }
 
 .descriptionContainer {

@@ -6,6 +6,7 @@
     gap: 1em;
     width: 224px;
     height: 210px;
+    cursor: pointer;
 
     background: linear-gradient(white, white) padding-box,
               linear-gradient(to right, var(--gradient-dark-color), var(--gradient-light-color)) border-box;
@@ -13,6 +14,14 @@
 
     box-shadow: -29px 23px 15px rgba(126, 124, 124, 0.01), -17px 13px 13px rgba(126, 124, 124, 0.05), -7px 6px 9px rgba(126, 124, 124, 0.09), -2px 1px 5px rgba(126, 124, 124, 0.1), 0px 0px 0px rgba(126, 124, 124, 0.1);
     border-radius: 20px;
+
+    &:hover {
+        transform: scale(105%);
+    }
+
+    transition: all 0.3s;
+
+    text-decoration: none;
 }
 
 .icon {

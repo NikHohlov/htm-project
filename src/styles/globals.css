@@ -8,6 +8,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 img {
   -webkit-user-drag: none;
   -khtml-user-drag: none;

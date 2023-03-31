@@ -1,5 +1,3 @@
-import Layout from "@/components/layout";
-
 import Image from "next/image";
 
 import ourServices from "@/assets/pictures/servicesPage/ourServices.png";
@@ -14,34 +12,85 @@ import Button from "@/components/ui/Button/Button";
 
 import { useRouter } from "next/router";
 
+import { motion } from "framer-motion";
+
 import styles from "@/styles/pages/Services.module.scss";
+import { usePageTransition } from "@/lib/hooks/usePageTransition";
+import Link from "next/link";
 
 export default function Services() {
     const router = useRouter();
 
-    const redirect =  () => router.push("/contacts");
+    const { variants, transitionHandler } = usePageTransition();
+
+    const onClick = (next: string) => () => {
+        transitionHandler(router.pathname, next);
+    };
 
     return (
-        <Layout theme={Theme.Dark}>
-            <div className={styles.firstSection}>
-                <div className={styles.textContainer}>
+        <>
+            <motion.div
+                className={styles.firstSection}
+                variants={variants}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+            >
+                <motion.div
+                    className={styles.textContainer}
+                    animate={{ opacity: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+                >
                     <p className={styles.primaryText}>НАШИ</p>
                     <p className={styles.primaryText}>УСЛУГИ</p>
 
-                </div>
+                </motion.div>
 
-                <Image className={styles.image} fill src={ourServices} alt="image" quality={100}/>
-            </div>
+                <Image priority className={styles.image} fill src={ourServices} alt="image" quality={100}/>
+            </motion.div>
 
-            <div className={styles.secondSection}>
-                <p className={styles.primaryTextTwo}>ЧТО МЫ МОЖЕМ</p>
+            <motion.div
+                className={styles.secondSection}
+                variants={variants}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+            >
+                <motion.p className={styles.primaryTextTwo}
+                    initial={{ x: -500, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, type: "tween" }}
+                    animate={{ x: -500, opacity: 0 }}
+                    viewport={{ once: true }}
+                >
+                    ЧТО МЫ МОЖЕМ
+                </motion.p>
 
                 <div className={styles.servicesContainer}>
-                    {services.map(({ title, icon, name }) => <ServiceItem name={name} key={title} title={title} icon={icon()}/>)}
+                    {services.map(({ title, icon, name }, index) =>
+                        <motion.div
+                            key={title}
+                            initial={{ y: -100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: (index + 1) / 10, type: "tween", duration: 0.6 }}
+                            animate={{ y: -100, opacity: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <ServiceItem
+                                onClick={onClick("/services/[service]")} name={name} key={title} title={title} icon={icon()}
+                            />
+                        </motion.div>
+                    )}
                 </div>
 
-                <Button onClick={redirect} title="КОНТАКТЫ" theme={Theme.Light}/>
-            </div>
-        </Layout>
+                <Link href="/contacts" scroll={false}>
+                    <Button title="КОНТАКТЫ" theme={Theme.Light}/>
+                </Link>
+            </motion.div>
+        </>
     );
 }

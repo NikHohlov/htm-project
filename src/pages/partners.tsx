@@ -1,19 +1,28 @@
-import Layout from "@/components/layout";
-
 import Image from "next/image";
 
 import handshake from "@/assets/pictures/partnersPage/handshake.png";
 
 import { logos } from "@/data/partnerLogos";
 
+import { motion } from "framer-motion";
+
+import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
 import styles from "@/styles/pages/Partners.module.scss";
 
 export default function Partners() {
+    const { variants } = usePageTransition();
 
     return (
-        <Layout>
-            <div className={styles.firstSection}>
+        <>
+            <motion.div
+                className={styles.firstSection}
+                variants={variants}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+            >
 
                 <div className={styles.counter}>
                     <p></p>
@@ -28,9 +37,16 @@ export default function Partners() {
                 </div>
 
 
-            </div>
+            </motion.div>
 
-            <div className={styles.secondSection}>
+            <motion.div
+                className={styles.secondSection}
+                variants={variants}
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+            >
                 <Image className={styles.logo} fill src={handshake} alt="image" quality={100}/>
 
                 <div className={styles.logosContainer}>
@@ -40,7 +56,7 @@ export default function Partners() {
                         </div>
                     ))}
                 </div>
-            </div>
-        </Layout>
+            </motion.div>
+        </>
     );
 }

@@ -2,7 +2,7 @@
 
 @property --num {
     syntax: "<integer>";
-    initial-value: 57;
+    initial-value: 1;
     inherits: false;
   }
 
@@ -32,7 +32,9 @@
 .counter {
     @include text(270px, 324px, 700);
     @include fontBackground();
-    animation: counter 14s 1 cubic-bezier(.65,.1,.28,.94);
+    animation: counter 3s 1;
+    animation-delay: 1.2s;
+    animation-fill-mode: forwards;
     counter-set: num var(--num);
 
     &::after {

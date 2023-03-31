@@ -8,6 +8,12 @@
         background: white;
         text-decoration: none;
 
+        &:hover {
+            transform: scale(101%)
+        }
+    
+        transition: all 0.2s;
+
         p {
            @include fontBackground();
         }
