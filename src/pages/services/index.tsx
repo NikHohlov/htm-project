@@ -76,7 +76,7 @@ export default function Services() {
                             key={title}
                             initial={{ y: -100, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ delay: (index + 1) / 10, type: "tween", duration: 0.6 }}
+                            transition={{ delay: (index % 4) / 8, type: "tween", duration: 0.8 }}
                             animate={{ y: -100, opacity: 0 }}
                             viewport={{ once: true }}
                         >

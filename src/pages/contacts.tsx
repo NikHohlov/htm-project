@@ -8,7 +8,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import SocialMediaList from "@/components/widgets/SocialMediaList/SocialMediaList";
 
@@ -34,6 +34,7 @@ export default function Contacts() {
             },
             body: JSON.stringify(data)
         });
+
         setSubmitted(true);
     };
 
@@ -50,52 +51,75 @@ export default function Contacts() {
             exit="exit"
             transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
         >
+            <AnimatePresence
+                initial={false}
+                mode="wait"
+            >
 
-            {submitted
-                ?
-                (<div className={styles.thankYou}>
-                    <Image className={styles.image} src={thankyou} alt="thankyou"/>
+                {submitted
+                    ?
+                    (
+                        <motion.div
+                            className={styles.container}
+                            key="thankYou"
+                            animate={{ y: -500, opacity: 0 }}
+                            initial={{ y: -500, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.5, type: "tween", ease: "easeIn" }}
+                        >
 
-                    <div className={styles.thankYouText}>
-                        <p>СПАСИБО</p>
-                        <p>
+                            <Image className={styles.image} src={thankyou} alt="thankyou"/>
+
+                            <div className={styles.thankYouText}>
+                                <p>СПАСИБО</p>
+                                <p>
                                Наши специалисты свяжутся<br/>
                                с Вами в ближайшее время!
-                        </p>
+                                </p>
 
-                        <SocialMediaList />
+                                <SocialMediaList />
 
-                    </div>
+                            </div>
 
-                </div>)
-                :
-                ( <>
-                    <div className={styles.leftSection}>
+                        </motion.div>
+                    )
+                    :
+                    (
+                        <motion.div
+                            className={styles.containerLeft}
+                            key="text"
+                            exit={{ opacity: 0, y: 500 }}
+                            transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <div className={styles.leftSection}>
 
-                        <p className={styles.text}>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
+                                <p className={styles.text}>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
 
-                        <SocialMediaList />
-                    </div>
+                                <SocialMediaList />
+                            </div>
 
-                    <div className={styles.feedbackForm}>
+                            <div className={styles.feedbackForm}>
 
-                        <p className={styles.title}>Оставьте свою заявку</p>
+                                <p className={styles.title}>Оставьте свою заявку</p>
 
-                        <div className={styles.inputField}>
-                            <p className={styles.inputName}>ИМЯ</p>
-                            <input name="name" onChange={onChange} className={styles.input} placeholder="ИВАН ИВАНОВ"/>
-                        </div>
+                                <div className={styles.inputField}>
+                                    <p className={styles.inputName}>ИМЯ</p>
+                                    <input name="name" onChange={onChange} className={styles.input} placeholder="ИВАН ИВАНОВ"/>
+                                </div>
 
-                        <div className={styles.inputField}>
-                            <p className={styles.inputName}>ТЕЛЕФОН</p>
-                            <input name="phone" onChange={onChange} className={styles.input} placeholder="+7"/>
-                        </div>
+                                <div className={styles.inputField}>
+                                    <p className={styles.inputName}>ТЕЛЕФОН</p>
+                                    <input name="phone" onChange={onChange} className={styles.input} placeholder="+7"/>
+                                </div>
 
 
-                        <Button onClick={handleSubmit} title="ОТПРАВИТЬ" theme={Theme.Dark}/>
+                                <Button onClick={handleSubmit} title="ОТПРАВИТЬ" theme={Theme.Dark}/>
 
-                    </div></>)
-            }
+                            </div>
+                        </motion.div>
+                    )
+                }
+            </AnimatePresence>
         </motion.div>
     );
 }

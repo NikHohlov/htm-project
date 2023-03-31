@@ -9,6 +9,7 @@
 
 .secondSection {
     @include flexCenter();
+    background: linear-gradient(5deg, #34C3FB 1%, #5149e0 99%);
     justify-content: space-between;
     position: relative;
     height: 105vh;
@@ -28,6 +29,12 @@
 
 .image {
     object-fit: cover;
+    bottom: 0 !important;
+    right: 0 !important;
+    height: 95% !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
 }
 
 .qaImage {

@@ -3,6 +3,9 @@
 .firstSection {
     height: 100vh;
     background: linear-gradient(5deg, #34C3FB 1%, #5d4af2 99%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .secondSection{
@@ -12,7 +15,7 @@
 
 .image {
     object-fit: cover;
-    left: 23% !important;
+    left: 24% !important;
     top: auto !important;
     width: auto !important;
 }
@@ -28,11 +31,9 @@
 
 .textContainer {
     display: flex;
-    position: absolute;
-    z-index: 1;
-    gap: 85%;
-    top: 44%;
-    left: 8%;
+    width: 100%;
+    justify-content: space-between;
+    padding: 7%;
 }
 
 .casesContainer {
@@ -40,5 +41,5 @@
     row-gap: 10em;
     column-gap: 154px;
     flex-wrap: wrap;
-    margin-top: 6em;
+    margin-top: 9em;
 }

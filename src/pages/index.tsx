@@ -151,12 +151,16 @@ export default function About() {
                             className={styles.point}
                         >
                             <motion.p
-                                key={index + 1}
+                                initial={{ x: 500, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                transition={{ delay: index / 8, type: "tween", ease: "easeIn" }}
                             >
                                 {index + 1}
                             </motion.p>
                             <motion.p
-                                key={point}
+                                initial={{ x: 500, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                transition={{ delay: index / 8, type: "tween", ease: "easeIn" }}
                                 className={styles.secondaryText}
                             >
                                 {point}

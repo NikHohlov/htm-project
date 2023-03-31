@@ -88,3 +88,13 @@
     width: 15%;
     height: 15%;
 }
+
+.container {
+    @include flexCenter();
+    gap: 3em;
+}
+
+.containerLeft{
+    display: flex;
+    gap: 9em;
+}

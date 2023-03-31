@@ -3,6 +3,9 @@
 .firstSection {
     height: 100vh;
     background: linear-gradient(5deg, #34C3FB 1%, #5d4af2 99%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .secondSection{
@@ -13,7 +16,7 @@
 .image {
     object-fit: cover;
     height: 85% !important; 
-    left: 13% !important;
+    left: 19% !important;
     top: auto !important;
     width: auto !important;
 }
@@ -29,11 +32,9 @@
 
 .textContainer {
     display: flex;
-    position: absolute;
-    z-index: 1;
-    gap: 82%;
-    top: 54%;
-    left: 7%;
+    width: 100%;
+    justify-content: space-between;
+    padding: 7%;
 }
 
 .servicesContainer{

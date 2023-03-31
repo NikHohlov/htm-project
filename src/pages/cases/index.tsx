@@ -58,8 +58,16 @@ export default function Cases() {
             >
 
                 <div className={styles.casesContainer}>
-                    {caseItems.map(({ logo, name, description }) =>
-                        <CaseItem key={name} logo={logo} name={name} description={description} onClick={onClick("/cases/[case]")}/>)}
+                    {caseItems.map(({ logo, name, description }, index) =>
+                        <motion.div
+                            key={logo.src}
+                            initial={{ y: -100, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: (index + 1) / 10, type: "tween", duration: 0.4 }}
+                            animate={{ y: -100, opacity: 0 }}
+                        >
+                            <CaseItem key={name} logo={logo} name={name} description={description} onClick={onClick("/cases/[case]")}/>
+                        </motion.div>)}
                 </div>
 
             </motion.div>
