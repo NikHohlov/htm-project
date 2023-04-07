@@ -14,12 +14,18 @@ import { useRouter } from "next/router";
 
 import { motion } from "framer-motion";
 
-import styles from "@/styles/pages/Services.module.scss";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import Link from "next/link";
+import { useContext } from "react";
+import { StylesContext } from "../_app";
+import Head from "next/head";
 
 export default function Services() {
     const router = useRouter();
+
+    const { services: servicesStyle } = useContext(StylesContext);
+
+    const styles = servicesStyle;
 
     const { variants, transitionHandler } = usePageTransition();
 
@@ -29,6 +35,10 @@ export default function Services() {
 
     return (
         <>
+            <Head>
+                <title>HTM: Услуги</title>
+            </Head>
+
             <motion.div
                 className={styles.firstSection}
                 variants={variants}
@@ -45,11 +55,14 @@ export default function Services() {
                     transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
                 >
                     <p className={styles.primaryText}>НАШИ</p>
+
+
                     <p className={styles.primaryText}>УСЛУГИ</p>
 
                 </motion.div>
 
                 <Image priority className={styles.image} fill src={ourServices} alt="image" quality={100}/>
+
             </motion.div>
 
             <motion.div
@@ -74,10 +87,10 @@ export default function Services() {
                     {services.map(({ title, icon, name }, index) =>
                         <motion.div
                             key={title}
-                            initial={{ y: -100, opacity: 0 }}
+                            initial={{ y: -50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             transition={{ delay: (index % 4) / 8, type: "tween", duration: 0.8 }}
-                            animate={{ y: -100, opacity: 0 }}
+                            animate={{ y: -50, opacity: 0 }}
                             viewport={{ once: true }}
                         >
                             <ServiceItem

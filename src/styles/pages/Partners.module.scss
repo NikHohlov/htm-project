@@ -23,10 +23,11 @@
 
 .secondSection {
     @include flexCenter();
+    overflow: hidden;
     flex-direction: column;
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(5deg, #34C3FB 1%, #5149e0 99%);
+    background: linear-gradient(5deg, #34C3FB 1%, var(--bg-top-color) 99%);
 }
 
 .counter {
@@ -43,6 +44,14 @@
     }
 }
 
+@-moz-document url-prefix() {
+    .counter {
+        &::after {
+            content: "57";
+        }
+    }
+}
+
 .partnersButton {
     @include text(60px, 88px, 800, Codenext);
     @include button(642px, 123px, 70px);
@@ -56,10 +65,14 @@
 }
 
 .logo {
-    object-fit: cover;
-    position: relative !important;
+    object-fit: contain;
+    height: auto !important;
+    top: 2% !important;
     z-index: 1;
-    margin-bottom: 6em;
+
+    @media (max-width: 1400px) {
+        top: 4% !important;
+    }
 }
 
 .partnerLogo{
@@ -71,6 +84,7 @@
     flex-wrap: wrap;
     gap: 9em;
     margin-bottom: 10em;
+    margin-top: 15em;
 }
 
 .wrapper {
@@ -80,7 +94,12 @@
 }
 
 .parallax {
-    position: absolute;
+    position: relative;
+    margin-top: 10%;
     top: 13%;
     z-index: 0;
+
+    div:not(:first-child) {
+        margin-top: 5.5%;
+    }
 }

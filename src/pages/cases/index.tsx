@@ -11,11 +11,17 @@ import CaseItem from "@/components/ui/CaseItem/CaseItem";
 import { useRouter } from "next/router";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
+import { useContext } from "react";
+import { StylesContext } from "../_app";
+import Head from "next/head";
 
-import styles from "@/styles/pages/Cases.module.scss";
 
 export default function Cases() {
     const router = useRouter();
+
+    const { cases: casesStyle } = useContext(StylesContext);
+
+    const styles = casesStyle;
 
     const { variants, transitionHandler } = usePageTransition();
 
@@ -25,6 +31,10 @@ export default function Cases() {
 
     return (
         <>
+            <Head>
+                <title>HTM: Кейсы</title>
+            </Head>
+
             <motion.div
                 className={styles.firstSection}
                 variants={variants}
@@ -40,12 +50,16 @@ export default function Cases() {
                     whileInView={{ opacity: 1 }}
                     transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
                 >
+
                     <p className={styles.primaryText}>НАШИ</p>
+
                     <p className={styles.primaryText}>КЕЙСЫ</p>
+
 
                 </motion.div>
 
                 <Image priority className={styles.image} fill src={cases} alt="image" quality={100}/>
+
             </motion.div>
 
             <motion.div

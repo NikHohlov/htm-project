@@ -8,6 +8,14 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scrollbar-width: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -25,6 +33,7 @@ img {
 :root {
   --gradient-dark-color: #615AF4;
   --gradient-light-color: #34C3FB;
+  --bg-top-color: #5f21d1;
 }
 
 @font-face {

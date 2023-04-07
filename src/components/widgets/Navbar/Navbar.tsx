@@ -11,8 +11,9 @@ import logo from "@/assets/pictures/logo.png";
 
 import { Theme } from "@/lib/types";
 
-import styles from "./Navbar.module.scss";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
+import { useContext } from "react";
+import { StylesContext } from "@/pages/_app";
 
 interface NavbarProps {
     theme: Theme
@@ -30,19 +31,27 @@ export default function Navbar({ theme }: NavbarProps) {
     const router = useRouter();
     const { transitionHandler } = usePageTransition();
 
+    const { navbar } = useContext(StylesContext);
+
+    const styles = navbar;
+
     const onClick = (next: string) => () => transitionHandler(router.pathname, next);
 
     const isActiveRoute = (name: Route) => `border ${router.pathname === name ? "" : styles.hidden}`;
 
     return (
         <div className={styles.navbar}>
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-            >
-                <Image alt="image" src={theme === Theme.Light ? logo : logoWhite} width={130} height={91}/>
-            </motion.div>
+            <Link href="/" onClick={onClick("/")}>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                >
+                    <Image alt="image" src={theme === Theme.Light ? logo : logoWhite} width={130} height={91}/>
+                </motion.div>
+            </Link>
+
 
             <div className={`${styles.links} ${theme === Theme.Dark ? styles.dark : ""}`}>
                 <motion.div

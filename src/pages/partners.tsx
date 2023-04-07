@@ -8,14 +8,24 @@ import { motion } from "framer-motion";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
-import styles from "@/styles/pages/Partners.module.scss";
 import { ParallaxText } from "@/components/widgets/Parallax/Parallax";
+import { useContext } from "react";
+import { StylesContext } from "./_app";
+import Head from "next/head";
 
 export default function Partners() {
     const { variants } = usePageTransition();
 
+    const { partners } = useContext(StylesContext);
+
+    const styles = partners;
+
     return (
         <>
+            <Head>
+                <title>HTM: Партнеры</title>
+            </Head>
+
             <motion.div
                 className={styles.firstSection}
                 variants={variants}
@@ -43,10 +53,7 @@ export default function Partners() {
             <motion.div
                 className={styles.secondSection}
             >
-                <motion.div
-                >
-                    <Image className={styles.logo} fill src={handshake} alt="image" quality={100}/>
-                </motion.div>
+                <Image className={styles.logo} fill src={handshake} alt="image" quality={100}/>
 
                 <motion.div
                     className={styles.parallax}

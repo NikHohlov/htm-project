@@ -10,13 +10,18 @@ import Button from "@/components/ui/Button/Button";
 
 import { motion } from "framer-motion";
 
-import styles from "@/styles/pages/Service.module.scss";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
+import { StylesContext } from "../_app";
+import Head from "next/head";
 
 
 export default function Service() {
     const router = useRouter();
+
+    const { service: serviceStyle } = useContext(StylesContext);
+
+    const styles = serviceStyle;
 
     const { variants } = usePageTransition();
 
@@ -27,6 +32,10 @@ export default function Service() {
 
     return (
         <>
+            <Head>
+                <title>HTM: {service?.title}</title>
+            </Head>
+
             <motion.div
                 variants={{ ...variants, exit: { opacity: 1, x: -1600, y: 0 } }}
                 initial="hidden"

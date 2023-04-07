@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 
 import Image from "next/image";
 
 import second from "@/assets/pictures/aboutPage/second.png";
 
 import third from "@/assets/pictures/aboutPage/third.png";
+
+import textures from "@/assets/pictures/aboutPage/textures.png";
 
 import main from "@/assets/pictures/main.gif";
 
@@ -16,11 +18,17 @@ import { motion } from "framer-motion";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
-import styles from "@/styles/pages/About.module.scss";
+import { StylesContext } from "./_app";
+import Head from "next/head";
 
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
+
+    const { about } = useContext(StylesContext);
+
+    const styles = about;
+
 
     const { variants } = usePageTransition();
 
@@ -39,6 +47,9 @@ export default function About() {
 
     return (
         <>
+            <Head>
+                <title>HTM</title>
+            </Head>
             <motion.div
                 className={styles.firstSection}
                 variants={variants}
@@ -65,8 +76,7 @@ export default function About() {
                         <motion.div
                             className={styles.textContainer}
                         >
-                            <p>ПОПАДЕМ</p>
-                            <p>В ТВОЮ АУДИТОРИЮ</p>
+                            <p>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
                         </motion.div>
                     </motion.div>
 
@@ -104,6 +114,15 @@ export default function About() {
 
 
                 <Image className={styles.image} fill src={second} alt="image" quality={100}/>
+                <motion.div
+                    className={styles.textures}
+                    initial={{ rotate: -5 }}
+                    whileInView={{ x: 0, rotate: 0 }}
+                    transition={{ type: "tween", duration: 5 }}
+                    animate={{ rotate: -5 }}
+                >
+                    <Image fill src={textures} alt="image" quality={100}/>
+                </motion.div>
             </motion.div>
 
             <div className={styles.thirdSection}>
@@ -139,7 +158,7 @@ export default function About() {
                         className={styles.secondaryText}
                     >
                         Наша цель не только предоставить стратегии
-                        и инструменты, но и достичь результата вместе с вами :
+                        и инструменты, но и достичь результата вместе с вами:
                     </motion.p>
 
                     {points.map((point, index) => (
@@ -152,13 +171,15 @@ export default function About() {
                         >
                             <motion.p
                                 initial={{ x: 500, opacity: 0 }}
+                                animate={{ x: 500, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
                                 transition={{ delay: index / 8, type: "tween", ease: "easeIn" }}
                             >
                                 {index + 1}
                             </motion.p>
                             <motion.p
-                                initial={{ x: 500, opacity: 0 }}
+                                animate={{ x: 400, opacity: 0 }}
+                                initial={{ x: 400, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
                                 transition={{ delay: index / 8, type: "tween", ease: "easeIn" }}
                                 className={styles.secondaryText}

@@ -32,7 +32,7 @@
     }
 
     a {
-        @include text();
+        @include text(16px, 19.2px);
         text-decoration: none;
 
         &:global(.about) {
@@ -54,7 +54,7 @@
 }
 
 .button {
-    @include text();
+    @include text(16px, 19.2px);
     @include button();
     text-decoration: none;
     display: flex;

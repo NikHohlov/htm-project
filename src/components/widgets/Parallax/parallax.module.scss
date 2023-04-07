@@ -2,7 +2,6 @@
 
 
 .parallax {
-    overflow: hidden;
     letter-spacing: -2px;
     line-height: 0.8;
     margin: 0;
@@ -12,7 +11,7 @@
   }
   
   .parallax .scroller {
-    @include text(240px, 240px, 800, Codenext);
+    @include text(130px, 130px, 800, Codenext);
     display: flex;
     white-space: nowrap;
     display: flex;

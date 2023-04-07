@@ -2,23 +2,23 @@
 
 .firstSection {
     height: 100vh;
-    background: linear-gradient(5deg, #34C3FB 1%, #5d4af2 99%);
+    background: linear-gradient(5deg, #34C3FB 1%, var(--bg-top-color) 99%);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 .secondSection{
     min-height: 100vh;
-    margin: 2% 7% 7% 7%;
+    margin: 7% 7% 7% 7%;
 }
 
 .image {
-    object-fit: cover;
-    height: 85% !important; 
-    left: 19% !important;
-    top: auto !important;
-    width: auto !important;
+    object-fit: contain;
+    inset: 0 0 0 1% !important;
+    position: relative !important;
+    height: 90% !important;
+    width: 90% !important;
 }
 
 .primaryText {
@@ -35,12 +35,16 @@
     width: 100%;
     justify-content: space-between;
     padding: 7%;
+    position: absolute;
+    top: 29%;
 }
 
 .servicesContainer{
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;
-    gap: 6em;
+    gap: 3em;
+    justify-items: center;
     margin: 7% 0 7% 0;
 }

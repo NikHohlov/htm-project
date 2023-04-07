@@ -11,4 +11,11 @@
 .iconsContainer {
     @include flexCenter();
     gap: 1em;
+
+    a {
+        &:hover {
+            transform: scale(102%);
+            transition: all 0.2s;
+        }
+    }
 }

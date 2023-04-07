@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import Button from "@/components/ui/Button/Button";
 
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import Image from "next/image";
 
@@ -13,12 +12,18 @@ import { motion } from "framer-motion";
 
 import { caseItems } from "@/data/caseItem";
 
-import styles from "@/styles/pages/Case.module.scss";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
+import { useContext } from "react";
+import { StylesContext } from "../_app";
+import Head from "next/head";
 
 
 export default function Case() {
     const router = useRouter();
+
+    const { casestyle } = useContext(StylesContext);
+
+    const styles = casestyle;
 
     const redirect = (path: string) => () => router.push(`/${path}`);
 
@@ -26,6 +31,10 @@ export default function Case() {
 
     return (
         <>
+            <Head>
+                <title>HTM: Кейсы</title>
+            </Head>
+
             <motion.div
                 className={styles.firstSection}
                 variants={variants}
