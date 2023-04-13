@@ -74,3 +74,9 @@
 .hidden {
     visibility: hidden;
 }
+
+@media (max-width: 414px) {
+    .navbar, .links, .button {
+        display: none;
+    }
+}

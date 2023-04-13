@@ -52,6 +52,16 @@
     }
 }
 
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) {
+
+    .counter {
+        &::after {
+            content: "57";
+        }
+    }
+}}
+
 .partnersButton {
     @include text(60px, 88px, 800, Codenext);
     @include button(642px, 123px, 70px);

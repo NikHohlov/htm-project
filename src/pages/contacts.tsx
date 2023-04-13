@@ -44,7 +44,7 @@ export default function Contacts() {
         setTimeout(() => {
             if (isNull(ref.current)) return;
             ref.current.scrollIntoView({ behavior: "smooth" });
-        }, 1200);
+        }, 600);
     }, [isVisibleDropdown]);
 
 
@@ -79,7 +79,7 @@ export default function Contacts() {
     const onSelectToggle = () => {
         if (isVisibleDropdown) {
             setAnimate(true);
-            setTimeout(() => setIsVisibleDropdown(false), 1300);
+            setTimeout(() => setIsVisibleDropdown(false), 500);
             return;
         }
         setIsVisibleDropdown(prev => !prev);
@@ -205,7 +205,7 @@ export default function Contacts() {
                                                     animate={animate ? { x: 500, opacity: 0 } : { x: 0, opacity: 1 }}
                                                     initial={{ x: 500, opacity: 0 }}
                                                     transition={{
-                                                        delay: index * 0.05,
+                                                        delay: index * 0.02,
                                                         type: "tween",
                                                         ease: "easeIn"
                                                     }}

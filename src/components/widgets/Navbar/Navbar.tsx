@@ -31,9 +31,7 @@ export default function Navbar({ theme }: NavbarProps) {
     const router = useRouter();
     const { transitionHandler } = usePageTransition();
 
-    const { navbar } = useContext(StylesContext);
-
-    const styles = navbar;
+    const { navbar: styles } = useContext(StylesContext);
 
     const onClick = (next: string) => () => transitionHandler(router.pathname, next);
 
@@ -44,6 +42,7 @@ export default function Navbar({ theme }: NavbarProps) {
             <Link href="/" onClick={onClick("/")}>
 
                 <motion.div
+                    className={styles.logo}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}

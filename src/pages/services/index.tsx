@@ -23,9 +23,7 @@ import Head from "next/head";
 export default function Services() {
     const router = useRouter();
 
-    const { services: servicesStyle } = useContext(StylesContext);
-
-    const styles = servicesStyle;
+    const { services: styles } = useContext(StylesContext);
 
     const { variants, transitionHandler } = usePageTransition();
 
@@ -52,7 +50,7 @@ export default function Services() {
                     animate={{ opacity: 0 }}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+                    transition={{ delay: 0.3, type: "tween", duration: 0.4, ease: "easeInOut" }}
                 >
                     <p className={styles.primaryText}>НАШИ</p>
 
@@ -74,10 +72,10 @@ export default function Services() {
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
                 <motion.p className={styles.primaryTextTwo}
-                    initial={{ x: -500, opacity: 0 }}
+                    initial={{ x: -300, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2, type: "tween" }}
-                    animate={{ x: -500, opacity: 0 }}
+                    animate={{ x: -300, opacity: 0 }}
                     viewport={{ once: true }}
                 >
                     ЧТО МЫ МОЖЕМ

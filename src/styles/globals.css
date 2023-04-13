@@ -16,6 +16,11 @@ html {
   scrollbar-width: none;
 }
 
+input {
+  background: transparent;
+  color: white;
+}
+
 a {
   text-decoration: none;
 }
@@ -34,6 +39,7 @@ img {
   --gradient-dark-color: #615AF4;
   --gradient-light-color: #34C3FB;
   --bg-top-color: #5f21d1;
+  --counter: "1"
 }
 
 @font-face {

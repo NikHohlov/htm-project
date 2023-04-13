@@ -18,5 +18,9 @@ export default function useTheme() {
         }
     }, [router.pathname]);
 
-    return { theme, path: router.pathname, lightTheme };
+    return {
+        theme,
+        path: router.pathname,
+        lightTheme
+    };
 }

@@ -16,6 +16,11 @@
     object-fit: contain;
     overflow: hidden;
     margin-bottom: 2em;
+
+    @media (max-width: 414px) {
+        flex-direction: column;
+        height: 100vh;
+    }
 }
 
 .thirdSection {
@@ -26,6 +31,19 @@
     overflow: hidden;
     position: relative;
     padding: 3% 7%;
+
+    .contacts {
+        display: none;
+    }
+
+    @media (max-width: 414px) {
+        display: block;
+
+        .contacts {
+            display: block;
+            margin-top: 10em;
+        }
+    }
 }
 
 .image {
@@ -36,6 +54,10 @@
     top: auto !important;
     left: auto !important;
     width: auto !important;
+
+    @media (max-width: 414px) {
+        height: 85vw !important;
+    }
 }
 
 .qaImage {
@@ -43,6 +65,11 @@
     position: relative !important;
     height: 800px !important;
     width: 620px !important;
+
+    @media (max-width: 414px) {
+        width: 100% !important;
+        height: 50% !important;      
+    }
 }
 
 .logo {
@@ -51,6 +78,12 @@
     width: 90%;
     height: 80%;
     bottom: 14%;
+
+    @media (max-width: 414px) {
+        object-fit: cover;
+        overflow: inherit;
+        height: 73%;
+    }
 }
 
 .arrowContainer {
@@ -74,6 +107,16 @@
     background: linear-gradient(142.34deg, #615AF4 12.37%, #41C0FF 83.85%);
     border-radius: 50%;
     cursor: pointer;
+
+    @media (max-width: 414px) {
+        width: 30px;
+        height: 30px;
+
+        svg {
+            width: 15px;
+            height: 12px;
+        }
+    }
 }
 
 .textContainer {
@@ -82,8 +125,20 @@
     position: relative;
     top: 78%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+
+    p {
+        margin-left: 1rem;
+    }
+
+    @media (max-width: 414px) {
+        @include text(20px, 29px, 800, Codenext);
+        flex-direction: column;
+        p {
+            margin-left: 0;
+        }
+    }
 }
 
 .secondText {
@@ -94,9 +149,20 @@
     left: 60px;
     z-index: 5;
 
+    @media (max-width: 414px) {
+        @include text(34px, 45px, 800, Codenext);
+        width: 88%;    
+        top: 20%;
+        left: 0;
+    }
+
     .secondaryText {
         @include text(40px, 48px, 400);
         text-transform: uppercase;
+        
+        @media (max-width: 414px) {
+            @include text(28px, 32px, 400);
+        }
     }
 }
 
@@ -104,18 +170,32 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 3em;
     width: 90%;
     gap: 1em;
+
+    @media (max-width: 414px) {
+        gap: 2.5em;
+    }
 }
 
 .thirdText {
     @include text(40px, 58.6px, 800, Codenext);
-    @include fontBackground();   
+    @include fontBackground(); 
+    
+    @media (max-width: 414px) {
+        @include text(24px, 35px, 800, Codenext);
+    }
 }
 
 .secondaryText {
     @include text(24px, 28.8px, 400);
     color: black;
+
+    @media (max-width: 414px) {
+        @include text(16px, 19px, 400);
+        color: black;
+    }
 } 
 
 .point {
@@ -125,6 +205,11 @@
     p:first-child{
         @include text(40px, 48px, 500);
         color: black;
+
+        @media (max-width: 414px) {
+            @include text(19px, 23px, 500);
+            color: black;
+        }
     }
 }
 
@@ -138,7 +223,16 @@
 .textures {
     position: absolute;
 
+    @media (max-width: 414px) {
+        height: 100%;
+    }
+
     img {
         position: relative !important;
+
+        @media (max-width: 414px) {
+            object-fit: cover;
+            height: 60% !important;
+        }
     }
 }

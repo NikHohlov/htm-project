@@ -16,12 +16,14 @@ import smm from "@/components/widgets/SocialMediaList/SocialMediaList.module.scs
 import button from "@/components/ui/Button/Button.module.scss";
 import caseItem from "@/components/ui/CaseItem/CaseItem.module.scss";
 import serviceItem from "@/components/ui/ServiceItem/ServiceItem.module.scss";
+import mobileMenu from "@/components/widgets/MobileMenu/MobileMenu.module.scss";
 
 import "@/styles/globals.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Head from "next/head";
+import { MobileMenu } from "@/components/widgets/MobileMenu/MobileMenu";
 
-const criticalStyles = { ...styles, navbar, parallax, smm, button, caseItem, serviceItem };
+const criticalStyles = { ...styles, navbar, parallax, smm, button, caseItem, serviceItem, mobileMenu };
 
 export const StylesContext = createContext(criticalStyles);
 
@@ -47,6 +49,8 @@ export default function App({ Component, pageProps }: AppProps) {
             </Head>
             <StylesContext.Provider value={criticalStyles}>
                 <Navbar theme={theme} />
+
+                <MobileMenu />
 
                 <AnimatePresence
                     mode="wait"

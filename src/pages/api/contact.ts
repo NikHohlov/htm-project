@@ -20,7 +20,7 @@ export default function SendContact (req: NextApiRequest, res: NextApiResponse) 
                 <div>Имя: ${req.body.name}</div>
                 <p>Телефон:${req.body.phone}</p>
                 <p>Тип услуги:${req.body.service}</p>
-                <p>Телефон:${req.body.comment}</p>
+                <p>Комментарий:${req.body.comment}</p>
                 `
     };
 

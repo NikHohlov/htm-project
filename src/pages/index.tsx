@@ -20,15 +20,14 @@ import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
 import { StylesContext } from "./_app";
 import Head from "next/head";
-
+import Link from "next/link";
+import Button from "@/components/ui/Button/Button";
+import { Theme } from "@/lib/types";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
 
-    const { about } = useContext(StylesContext);
-
-    const styles = about;
-
+    const { about: styles } = useContext(StylesContext);
 
     const { variants } = usePageTransition();
 
@@ -50,6 +49,7 @@ export default function About() {
             <Head>
                 <title>HTM</title>
             </Head>
+
             <motion.div
                 className={styles.firstSection}
                 variants={variants}
@@ -76,7 +76,9 @@ export default function About() {
                         <motion.div
                             className={styles.textContainer}
                         >
-                            <p>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
+                            <p>ПОПАДЕМ </p>
+                            {" "}
+                            <p>В ТВОЮ АУДИТОРИЮ</p>
                         </motion.div>
                     </motion.div>
 
@@ -103,10 +105,10 @@ export default function About() {
             >
                 <motion.div
                     className={styles.secondText}
-                    initial={{ x: -500, opacity: 0 }}
+                    initial={{ x: -300, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 1, type: "tween" }}
-                    animate={{ x: -500, opacity: 0 }}
+                    animate={{ x: -300, opacity: 0 }}
                 >
                     <motion.p>HIT THE MARKET</motion.p>
                     <motion.p className={styles.secondaryText}>независимое<br/> SOCIAL & digital агентство</motion.p>
@@ -127,8 +129,8 @@ export default function About() {
 
             <div className={styles.thirdSection}>
                 <motion.div
-                    animate={{ x: -300, opacity: 0 }}
-                    initial={{ x: -300, opacity: 0 }}
+                    animate={{ x: -200, opacity: 0 }}
+                    initial={{ x: -200, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.9, type: "tween", ease: "easeIn" }}
                 >
@@ -137,13 +139,13 @@ export default function About() {
 
                 <motion.div
                     className={styles.description}
-                    animate={{ x: 500, opacity: 0 }}
-                    initial={{ x: 500, opacity: 0 }}
+                    animate={{ x: 200, opacity: 0 }}
+                    initial={{ x: 200, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 1, type: "tween", ease: "easeIn" }}
                 >
                     <motion.p
-                        initial={{ x: 500, opacity: 0 }}
+                        initial={{ x: 200, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ type: "tween", ease: "easeIn" }}
                         className={styles.thirdText}
@@ -152,7 +154,7 @@ export default function About() {
                     </motion.p>
 
                     <motion.p
-                        initial={{ x: 500, opacity: 0 }}
+                        initial={{ x: 200, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ type: "tween", ease: "easeIn" }}
                         className={styles.secondaryText}
@@ -163,23 +165,23 @@ export default function About() {
 
                     {points.map((point, index) => (
                         <motion.div
-                            initial={{ x: 500, opacity: 0 }}
+                            initial={{ x: 200, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ delay: 0.5, type: "tween", ease: "easeIn", staggerChildren: 1 }}
                             key={index}
                             className={styles.point}
                         >
                             <motion.p
-                                initial={{ x: 500, opacity: 0 }}
-                                animate={{ x: 500, opacity: 0 }}
+                                initial={{ x: 200, opacity: 0 }}
+                                animate={{ x: 200, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
                                 transition={{ delay: index / 8, type: "tween", ease: "easeIn" }}
                             >
                                 {index + 1}
                             </motion.p>
                             <motion.p
-                                animate={{ x: 400, opacity: 0 }}
-                                initial={{ x: 400, opacity: 0 }}
+                                animate={{ x: 150, opacity: 0 }}
+                                initial={{ x: 150, opacity: 0 }}
                                 whileInView={{ x: 0, opacity: 1 }}
                                 transition={{ delay: index / 8, type: "tween", ease: "easeIn" }}
                                 className={styles.secondaryText}
@@ -190,6 +192,10 @@ export default function About() {
                     ))}
 
                 </motion.div>
+
+                <Link className={styles.contacts} href="/contacts" scroll={false}>
+                    <Button title="КОНТАКТЫ" theme={Theme.Light}/>
+                </Link>
 
             </div>
         </>

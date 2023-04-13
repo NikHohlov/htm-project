@@ -27,6 +27,7 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
-    "@motionone/utils": "^10.15.1"
+    "@motionone/utils": "^10.15.1",
+    "@types/nodemailer": "^6.4.7"
   }
 }
