@@ -6,6 +6,10 @@
     height: 336px !important;
     width: auto !important;
 
+    @media (max-width: 414px) {
+        height: 50% !important;
+        width: 100% !important;
+    }
 }
 
 .logoContainer {
@@ -24,25 +28,51 @@
     transition: all 0.5s;
 
     text-decoration: none;
+
+    @media (max-width: 414px) {
+        min-width: 0;
+        max-width: 130px;
+        height: 260px;
+        justify-content: flex-start;
+    }
 }
 
 .descriptionContainer {
     position: relative;
     left: 1.5em;
+
+    @media (max-width: 414px) {
+        left: 0;
+    }
 }
 
 .title {
     @include text(24px, 35.16px, 800, Codenext);
     color: black;
+
+    @media (max-width: 414px) {
+        @include text(14px, 21px, 800, Codenext);
+        color: black;
+        margin-top: 1em;
+    }
 }
 
 .secondaryText {
     @include text(16px, 17.28px, 400);
     color: black;
+
+    @media (max-width: 414px) {
+        @include text(12px, 14px, 400);
+        color: black;
+    }
 }
 
 .serviceText {
     @include text(14px, 17.8px, 700);
     @include fontBackground();
     margin: 1em 0 2em 0;
+
+    @media (max-width: 414px) {
+        display: none;
+    }
 }
