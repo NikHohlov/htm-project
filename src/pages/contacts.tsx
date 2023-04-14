@@ -48,23 +48,22 @@ export default function Contacts() {
     }, [isVisibleDropdown]);
 
 
-    const { contacts } = useContext(StylesContext);
-
-    const styles = contacts;
+    const { contacts: styles } = useContext(StylesContext);
 
     const { variants } = usePageTransition();
 
     const handleSubmit = () => {
-        fetch("/api/contact", {
-            method: "POST",
-            headers: {
-                "Accept": "application/json, text/plain, */*",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
+        // fetch("/api/contact", {
+        //     method: "POST",
+        //     headers: {
+        //         "Accept": "application/json, text/plain, */*",
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(data)
+        // });
 
         setSubmitted(true);
+        window.scrollTo({ behavior: "smooth", top: 0 });
     };
 
 
@@ -113,9 +112,9 @@ export default function Contacts() {
                             <motion.div
                                 className={styles.container}
                                 key="thankYou"
-                                animate={{ y: -500, opacity: 0 }}
-                                initial={{ y: -500, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
+                                animate={{ y: -200, opacity: 0 }}
+                                initial={{ y: -200, opacity: 0 }}
+                                whileInView={{ y: 200, opacity: 1 }}
                                 transition={{ delay: 0.5, type: "tween", ease: "easeIn" }}
                             >
 
@@ -139,7 +138,7 @@ export default function Contacts() {
                             <motion.div
                                 className={styles.containerLeft}
                                 key="text"
-                                exit={{ opacity: 0, y: 500 }}
+                                exit={{ opacity: 0, y: 300 }}
                                 transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
                             >
                                 <div className={styles.leftSection}>
@@ -190,7 +189,7 @@ export default function Contacts() {
 
                                         <motion.div
                                             className={styles.options}
-                                            animate={isVisibleDropdown ? { height: 500 } : { height: 0 }}
+                                            animate={{ height: isVisibleDropdown ?  500 : 0 }}
                                             initial={{ height: 0 }}
                                             transition={{
                                                 type: "tween",
@@ -198,12 +197,12 @@ export default function Contacts() {
                                             }}
                                         >
                                             {isVisibleDropdown && [...services, { title: "Прочее" }].map(({ title }, index) =>
-                                                <motion.option
+                                                <motion.div
                                                     className={styles.option}
                                                     onClick={onSelect(title)}
                                                     key={title}
-                                                    animate={animate ? { x: 500, opacity: 0 } : { x: 0, opacity: 1 }}
-                                                    initial={{ x: 500, opacity: 0 }}
+                                                    animate={animate ? { x: 300, opacity: 0 } : { x: 0, opacity: 1 }}
+                                                    initial={{ x: 300, opacity: 0 }}
                                                     transition={{
                                                         delay: index * 0.02,
                                                         type: "tween",
@@ -212,7 +211,7 @@ export default function Contacts() {
                                                     viewport={{ once: true }}
                                                 >
                                                     {title}
-                                                </motion.option>
+                                                </motion.div>
                                             )}
 
                                         </motion.div>

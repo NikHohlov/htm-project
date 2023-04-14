@@ -6,6 +6,16 @@
     height: 73px;
     background: white;
     border-radius: 50%;
+
+    @media (max-width: 414px) {
+        width: 46px;
+        height: 46px;
+
+        svg {
+            width: 21px;
+            height: 21px; 
+        }
+    }
 }
 
 .iconsContainer {

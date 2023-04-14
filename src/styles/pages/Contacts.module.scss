@@ -3,8 +3,15 @@
 .firstSection {
     @include flexCenter();
     gap: 9em;
-    min-height: 100vh;
+    min-height: 150vh;
+    height: 200vh;
     background: linear-gradient(5deg, #34C3FB 1%, var(--bg-top-color) 99%);
+    align-items: flex-start;
+
+    @media (max-width: 414px) {
+        min-height: 200vh;
+        height: 243vh;
+    }
 }
 
 .text {
@@ -12,6 +19,12 @@
     width: 6em;
     position: relative;
     left: 0.5em;
+
+    @media (max-width: 414px) {
+        @include text(40px, 53px, 800, Codenext);
+        text-align: center;
+        left: 0;
+    }
 }
 
 .leftSection {
@@ -20,6 +33,10 @@
     align-items: flex-start;
     gap: 3em;
     margin-top: 10em;
+
+    @media (max-width: 414px) {
+        align-items: center;
+    }
 }
 
 .feedbackForm {
@@ -30,10 +47,18 @@
 
     .title {
         @include text(36px, 41.76px, 800, Codenext);
+
+        @media (max-width: 414px) {
+            @include text(20px, 23px, 800, Codenext);
+        }
     }
 
     .inputName {
         @include text(24px, 28.8px, 700);
+
+        @media (max-width: 414px) {
+            @include text(14px, 17px, 700);
+        }
     }
 
     .input {
@@ -51,6 +76,10 @@
 
         &::placeholder {
             color: #92E0FF;
+        }
+
+        @media (max-width: 414px) {
+            @include text(16px, 19px, 700);
         }
     }
 
@@ -74,6 +103,10 @@
         &:hover {
             font-weight: 700;
         }
+    }
+
+    @media (max-width: 414px) {
+        width: 80vw;
     }
 }
 
@@ -110,24 +143,43 @@
 
     p {
         @include text(30px, 36px, 400);
+        @media (max-width: 414px) {
+            @include text(16px, 19px, 400);
+        }
     }
     p:first-child {
         @include text(48px, 63.36px, 800, Codenext);
+        @media (max-width: 414px) {
+            @include text(24px, 32px, 800, Codenext);
+        }
     }
 
     div {
         margin-top: 1em;
     }
+
+    @media (max-width: 414px) {
+        align-items: center;
+    }
 }
 
 .image {
-    width: 15%;
-    height: 15%;
+    width: 15% !important;
+    height: 15% !important;
+
+    @media (max-width: 414px) {
+        width: 35% !important;
+        height: 35% !important;
+    }
 }
 
 .container {
     @include flexCenter();
     gap: 3em;
+
+    @media (max-width: 414px) {
+        flex-direction: column;
+    }
 }
 
 .containerLeft{
@@ -135,4 +187,10 @@
     gap: 9em;
     margin: 10em 0 10em 0;
     align-items: flex-start;
+
+    @media (max-width: 414px) {
+        flex-direction: column;
+        align-items: center !important;
+        margin-top: 0;
+    }
 }
