@@ -1,20 +1,5 @@
 @import "../mixins.scss";
 
-@property --num {
-    syntax: "<integer>";
-    initial-value: 1;
-    inherits: false;
-  }
-
-  @keyframes counter {
-    from {
-      --num: 1;
-    }
-    to {
-      --num: 57;
-    }
-  }
-
 .firstSection {
     @include flexCenter();
     flex-direction: column;
@@ -33,45 +18,34 @@
 .counter {
     @include text(270px, 324px, 700);
     @include fontBackground();
-    animation: counter 3s 1;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-    counter-set: num var(--num);
 
-    &::after {
-        content: counter(num);
-        transition: 0.3s
+    @media (max-width: 414px) {
+        @include text(187px, 224px, 700);  
     }
 }
-
-@-moz-document url-prefix() {
-    .counter {
-        &::after {
-            content: "57";
-        }
-    }
-}
-
-@media not all and (min-resolution:.001dpcm)
-{ @supports (-webkit-appearance:none) {
-
-    .counter {
-        &::after {
-            content: "57";
-        }
-    }
-}}
 
 .partnersButton {
     @include text(60px, 88px, 800, Codenext);
     @include button(642px, 123px, 70px);
     cursor: default;
+
+    @media (max-width: 414px) {
+        @include text(24px, 35px, 700);  
+        @include button(280px, 48px, 70px);
+    }
 }
 
 .secondaryText {
     @include text(24px, 29px, 400);
     color: black;
     margin-top: 32px;
+
+    @media (max-width: 414px) {
+        @include text(18px, 22px, 700);  
+        color: black;
+        width: 80%;
+        text-align: center;
+    }
 }
 
 .logo {
@@ -82,6 +56,12 @@
 
     @media (max-width: 1400px) {
         top: 4% !important;
+    }
+
+    @media (max-width: 414px) {
+        object-fit: cover;
+        height: 90vw !important;
+        width: 100% !important;
     }
 }
 
@@ -95,12 +75,22 @@
     gap: 9em;
     margin-bottom: 10em;
     margin-top: 15em;
+
+    @media (max-width: 414px) {
+        gap: 5em;
+        margin-top: 5em;
+    }
 }
 
 .wrapper {
     position: relative;
     width: 300px;
     height: 200px;
+
+    @media (max-width: 414px) {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 .parallax {
@@ -111,5 +101,9 @@
 
     div:not(:first-child) {
         margin-top: 5.5%;
+
+        @media (max-width: 414px) {
+            margin-top: 58vw;
+        }
     }
 }

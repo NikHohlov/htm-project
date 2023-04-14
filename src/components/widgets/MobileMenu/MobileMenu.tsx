@@ -43,11 +43,11 @@ export const MobileMenu = () => {
     const { transitionHandler } = usePageTransition();
     const router = useRouter();
 
-    const onToggleMenu = () => setTimeout(() => setIsOpen(prev => !prev), 300);
+    const onToggleMenu = () => setTimeout(() => setIsOpen(prev => !prev), 100);
 
     const onClick = (next: string) => () => {
-        transitionHandler(router.pathname, next);
         onToggleMenu();
+        transitionHandler(router.pathname, next);
     };
 
     useEffect(() => {
@@ -59,7 +59,7 @@ export const MobileMenu = () => {
             {menuTrigger && (
                 <motion.div
                     className={styles.menu}
-                    animate={{ x: isOpen ? 0 : 300 }}
+                    animate={{ x: 0, opacity: isOpen ? 1 : 0 }}
                     initial={{ x: isOpen ? 300 : 0 }}
                     transition={{ type: "tween", ease: "easeIn" }}
                 >
@@ -87,14 +87,11 @@ export const MobileMenu = () => {
                 transition={{ type: "tween", ease: "easeIn", delay: isOpen ? 0 : 0.3 }}
             >
                 <Image alt="image" src={theme === Theme.Light ? logo : logoWhite} width={130} height={91}/>
-                <motion.div
+                <div
                     onClick={onToggleMenu}
-                    animate={{ rotate: isOpen? 90 : 0 }}
-                    initial={{ rotate: isOpen ? 0 : 90 }}
-                    transition={{ duration: 0.3 }}
                 >
                     <MenuClosed gradient={theme === Theme.Light} />
-                </motion.div>
+                </div>
             </motion.div>
         </>
     );

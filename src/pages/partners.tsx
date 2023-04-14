@@ -4,21 +4,33 @@ import handshake from "@/assets/pictures/partnersPage/handshake.png";
 
 import { logos } from "@/data/partnerLogos";
 
-import { motion } from "framer-motion";
+import { animate, motion, useInView, useMotionValue, useTransform } from "framer-motion";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
 import { ParallaxText } from "@/components/widgets/Parallax/Parallax";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { StylesContext } from "./_app";
 import Head from "next/head";
 
 export default function Partners() {
     const { variants } = usePageTransition();
 
-    const { partners } = useContext(StylesContext);
+    const { partners: styles } = useContext(StylesContext);
 
-    const styles = partners;
+    const count = useMotionValue(1);
+    const rounded = useTransform(count, (latest) => Math.round(latest));
+
+    const ref = useRef(null);
+    const inView = useInView(ref);
+
+    useEffect(() => {
+        if (inView) {
+            animate(count, 57, { duration: 2, delay: 0.9 });
+        }
+    }, [count, inView]);
+
+
 
     return (
         <>
@@ -35,9 +47,12 @@ export default function Partners() {
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
 
-                <div className={styles.counter}>
-                    <p></p>
-                </div>
+                <motion.span
+                    className={styles.counter}
+                    ref={ref}
+                >
+                    {rounded}
+                </motion.span>
 
                 <div className={styles.partnersButton}>
                     <p>НАШИ ПАРТНЕРЫ</p>
