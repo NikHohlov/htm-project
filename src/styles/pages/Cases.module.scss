@@ -16,13 +16,14 @@
 
 .image {
     object-fit: contain;
-    z-index: 5;
+    z-index: 4;
     left: inherit !important;
     right: 1.5em !important;
 
     @media (max-width: 414px) {
         right: 0 !important;
         margin-top: 4em;
+        inset: auto !important;
     }
 }
 

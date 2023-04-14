@@ -49,8 +49,9 @@
     @media (max-width: 414px) {
         flex-direction: column;
         align-items: center;
-        top: 19%;
+        margin-top: 8em;
         gap: 45vh;
+        top: 0;
     }
 }
 

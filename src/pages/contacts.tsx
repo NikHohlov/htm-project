@@ -38,6 +38,7 @@ export default function Contacts() {
         service: ""
     });
     const ref = useRef<HTMLDivElement>(null);
+    const formRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!isVisibleDropdown) return;
@@ -73,6 +74,10 @@ export default function Contacts() {
     const onSelect = (title: string) => () => {
         setData(prev => ({ ...prev, service: title }));
         setIsVisibleDropdown(false);
+        setTimeout(() => {
+            if (isNull(formRef.current)) return;
+            formRef.current.scrollIntoView({ behavior: "smooth" });
+        }, 600);
     };
 
     const onSelectToggle = () => {
@@ -148,7 +153,7 @@ export default function Contacts() {
                                     <SocialMediaList />
                                 </div>
 
-                                <div className={styles.feedbackForm}>
+                                <div ref={formRef} className={styles.feedbackForm}>
 
                                     <p className={styles.title}>Оставьте свою заявку</p>
 
