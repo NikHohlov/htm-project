@@ -54,7 +54,7 @@ export default function Case() {
 
                         {caseItems.map(({ logo }) => (
                             <div key={logo.src}>
-                                <Image src={logo} alt="image" height={592}/>
+                                <Image className={styles.image} src={logo} alt="image" />
                             </div>
                         ))}
                     </Carousel>

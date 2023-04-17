@@ -4,13 +4,13 @@
     @include flexCenter();
     gap: 9em;
     min-height: 150vh;
-    height: 200vh;
+    height: 220vh;
     background: linear-gradient(5deg, #34C3FB 1%, var(--bg-top-color) 99%);
     align-items: flex-start;
 
     @media (max-width: 414px) {
         min-height: 200vh;
-        height: 243vh;
+        height: 260vh;
     }
 }
 

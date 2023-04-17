@@ -6,16 +6,35 @@
     padding: 15% 15% 7% 15%;
     gap: 3em;
 
+    @media (max-width: 414px) {
+        flex-direction: column;
+        gap: 1em;
+        position: absolute;
+        margin-top: 9em;
+        padding: 0;
+    }
+
 }
 
 .title {
     @include text(36px, 53px, 800, Codenext);
     color: black;
+
+    @media (max-width: 414px) {
+        @include text(20px, 29px, 800, Codenext);
+        color: black;
+    }
 }
 
 .description {
     @include text(16px, 22.88px, 400);
-    color: black
+    color: black;
+
+    @media (max-width: 414px) {
+        @include text(12px, 14px, 400);
+        color: black;
+        margin-bottom: 5em;
+    }
 }
 
 .secondaryText {
@@ -27,6 +46,10 @@
     @include text(24px, 29px, 700);
     @include fontBackground();
     margin: 1em 0 2em 0;
+
+    @media (max-width: 414px) {
+        @include text(12px, 14px, 700);
+    }
 }
 
 .carousel {
@@ -47,10 +70,38 @@
         border-right: none;
         transform: scale(-1, -1);
     }
+
+    @media (max-width: 414px) {
+        height: 87.5vw;
+        width: 87.5vw;
+    }
 }
 
 .descriptionSection {
     display: flex;
     flex-direction: column;
     gap: 3em;
+
+    @media (max-width: 414px) {
+        gap: 1em;
+        padding: 0 7%;
+    }
+}
+
+.buttons {
+    @media (max-width: 414px) {
+        button {
+            width: 116px;
+            height: 29px;
+
+            p {
+                font-size: 14px;
+                line-height: 17px; 
+            }
+        }
+    }
+}
+
+.image {
+    height: 100%;
 }
