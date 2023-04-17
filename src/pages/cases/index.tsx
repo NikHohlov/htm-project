@@ -77,7 +77,7 @@ export default function Cases() {
                             key={logo.src}
                             initial={{ y: -100, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ delay: (index + 1) / 10, type: "tween", duration: 0.4 }}
+                            transition={{ delay: (index + 1) / 10, type: "tween", duration: 0.8 }}
                             animate={{ y: -100, opacity: 0 }}
                         >
                             <CaseItem key={name} logo={logo} name={name} description={description} onClick={onClick("/cases/[case]")}/>

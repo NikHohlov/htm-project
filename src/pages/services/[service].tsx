@@ -11,24 +11,26 @@ import Button from "@/components/ui/Button/Button";
 import { motion } from "framer-motion";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StylesContext } from "../_app";
 import Head from "next/head";
 
-
 export default function Service() {
     const router = useRouter();
-
-    const { service: serviceStyle } = useContext(StylesContext);
-
-    const styles = serviceStyle;
+    const { service: styles } = useContext(StylesContext);
+    const [service, setService] = useState<typeof services[0]>();
+    const [isServiceLoaded, setIsServiceLoaded] = useState(false);
 
     const { variants } = usePageTransition();
 
-    const service = useMemo(() => services.find((item) => item.name === router.query.service), []);
-
-
     const redirect = (path: string) => () => router.push(`/${path}`);
+
+    useEffect(() => {
+        if (!isServiceLoaded) {
+            setService(services.find((item) => item.name === router.query.service));
+            if (router.query.service) setIsServiceLoaded(true);
+        }
+    }, [router.query.service]);
 
     return (
         <>
@@ -38,8 +40,8 @@ export default function Service() {
 
             <motion.div
                 variants={{ ...variants, exit: { opacity: 1, x: -1600, y: 0 } }}
-                initial="hidden"
-                animate="enter"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 exit="exit"
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
@@ -48,7 +50,14 @@ export default function Service() {
                     className={styles.firstSection}
                 >
 
-                    <div className={styles.leftSection}>
+                    <motion.div
+                        className={styles.leftSection}
+                        initial={{ opacity: 0 }}
+                        whileInView={{  opacity: 1 }}
+                        transition={{ type: "tween", duration: 0.3 }}
+                        animate={{ opacity: 0 }}
+                        viewport={{ once: true }}
+                    >
                         <div className={styles.iconBackground}>
                             <Target gradient width={229} height={229}/>
                             <div className={styles.serviceIcon}>
@@ -56,9 +65,16 @@ export default function Service() {
                             </div>
                         </div>
 
-                    </div>
+                    </motion.div>
 
-                    <div className={styles.descriptionSection}>
+                    <motion.div
+                        className={styles.descriptionSection}
+                        initial={{ opacity: 0 }}
+                        whileInView={{  opacity: 1 }}
+                        transition={{ type: "tween", duration: 0.3 }}
+                        animate={{ opacity: 0 }}
+                        viewport={{ once: true }}
+                    >
                         <p className={styles.title}>{service?.title}</p>
 
                         <p className={styles.description}>
@@ -73,11 +89,13 @@ export default function Service() {
                             </>
                             }
                         </div>
-                    </div>
+                    </motion.div>
                 </motion.div>
 
                 {service?.points && (
-                    <div className={styles.secondSection}>
+                    <motion.div
+                        className={styles.secondSection}
+                    >
                         <p className={styles.secondTitle}>В услугу входит</p>
 
                         <div className={styles.pointsContainer}>
@@ -88,7 +106,7 @@ export default function Service() {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 )}
             </motion.div>
 

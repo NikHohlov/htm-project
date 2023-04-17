@@ -1,7 +1,5 @@
 import { Theme } from "@/lib/types";
 
-import { useRouter } from "next/router";
-
 import Button from "@/components/ui/Button/Button";
 
 import { Carousel } from "react-responsive-carousel";
@@ -16,16 +14,10 @@ import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import { useContext } from "react";
 import { StylesContext } from "../_app";
 import Head from "next/head";
-
+import Link from "next/link";
 
 export default function Case() {
-    const router = useRouter();
-
-    const { casestyle } = useContext(StylesContext);
-
-    const styles = casestyle;
-
-    const redirect = (path: string) => () => router.push(`/${path}`);
+    const { casestyle: styles } = useContext(StylesContext);
 
     const { variants } = usePageTransition();
 
@@ -38,8 +30,8 @@ export default function Case() {
             <motion.div
                 className={styles.firstSection}
                 variants={variants}
-                initial="hidden"
-                animate="enter"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 exit="exit"
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
@@ -79,7 +71,9 @@ export default function Case() {
                     </p>
 
                     <div className={styles.buttons}>
-                        <Button onClick={redirect("cases")} theme={Theme.Light} title="К кейсам"/>
+                        <Link href="/cases" scroll={false}>
+                            <Button theme={Theme.Light} title="К кейсам"/>
+                        </Link>
                     </div>
                 </div>
 
