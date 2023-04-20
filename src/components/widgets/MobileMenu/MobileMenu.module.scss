@@ -28,8 +28,8 @@
     justify-content: space-between;
 
     img {
-        height: 48px;
-        width: 69px;
+        height: 65px;
+        width: 95px;
     }
 
     svg {
@@ -37,7 +37,7 @@
     }
 }
 
-@media (min-width: 415px) {
+@media (min-width: 430px) {
     .menu, .menuClosed {
         visibility: hidden;
     }

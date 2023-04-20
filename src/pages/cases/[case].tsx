@@ -11,15 +11,26 @@ import { motion } from "framer-motion";
 import { caseItems } from "@/data/caseItem";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { StylesContext } from "../_app";
 import Head from "next/head";
 import Link from "next/link";
+import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 
 export default function Case() {
     const { casestyle: styles } = useContext(StylesContext);
 
     const { variants } = usePageTransition();
+
+    const ref = useRef<HTMLDivElement>(null);
+    const smoothVerticalScrolling = useSmoothScroll();
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (!ref.current) return;
+            smoothVerticalScrolling(ref.current, 500, "top");
+        }, 1100);
+    }, []);
 
     return (
         <>
@@ -28,11 +39,12 @@ export default function Case() {
             </Head>
 
             <motion.div
+                ref={ref}
                 className={styles.firstSection}
                 variants={variants}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit="exit"
+                exit={{ opacity: 0 }}
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
 

@@ -6,7 +6,7 @@
     height: 336px !important;
     width: auto !important;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         height: 50% !important;
         width: 100% !important;
     }
@@ -29,7 +29,7 @@
 
     text-decoration: none;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         min-width: 0;
         max-width: 130px;
         height: 260px;
@@ -41,7 +41,7 @@
     position: relative;
     left: 1.5em;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         left: 0;
     }
 }
@@ -50,7 +50,7 @@
     @include text(24px, 35.16px, 800, Codenext);
     color: black;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(14px, 21px, 800, Codenext);
         color: black;
         margin-top: 1em;
@@ -61,7 +61,7 @@
     @include text(16px, 17.28px, 400);
     color: black;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(12px, 14px, 400);
         color: black;
     }
@@ -72,7 +72,7 @@
     @include fontBackground();
     margin: 1em 0 2em 0;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         display: none;
     }
 }

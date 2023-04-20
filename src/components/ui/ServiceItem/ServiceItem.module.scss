@@ -23,7 +23,7 @@
 
     text-decoration: none;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         background: none;
         box-shadow: none;
         width: 96px;
@@ -38,7 +38,7 @@
     background: linear-gradient(180deg, var(--gradient-dark-color) 0%, var(--gradient-light-color) 100%);
     border-radius: 50%;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         height: 56px;
         width: 56px;
 
@@ -53,7 +53,7 @@
     display: flex;
     position: absolute;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         svg {
             height: 21.35px;
             width: 21.35px;
@@ -66,7 +66,7 @@
     color: black;
     text-align: center;
     
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(14px, 17px, 400);
         color: black;
     }

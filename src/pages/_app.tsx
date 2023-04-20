@@ -23,7 +23,16 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Head from "next/head";
 import { MobileMenu } from "@/components/widgets/MobileMenu/MobileMenu";
 
-const criticalStyles = { ...styles, navbar, parallax, smm, button, caseItem, serviceItem, mobileMenu };
+const criticalStyles = {
+    ...styles,
+    navbar,
+    parallax,
+    smm,
+    button,
+    caseItem,
+    serviceItem,
+    mobileMenu
+};
 
 export const StylesContext = createContext(criticalStyles);
 
@@ -32,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
     const { theme, path } = useTheme();
 
     const onExit = () => {
-        setTimeout(() => window.scrollTo({ behavior: "smooth", top: 0 }), 1000);
+        // setTimeout(() => window.scrollTo({ behavior: "smooth", top: 0 }), 1000);
     };
 
     return (

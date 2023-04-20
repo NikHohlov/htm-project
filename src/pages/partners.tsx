@@ -9,12 +9,13 @@ import { animate, motion, useInView, useMotionValue, useTransform } from "framer
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
 import { ParallaxText } from "@/components/widgets/Parallax/Parallax";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "./_app";
 import Head from "next/head";
 
 export default function Partners() {
     const { variants } = usePageTransition();
+    const [inViewOnce, setInViewOnce] = useState(false);
 
     const { partners: styles } = useContext(StylesContext);
 
@@ -30,7 +31,12 @@ export default function Partners() {
         }
     }, [count, inView]);
 
+    const refIcons = useRef(null);
+    const isInViewIcons = useInView(refIcons);
 
+    useEffect(() => {
+        if (isInViewIcons) setInViewOnce(true);
+    },[isInViewIcons]);
 
     return (
         <>
@@ -81,15 +87,15 @@ export default function Partners() {
                     <ParallaxText baseVelocity={1}>Совкомбанк Pink Hairlab</ParallaxText>
                 </motion.div>
 
-                <div className={styles.logosContainer}>
+                <div ref={refIcons} className={styles.logosContainer}>
                     {logos.map((logo, index) => (
                         <motion.div
                             key={logo.src}
                             className={styles.wrapper}
-                            initial={{ y: -100, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ delay: (index + 1) / 10, type: "tween", duration: 0.6 }}
-                            animate={{ y: -100, opacity: 0 }}
+                            initial={{ y: -50, opacity: 0 }}
+                            transition={{ delay: index / 8, type: "tween", duration: 0.8 }}
+                            animate={inViewOnce ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }}
+                            viewport={{ once: true }}
                         >
                             <Image fill className={styles.partnerLogo} key={logo.src} src={logo} alt="image" quality={100}/>
                         </motion.div>

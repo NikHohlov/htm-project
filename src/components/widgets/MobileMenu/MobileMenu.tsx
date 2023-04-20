@@ -4,7 +4,7 @@ import useTheme from "@/lib/hooks/useTheme";
 import { Theme } from "@/lib/types";
 import { StylesContext } from "@/pages/_app";
 import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
 import logoWhite from "@/assets/pictures/logo-white.png";
 import logo from "@/assets/pictures/logo.png";
 import Link from "next/link";
@@ -35,7 +35,7 @@ const routes = [
     },
 ];
 
-export const MobileMenu = () => {
+export const MobileMenu: FC = () => {
     const { mobileMenu: styles } = useContext(StylesContext);
     const [isOpen, setIsOpen] = useState(false);
     const [menuTrigger, setMenuTrigger] = useState(false);

@@ -6,7 +6,7 @@
     padding: 15% 15% 7% 15%;
     gap: 3em;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         flex-direction: column;
         gap: 1em;
         position: absolute;
@@ -20,7 +20,7 @@
     @include text(36px, 53px, 800, Codenext);
     color: black;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(20px, 29px, 800, Codenext);
         color: black;
     }
@@ -30,7 +30,7 @@
     @include text(16px, 22.88px, 400);
     color: black;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(12px, 14px, 400);
         color: black;
         margin-bottom: 5em;
@@ -47,7 +47,7 @@
     @include fontBackground();
     margin: 1em 0 2em 0;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(12px, 14px, 700);
     }
 }
@@ -71,7 +71,7 @@
         transform: scale(-1, -1);
     }
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         height: 87.5vw;
         width: 87.5vw;
     }
@@ -82,14 +82,14 @@
     flex-direction: column;
     gap: 3em;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         gap: 1em;
         padding: 0 7%;
     }
 }
 
 .buttons {
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         button {
             width: 116px;
             height: 29px;

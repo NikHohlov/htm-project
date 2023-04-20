@@ -23,9 +23,11 @@ import Head from "next/head";
 import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
 import { Theme } from "@/lib/types";
+import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
+    const smoothVerticalScrolling = useSmoothScroll();
 
     const { about: styles } = useContext(StylesContext);
 
@@ -33,7 +35,7 @@ export default function About() {
 
     const scrollDown = () => {
         setTimeout(() => {
-            if (!isNull(ref.current)) ref.current.scrollIntoView({ behavior: "smooth" });
+            if (!isNull(ref.current)) smoothVerticalScrolling(ref.current, 500, "top");
         }, 100);
     };
 
@@ -76,9 +78,7 @@ export default function About() {
                         <motion.div
                             className={styles.textContainer}
                         >
-                            <p>ПОПАДЕМ </p>
-                            {" "}
-                            <p>В ТВОЮ АУДИТОРИЮ</p>
+                            <p>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
                         </motion.div>
                     </motion.div>
 
@@ -105,10 +105,10 @@ export default function About() {
             >
                 <motion.div
                     className={styles.secondText}
-                    initial={{ x: -300, opacity: 0 }}
+                    initial={{ x: -200, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ delay: 1, type: "tween" }}
-                    animate={{ x: -300, opacity: 0 }}
+                    animate={{ x: -200, opacity: 0 }}
                 >
                     <motion.p>HIT THE MARKET</motion.p>
                     <motion.p className={styles.secondaryText}>независимое<br/> SOCIAL & digital агентство</motion.p>

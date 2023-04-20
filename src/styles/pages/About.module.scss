@@ -4,8 +4,13 @@
     @include flexCenter();
     flex-direction: column;
     height: 100vh;
-    margin-bottom: 5em;
-    overflow: hidden
+    overflow: hidden;
+
+    @media (max-width: 429px) {
+        flex-direction: column;
+        height: 100vh;
+        margin-bottom: 0;
+    }
 }
 
 .secondSection {
@@ -18,7 +23,7 @@
     overflow: hidden;
     margin-bottom: 2em;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         flex-direction: column;
         height: 100vh;
     }
@@ -37,12 +42,22 @@
         display: none;
     }
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         display: block;
 
         .contacts {
             display: block;
             margin-top: 10em;
+            
+            button {
+                width: 132px;
+                height: 29px;
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 17px;
+            }
         }
     }
 }
@@ -56,7 +71,7 @@
     left: auto !important;
     width: auto !important;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         height: 85vw !important;
     }
 }
@@ -67,9 +82,10 @@
     height: 800px !important;
     width: 620px !important;
 
-    @media (max-width: 414px) {
-        width: 100% !important;
-        height: 50% !important;      
+    @media (max-width: 429px) {
+        width: 70% !important;
+        height: 50% !important;  
+        margin-left: 15%;    
     }
 }
 
@@ -80,10 +96,10 @@
     height: 80%;
     bottom: 14%;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         object-fit: cover;
         overflow: inherit;
-        width: 220%;
+        width: 110%;
         height: 100%;
         bottom: 0;
     }
@@ -98,7 +114,7 @@
     gap: 2em;
     bottom: 1%;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         position: relative;
         bottom: 0;
     }
@@ -116,7 +132,7 @@
     border-radius: 50%;
     cursor: pointer;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         width: 30px;
         height: 30px;
         bottom: 0;
@@ -129,8 +145,6 @@
 }
 
 .textContainer {
-    @include text(40px, 48px, 800, Codenext);
-    @include fontBackground(#6158F3, #41C0FF, 19.19%, 96.56%);
     position: relative;
     top: 78%;
     display: flex;
@@ -139,15 +153,18 @@
 
     p {
         margin-left: 1rem;
+        @include text(40px, 48px, 800, Codenext);
+        @include fontBackground(#6158F3, #41C0FF, 19.19%, 96.56%);
+        text-align: center;
     }
 
-    @media (max-width: 414px) {
-        @include text(20px, 29px, 800, Codenext);
-        @include fontBackground(#6158F3, #41C0FF, 19.19%, 96.56%);
+    @media (max-width: 429px) {
         top: 0;
 
         flex-direction: column;
         p {
+            @include text(20px, 29px, 800, Codenext);
+            @include fontBackground(#6158F3, #41C0FF, 19.19%, 96.56%);
             margin-left: 0;
         }
     }
@@ -161,7 +178,7 @@
     left: 60px;
     z-index: 5;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(34px, 45px, 800, Codenext);
         width: 88%;    
         top: 20%;
@@ -172,7 +189,7 @@
         @include text(40px, 48px, 400);
         text-transform: uppercase;
         
-        @media (max-width: 414px) {
+        @media (max-width: 429px) {
             @include text(28px, 32px, 400);
         }
     }
@@ -186,7 +203,7 @@
     width: 90%;
     gap: 1em;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         gap: 2.5em;
     }
 }
@@ -195,7 +212,7 @@
     @include text(40px, 58.6px, 800, Codenext);
     @include fontBackground(); 
     
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(24px, 35px, 800, Codenext);
     }
 }
@@ -204,7 +221,7 @@
     @include text(24px, 28.8px, 400);
     color: black;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         @include text(16px, 19px, 400);
         color: black;
     }
@@ -218,7 +235,7 @@
         @include text(40px, 48px, 500);
         color: black;
 
-        @media (max-width: 414px) {
+        @media (max-width: 429px) {
             @include text(19px, 23px, 500);
             color: black;
         }
@@ -231,7 +248,7 @@
     align-items: center;
     flex-direction: column;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         position: relative;
         width: 100%;
         height: 50%;
@@ -243,14 +260,14 @@
 .textures {
     position: absolute;
 
-    @media (max-width: 414px) {
+    @media (max-width: 429px) {
         height: 100%;
     }
 
     img {
         position: relative !important;
 
-        @media (max-width: 414px) {
+        @media (max-width: 429px) {
             object-fit: cover;
             height: 60% !important;
         }

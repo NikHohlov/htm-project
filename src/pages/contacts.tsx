@@ -18,6 +18,7 @@ import Head from "next/head";
 import { services } from "@/data/services";
 import { SelectArrow } from "@/assets/icons/SelectArrow";
 import { isNull } from "@/lib/utils/typeCheckers";
+import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 
 interface Form {
     name: string;
@@ -39,12 +40,21 @@ export default function Contacts() {
     });
     const ref = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLDivElement>(null);
+    const smoothVerticalScrolling = useSmoothScroll();
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (!formRef.current) return;
+            smoothVerticalScrolling(formRef.current, 500, "center");
+        }, 1100);
+    }, []);
+
 
     useEffect(() => {
         if (!isVisibleDropdown) return;
         setTimeout(() => {
             if (isNull(ref.current)) return;
-            ref.current.scrollIntoView({ behavior: "smooth" });
+            smoothVerticalScrolling(ref.current, 300, "top");
         }, 600);
     }, [isVisibleDropdown]);
 
@@ -54,14 +64,14 @@ export default function Contacts() {
     const { variants } = usePageTransition();
 
     const handleSubmit = () => {
-        // fetch("/api/contact", {
-        //     method: "POST",
-        //     headers: {
-        //         "Accept": "application/json, text/plain, */*",
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(data)
-        // });
+        fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
 
         setSubmitted(true);
         window.scrollTo({ behavior: "smooth", top: 0 });
@@ -76,7 +86,7 @@ export default function Contacts() {
         setIsVisibleDropdown(false);
         setTimeout(() => {
             if (isNull(formRef.current)) return;
-            formRef.current.scrollIntoView({ behavior: "smooth" });
+            smoothVerticalScrolling(formRef.current, 300, "top");
         }, 600);
     };
 

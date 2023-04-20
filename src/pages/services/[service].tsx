@@ -11,9 +11,12 @@ import Button from "@/components/ui/Button/Button";
 import { motion } from "framer-motion";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
 import Head from "next/head";
+import Link from "next/link";
+import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
+// import { Plus } from "@/assets/icons/Plus";
 
 export default function Service() {
     const router = useRouter();
@@ -23,14 +26,22 @@ export default function Service() {
 
     const { variants } = usePageTransition();
 
-    const redirect = (path: string) => () => router.push(`/${path}`);
-
     useEffect(() => {
         if (!isServiceLoaded) {
             setService(services.find((item) => item.name === router.query.service));
             if (router.query.service) setIsServiceLoaded(true);
         }
     }, [router.query.service]);
+
+    const ref = useRef<HTMLDivElement>(null);
+    const smoothVerticalScrolling = useSmoothScroll();
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (!ref.current) return;
+            smoothVerticalScrolling(ref.current, 500, "center");
+        }, 1100);
+    }, []);
 
     return (
         <>
@@ -39,10 +50,11 @@ export default function Service() {
             </Head>
 
             <motion.div
-                variants={{ ...variants, exit: { opacity: 1, x: -1600, y: 0 } }}
+                ref={ref}
+                variants={{ ...variants }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit="exit"
+                exit={{ opacity: 0 }}
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
 
@@ -84,8 +96,12 @@ export default function Service() {
                         <div className={styles.buttons}>
                             {service?.points &&
                             <>
-                                <Button onClick={redirect("contacts")} theme={Theme.Dark} title="Заказать"/>
-                                <Button onClick={redirect("cases")} theme={Theme.Dark} title="К кейсам"/>
+                                <Link href="/contacts" scroll={false}>
+                                    <Button theme={Theme.Dark} title="Заказать"/>
+                                </Link>
+                                <Link href="/cases" scroll={false}>
+                                    <Button theme={Theme.Dark} title="К кейсам"/>
+                                </Link>
                             </>
                             }
                         </div>
@@ -95,7 +111,16 @@ export default function Service() {
                 {service?.points && (
                     <motion.div
                         className={styles.secondSection}
+                        exit={{ opacity: 0 }}
                     >
+                        {/* <div className={styles.step}>
+                            <div className={styles.stepContainer}>
+                                <p>Шаг 1: Аналитика</p>
+                                <Plus />
+                                <Plus className={styles.plus} />
+                            </div>
+                        </div> */}
+
                         <p className={styles.secondTitle}>В услугу входит</p>
 
                         <div className={styles.pointsContainer}>
