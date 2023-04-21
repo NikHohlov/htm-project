@@ -10,10 +10,6 @@ import textures from "@/assets/pictures/aboutPage/textures.png";
 
 import main from "@/assets/pictures/main.gif";
 
-import { Arrow } from "@/assets/icons/Arrow";
-
-import { isNull } from "@/lib/utils/typeCheckers";
-
 import { motion } from "framer-motion";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
@@ -23,21 +19,14 @@ import Head from "next/head";
 import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
 import { Theme } from "@/lib/types";
-import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
+import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
-    const smoothVerticalScrolling = useSmoothScroll();
 
     const { about: styles } = useContext(StylesContext);
 
     const { variants } = usePageTransition();
-
-    const scrollDown = () => {
-        setTimeout(() => {
-            if (!isNull(ref.current)) smoothVerticalScrolling(ref.current, 500, "top");
-        }, 100);
-    };
 
     const points = [
         "Разработаем индивидуальную рекламную стратегию",
@@ -53,6 +42,7 @@ export default function About() {
             </Head>
 
             <motion.div
+                ref={ref}
                 className={styles.firstSection}
                 variants={variants}
                 initial="hidden"
@@ -81,22 +71,12 @@ export default function About() {
                             <p>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
                         </motion.div>
                     </motion.div>
-
-                    <motion.div
-                        onClick={scrollDown}
-                        className={styles.arrowCircle}
-                        animate={{ opacity: 0 }}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
-                    >
-                        <Arrow />
-                    </motion.div>
                 </div>
+
+                <ArrowScroll scrollTo={ref} gradient/>
             </motion.div>
 
             <motion.div
-                ref={ref}
                 className={styles.secondSection}
                 animate={{ opacity: 0 }}
                 initial={{ opacity: 0 }}

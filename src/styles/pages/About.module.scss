@@ -112,35 +112,11 @@
     justify-items: center;
     align-items: center;
     gap: 2em;
-    bottom: 1%;
+    bottom: 5em;
 
     @media (max-width: 429px) {
         position: relative;
         bottom: 0;
-    }
-}
-
-.arrowCircle {
-    position: relative;
-    bottom: 13.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 49px;
-    height: 49px;
-    background: linear-gradient(142.34deg, #615AF4 12.37%, #41C0FF 83.85%);
-    border-radius: 50%;
-    cursor: pointer;
-
-    @media (max-width: 429px) {
-        width: 30px;
-        height: 30px;
-        bottom: 0;
-
-        svg {
-            width: 15px;
-            height: 12px;
-        }
     }
 }
 

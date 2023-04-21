@@ -23,12 +23,13 @@ export default function Case() {
     const { variants } = usePageTransition();
 
     const ref = useRef<HTMLDivElement>(null);
-    const smoothVerticalScrolling = useSmoothScroll();
+    const { scrollToSmoothly } = useSmoothScroll();
 
     useEffect(() => {
         setTimeout(() => {
             if (!ref.current) return;
-            smoothVerticalScrolling(ref.current, 500, "top");
+            scrollToSmoothly(ref.current.getBoundingClientRect().top, 0);
+
         }, 1100);
     }, []);
 

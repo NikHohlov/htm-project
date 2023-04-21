@@ -16,6 +16,7 @@ import smm from "@/components/widgets/SocialMediaList/SocialMediaList.module.scs
 import button from "@/components/ui/Button/Button.module.scss";
 import caseItem from "@/components/ui/CaseItem/CaseItem.module.scss";
 import serviceItem from "@/components/ui/ServiceItem/ServiceItem.module.scss";
+import arrow from "@/components/ui/ArrowScroll/ArrowScroll.module.scss";
 import mobileMenu from "@/components/widgets/MobileMenu/MobileMenu.module.scss";
 
 import "@/styles/globals.css";
@@ -31,7 +32,8 @@ const criticalStyles = {
     button,
     caseItem,
     serviceItem,
-    mobileMenu
+    mobileMenu,
+    arrow
 };
 
 export const StylesContext = createContext(criticalStyles);

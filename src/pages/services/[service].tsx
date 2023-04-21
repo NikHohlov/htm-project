@@ -34,12 +34,12 @@ export default function Service() {
     }, [router.query.service]);
 
     const ref = useRef<HTMLDivElement>(null);
-    const smoothVerticalScrolling = useSmoothScroll();
+    const { scrollToSmoothly } = useSmoothScroll();
 
     useEffect(() => {
         setTimeout(() => {
             if (!ref.current) return;
-            smoothVerticalScrolling(ref.current, 500, "center");
+            scrollToSmoothly(ref.current.getBoundingClientRect().top, 0);
         }, 1100);
     }, []);
 

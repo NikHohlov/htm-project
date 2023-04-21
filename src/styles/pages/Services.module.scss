@@ -5,24 +5,26 @@
     background: linear-gradient(5deg, #34C3FB 1%, var(--bg-top-color) 99%);
     display: flex;
     align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: center;
     overflow: hidden;
 }
 
 .secondSection{
     min-height: 100vh;
     margin: 7% 7% 7% 7%;
+    height: 100vh;
 }
 
 .image {
     object-fit: contain;
-    inset: 0 0 0 1% !important;
+    inset: 0 0 0 5% !important;
     position: relative !important;
     height: 90% !important;
     width: 90% !important;
 
     @media (max-width: 429px) {
-        margin-bottom: 5em;
+        margin-bottom: 4em;
+        margin-left: 2em;
         height: 80% !important;
         width: 80% !important;
     }

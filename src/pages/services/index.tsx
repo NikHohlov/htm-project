@@ -19,10 +19,12 @@ import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
 import Head from "next/head";
+import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 
 export default function Services() {
     const router = useRouter();
     const [inViewOnce, setInViewOnce] = useState(false);
+    const secondSectionRef = useRef<HTMLDivElement>(null);
 
     const { services: styles } = useContext(StylesContext);
 
@@ -46,6 +48,7 @@ export default function Services() {
             </Head>
 
             <motion.div
+                ref={secondSectionRef}
                 className={styles.firstSection}
                 variants={variants}
                 initial="hidden"
@@ -69,7 +72,9 @@ export default function Services() {
 
                 <Image priority className={styles.image} fill src={ourServices} alt="image" quality={100}/>
 
+                <ArrowScroll scrollTo={secondSectionRef}/>
             </motion.div>
+
 
             <motion.div
                 className={styles.secondSection}
@@ -94,7 +99,6 @@ export default function Services() {
                         <motion.div
                             key={title}
                             initial={{ y: -50, opacity: 0 }}
-                            // whileInView={{ y: 0, opacity: 1 }}
                             transition={{ delay: index / 8, type: "tween", duration: 0.8 }}
                             animate={inViewOnce ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }}
                             viewport={{ once: true }}

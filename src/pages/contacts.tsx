@@ -17,7 +17,6 @@ import { StylesContext } from "./_app";
 import Head from "next/head";
 import { services } from "@/data/services";
 import { SelectArrow } from "@/assets/icons/SelectArrow";
-import { isNull } from "@/lib/utils/typeCheckers";
 import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 
 interface Form {
@@ -26,7 +25,6 @@ interface Form {
     comment: string;
     service: string;
 }
-
 
 export default function Contacts() {
     const [submitted, setSubmitted] = useState(false);
@@ -40,24 +38,14 @@ export default function Contacts() {
     });
     const ref = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLDivElement>(null);
-    const smoothVerticalScrolling = useSmoothScroll();
+    const { scrollToSmoothly } = useSmoothScroll();
 
     useEffect(() => {
         setTimeout(() => {
             if (!formRef.current) return;
-            smoothVerticalScrolling(formRef.current, 500, "center");
-        }, 1100);
+            scrollToSmoothly(formRef.current.getBoundingClientRect().top, 0);
+        }, 1300);
     }, []);
-
-
-    useEffect(() => {
-        if (!isVisibleDropdown) return;
-        setTimeout(() => {
-            if (isNull(ref.current)) return;
-            smoothVerticalScrolling(ref.current, 300, "top");
-        }, 600);
-    }, [isVisibleDropdown]);
-
 
     const { contacts: styles } = useContext(StylesContext);
 
@@ -77,17 +65,12 @@ export default function Contacts() {
         window.scrollTo({ behavior: "smooth", top: 0 });
     };
 
-
     const onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
         setData(prev => ({ ...prev, [event.target.name]: event.target.value }));
 
     const onSelect = (title: string) => () => {
         setData(prev => ({ ...prev, service: title }));
         setIsVisibleDropdown(false);
-        setTimeout(() => {
-            if (isNull(formRef.current)) return;
-            smoothVerticalScrolling(formRef.current, 300, "top");
-        }, 600);
     };
 
     const onSelectToggle = () => {

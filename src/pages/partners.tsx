@@ -12,10 +12,12 @@ import { ParallaxText } from "@/components/widgets/Parallax/Parallax";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "./_app";
 import Head from "next/head";
+import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 
 export default function Partners() {
     const { variants } = usePageTransition();
     const [inViewOnce, setInViewOnce] = useState(false);
+    const secondSectionRef = useRef<HTMLDivElement>(null);
 
     const { partners: styles } = useContext(StylesContext);
 
@@ -45,6 +47,7 @@ export default function Partners() {
             </Head>
 
             <motion.div
+                ref={secondSectionRef}
                 className={styles.firstSection}
                 variants={variants}
                 initial="hidden"
@@ -68,7 +71,7 @@ export default function Partners() {
                     <p>Число компаний, сделавших правильный выбор</p>
                 </div>
 
-
+                <ArrowScroll scrollTo={secondSectionRef} gradient/>
             </motion.div>
 
             <motion.div

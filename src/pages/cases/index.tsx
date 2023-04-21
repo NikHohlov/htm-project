@@ -14,16 +14,17 @@ import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
 import Head from "next/head";
+import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 
 
 export default function Cases() {
     const router = useRouter();
     const [inViewOnce, setInViewOnce] = useState(false);
+    const secondSectionRef = useRef<HTMLDivElement>(null);
+    const { scrollToSmoothly } = useSmoothScroll();
 
-    const { cases: casesStyle } = useContext(StylesContext);
-
-    const styles = casesStyle;
+    const { cases: styles } = useContext(StylesContext);
 
     const { variants, transitionHandler } = usePageTransition();
 
@@ -32,14 +33,6 @@ export default function Cases() {
     };
 
     const ref = useRef<HTMLDivElement>(null);
-    const smoothVerticalScrolling = useSmoothScroll();
-
-    useEffect(() => {
-        setTimeout(() => {
-            if (!ref.current) return;
-            smoothVerticalScrolling(ref.current, 500, "center");
-        }, 1100);
-    }, []);
 
     const refCases = useRef(null);
     const isInViewCases = useInView(refCases);
@@ -47,6 +40,13 @@ export default function Cases() {
     useEffect(() => {
         if (isInViewCases) setInViewOnce(true);
     },[isInViewCases]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (!ref.current) return;
+            scrollToSmoothly(ref.current.getBoundingClientRect().top, 0);
+        }, 1300);
+    }, []);
 
     return (
         <>
@@ -75,14 +75,16 @@ export default function Cases() {
 
                     <p className={styles.primaryText}>КЕЙСЫ</p>
 
-
                 </motion.div>
 
                 <Image priority className={styles.image} fill src={cases} alt="image" quality={100}/>
 
+                <ArrowScroll scrollTo={ref}/>
+
             </motion.div>
 
             <motion.div
+                ref={secondSectionRef}
                 className={styles.secondSection}
                 variants={variants}
                 initial="hidden"
