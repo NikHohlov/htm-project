@@ -21,7 +21,7 @@
     left: inherit !important;
     right: 1.5em !important;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         right: 0 !important;
         inset: 0 !important;
         width: 85% !important;
@@ -34,7 +34,7 @@
 .primaryText {
     @include text(96px, 140.64px, 800, Codenext);
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         @include text(55px, 81px, 800, Codenext);
     }
 }
@@ -54,7 +54,7 @@
     padding: 7% 7% 0 7%;
     margin-bottom: 7%;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         justify-content: center;
         flex-direction: column;
         gap: 20em;
@@ -72,7 +72,7 @@
     flex-wrap: wrap;
     margin-top: 9em;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;

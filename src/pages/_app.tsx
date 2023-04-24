@@ -18,6 +18,7 @@ import caseItem from "@/components/ui/CaseItem/CaseItem.module.scss";
 import serviceItem from "@/components/ui/ServiceItem/ServiceItem.module.scss";
 import arrow from "@/components/ui/ArrowScroll/ArrowScroll.module.scss";
 import mobileMenu from "@/components/widgets/MobileMenu/MobileMenu.module.scss";
+import feedbackForm from "@/components/widgets/FeedbackForm/FeedbackForm.module.scss";
 
 import "@/styles/globals.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -33,7 +34,8 @@ const criticalStyles = {
     caseItem,
     serviceItem,
     mobileMenu,
-    arrow
+    arrow,
+    feedbackForm
 };
 
 export const StylesContext = createContext(criticalStyles);

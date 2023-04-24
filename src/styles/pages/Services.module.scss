@@ -22,7 +22,7 @@
     height: 90% !important;
     width: 90% !important;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         margin-bottom: 4em;
         margin-left: 2em;
         height: 80% !important;
@@ -33,7 +33,7 @@
 .primaryText {
     @include text(96px, 140.64px, 800, Codenext);
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         @include text(55px, 81px, 800, Codenext);
     }
 }
@@ -42,7 +42,7 @@
     @include text(48px, 70.32px, 800, Codenext);
     @include fontBackground(#6158F3, #41C0FF, 0.82%, 47.36%);
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         @include text(24px, 35px, 800, Codenext);
     }
 }
@@ -55,7 +55,7 @@
     position: absolute;
     top: 29%;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         flex-direction: column;
         align-items: center;
         margin-top: 8em;
@@ -74,7 +74,7 @@
     justify-items: center;
     margin: 7% 0 7% 0;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         grid-template-columns: repeat(2, 1fr);
         gap: 0;
         row-gap: 2em;
@@ -83,7 +83,7 @@
 }
 
 .contacts {
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         button {
             width: 132px;
             height: 29px;

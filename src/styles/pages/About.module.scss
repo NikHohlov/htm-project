@@ -6,7 +6,7 @@
     height: 100vh;
     overflow: hidden;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         flex-direction: column;
         height: 100vh;
         margin-bottom: 0;
@@ -23,7 +23,7 @@
     overflow: hidden;
     margin-bottom: 2em;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         flex-direction: column;
         height: 100vh;
     }
@@ -42,7 +42,7 @@
         display: none;
     }
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         display: block;
 
         .contacts {
@@ -71,7 +71,7 @@
     left: auto !important;
     width: auto !important;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         height: 85vw !important;
     }
 }
@@ -82,7 +82,7 @@
     height: 800px !important;
     width: 620px !important;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         width: 70% !important;
         height: 50% !important;  
         margin-left: 15%;    
@@ -96,7 +96,7 @@
     height: 80%;
     bottom: 14%;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         object-fit: cover;
         overflow: inherit;
         width: 110%;
@@ -114,7 +114,7 @@
     gap: 2em;
     bottom: 5em;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         position: relative;
         bottom: 0;
     }
@@ -134,7 +134,7 @@
         text-align: center;
     }
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         top: 0;
 
         flex-direction: column;
@@ -154,7 +154,7 @@
     left: 60px;
     z-index: 5;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         @include text(34px, 45px, 800, Codenext);
         width: 88%;    
         top: 20%;
@@ -165,7 +165,7 @@
         @include text(40px, 48px, 400);
         text-transform: uppercase;
         
-        @media (max-width: 429px) {
+        @media (max-width: 900px) {
             @include text(28px, 32px, 400);
         }
     }
@@ -179,7 +179,7 @@
     width: 90%;
     gap: 1em;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         gap: 2.5em;
     }
 }
@@ -188,7 +188,7 @@
     @include text(40px, 58.6px, 800, Codenext);
     @include fontBackground(); 
     
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         @include text(24px, 35px, 800, Codenext);
     }
 }
@@ -197,7 +197,7 @@
     @include text(24px, 28.8px, 400);
     color: black;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         @include text(16px, 19px, 400);
         color: black;
     }
@@ -211,7 +211,7 @@
         @include text(40px, 48px, 500);
         color: black;
 
-        @media (max-width: 429px) {
+        @media (max-width: 900px) {
             @include text(19px, 23px, 500);
             color: black;
         }
@@ -224,7 +224,7 @@
     align-items: center;
     flex-direction: column;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         position: relative;
         width: 100%;
         height: 50%;
@@ -236,14 +236,14 @@
 .textures {
     position: absolute;
 
-    @media (max-width: 429px) {
+    @media (max-width: 900px) {
         height: 100%;
     }
 
     img {
         position: relative !important;
 
-        @media (max-width: 429px) {
+        @media (max-width: 900px) {
             object-fit: cover;
             height: 60% !important;
         }
