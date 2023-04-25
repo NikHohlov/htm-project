@@ -72,7 +72,7 @@ export default function FeedbackForm({ setSubmitted }: FeedbackForm) {
             setTimeout(() => setIsVisibleDropdown(false), 500);
             return;
         }
-        setIsVisibleDropdown(prev => !prev);
+        setTimeout(() => setIsVisibleDropdown(prev => !prev), 50);
         setAnimate(false);
     };
 
