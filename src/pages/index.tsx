@@ -41,8 +41,6 @@ export default function About() {
                 <title>HTM</title>
             </Head>
 
-
-
             <motion.div
                 ref={ref}
                 className={styles.firstSection}
@@ -56,17 +54,24 @@ export default function About() {
                 <motion.div
                     className={styles.logoHolder}
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.5 }}
+                    animate={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.5, type: "tween", ease: "easeInOut" }}
+                    transition={{ duration: 1, type: "tween", ease: "easeInOut" }}
                 >
-                    <Image priority className={styles.logo} src={main} alt="image" quality={100}/>
+                    <Image
+                        priority
+                        className={styles.logo}
+                        src={main}
+                        alt="image"
+                        quality={100}
+                    />
                 </motion.div>
 
                 <div className={styles.arrowContainer}>
                     <motion.div
                         animate={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
+                        transition={{ delay: 1 }}
                     >
                         <motion.div
                             className={styles.textContainer}
@@ -77,7 +82,6 @@ export default function About() {
                 </div>
 
                 <ArrowScroll scrollTo={ref} gradient/>
-
             </motion.div>
 
             <motion.div

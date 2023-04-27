@@ -6,7 +6,7 @@ import useTheme from "@/lib/hooks/useTheme";
 
 import { AnimatePresence } from "framer-motion";
 
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 import * as styles from "@/styles/pages";
 
@@ -20,7 +20,10 @@ import navbar from "@/components/widgets/Navbar/Navbar.module.scss";
 import parallax from "@/components/widgets/Parallax/parallax.module.scss";
 import smm from "@/components/widgets/SocialMediaList/SocialMediaList.module.scss";
 
+import { LogoLoader } from "@/assets/icons/LogoLoader";
+import { LogoLoaderGradient } from "@/assets/icons/LogoLoaderGradient";
 import { MobileMenu } from "@/components/widgets/MobileMenu/MobileMenu";
+import { Theme } from "@/lib/types";
 import "@/styles/globals.css";
 import Head from "next/head";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -43,10 +46,17 @@ export const StylesContext = createContext(criticalStyles);
 
 export default function App({ Component, pageProps }: AppProps) {
     const { theme, path } = useTheme();
+    const [globalInit, setGlobalInit] = useState(true);
+
 
     useEffect(() => {
         history.scrollRestoration = "manual";
+        setTimeout(() => {
+            setGlobalInit(false);
+        }, 1000);
     }, []);
+
+    const Loader = theme === Theme.Dark ? <LogoLoader /> : <LogoLoaderGradient />;
 
     return (
         <>
@@ -60,18 +70,28 @@ export default function App({ Component, pageProps }: AppProps) {
                     content="Независимое SOCIAL & digital агентство"
                 />
             </Head>
-            <StylesContext.Provider value={criticalStyles}>
-                <Navbar theme={theme} />
 
-                <MobileMenu />
 
-                <AnimatePresence
-                    mode="wait"
-                    initial={false}
-                >
-                    <Component {...pageProps} key={path}/>
-                </AnimatePresence>
-            </StylesContext.Provider>
+            {
+                globalInit
+                    ?
+                    Loader
+                    :
+                    <StylesContext.Provider value={criticalStyles}>
+                        <Navbar theme={theme} />
+
+                        <MobileMenu />
+                        <AnimatePresence
+                            mode="wait"
+                            initial={false}
+                        >
+                            <Component {...pageProps} key={path}/>
+                        </AnimatePresence>
+                    </StylesContext.Provider>
+
+            }
+
+
         </>
     );
 }

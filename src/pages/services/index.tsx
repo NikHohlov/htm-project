@@ -70,7 +70,14 @@ export default function Services() {
 
                 </motion.div>
 
-                <Image priority className={styles.image} fill src={ourServices} alt="image" quality={100}/>
+                <Image
+                    priority
+                    className={styles.image}
+                    fill
+                    src={ourServices}
+                    alt="image"
+                    quality={100}
+                />
 
                 <ArrowScroll scrollTo={secondSectionRef}/>
             </motion.div>

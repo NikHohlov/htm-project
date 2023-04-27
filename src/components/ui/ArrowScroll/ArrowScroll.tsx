@@ -25,7 +25,7 @@ export const ArrowScroll = ({ scrollTo, gradient }: ArrowScrollProps) => {
             animate={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+            transition={{ delay: 1, type: "tween", duration: 0.4, ease: "easeInOut" }}
         >
             {gradient
                 ? <ArrowDownGradient />
