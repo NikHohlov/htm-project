@@ -14,12 +14,12 @@ import { motion } from "framer-motion";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
-import { StylesContext } from "./_app";
-import Head from "next/head";
-import Link from "next/link";
+import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 import Button from "@/components/ui/Button/Button";
 import { Theme } from "@/lib/types";
-import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
+import Head from "next/head";
+import Link from "next/link";
+import { StylesContext } from "./_app";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
@@ -41,6 +41,8 @@ export default function About() {
                 <title>HTM</title>
             </Head>
 
+
+
             <motion.div
                 ref={ref}
                 className={styles.firstSection}
@@ -50,6 +52,7 @@ export default function About() {
                 exit="exit"
                 transition={{ type: "linear", duration: 0.9, ease: "easeInOut" }}
             >
+
                 <motion.div
                     className={styles.logoHolder}
                     initial={{ opacity: 0 }}
@@ -74,6 +77,7 @@ export default function About() {
                 </div>
 
                 <ArrowScroll scrollTo={ref} gradient/>
+
             </motion.div>
 
             <motion.div

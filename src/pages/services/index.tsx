@@ -14,12 +14,12 @@ import { useRouter } from "next/router";
 
 import { motion, useInView } from "framer-motion";
 
+import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
+import Head from "next/head";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
-import Head from "next/head";
-import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 
 export default function Services() {
     const router = useRouter();

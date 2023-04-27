@@ -8,11 +8,11 @@ import { animate, motion, useInView, useMotionValue, useTransform } from "framer
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
+import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 import { ParallaxText } from "@/components/widgets/Parallax/Parallax";
+import Head from "next/head";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "./_app";
-import Head from "next/head";
-import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 
 export default function Partners() {
     const { variants } = usePageTransition();
