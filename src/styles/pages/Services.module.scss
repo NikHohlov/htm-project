@@ -19,14 +19,27 @@
     object-fit: contain;
     inset: 0 0 0 5% !important;
     position: relative !important;
-    height: 90% !important;
-    width: 90% !important;
+    // height: 90% !important;
+    // width: 90% !important;
 
     @media (max-width: 900px) {
-        margin-bottom: 4em;
+        // margin-bottom: 4em;
+        // margin-left: 2em;
+        // height: 80% !important;
+        // width: 80% !important;
+    }
+}
+
+.imageWrapper {
+    height: 90%;
+    width: 90%;
+    position: relative;
+
+    @media (max-width: 900px) {
+        margin-bottom: 7em;
         margin-left: 2em;
-        height: 80% !important;
-        width: 80% !important;
+        height: 80%;
+        width: 80%;
     }
 }
 

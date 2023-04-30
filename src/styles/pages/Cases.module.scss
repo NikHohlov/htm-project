@@ -22,12 +22,24 @@
     right: 1.5em !important;
 
     @media (max-width: 900px) {
-        right: 0 !important;
-        inset: 0 !important;
-        width: 85% !important;
-        height: auto !important;
-        margin-top: 24vh;
-        margin-left: 1.8em; 
+        // right: 0 !important;
+        // inset: 0 !important;
+        // width: 85% !important;
+        // height: auto !important;
+        // margin-top: 27vh;
+        // margin-left: 1.8em; 
+    }
+}
+
+.imageWrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    @media (max-width: 900px) {
+        width: 85%;
+        height: 100%;
+        margin-left: 2.5em; 
     }
 }
 

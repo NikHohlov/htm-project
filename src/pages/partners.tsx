@@ -13,6 +13,7 @@ import { ParallaxText } from "@/components/widgets/Parallax/Parallax";
 import Head from "next/head";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "./_app";
+import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 
 export default function Partners() {
     const { variants } = usePageTransition();
@@ -56,20 +57,25 @@ export default function Partners() {
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
 
-                <motion.span
-                    className={styles.counter}
-                    ref={ref}
+                <motion.div
+                    className={styles.counterWrapper}
+                    {...opacityFromZeroToOne}
                 >
-                    {rounded}
-                </motion.span>
+                    <motion.span
+                        className={styles.counter}
+                        ref={ref}
+                    >
+                        {rounded}
+                    </motion.span>
 
-                <div className={styles.partnersButton}>
-                    <p>НАШИ ПАРТНЕРЫ</p>
-                </div>
+                    <div className={styles.partnersButton}>
+                        <p>НАШИ ПАРТНЕРЫ</p>
+                    </div>
 
-                <div className={styles.secondaryText}>
-                    <p>Число компаний, сделавших правильный выбор</p>
-                </div>
+                    <div className={styles.secondaryText}>
+                        <p>Число компаний, сделавших правильный выбор</p>
+                    </div>
+                </motion.div>
 
                 <ArrowScroll scrollTo={secondSectionRef} gradient/>
             </motion.div>
@@ -81,10 +87,7 @@ export default function Partners() {
 
                 <motion.div
                     className={styles.parallax}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ type: "tween", ease: "easeIn" }}
+                    {...opacityFromZeroToOne}
                 >
                     <ParallaxText baseVelocity={-1}>Buy I side Digital Hypers</ParallaxText>
                     <ParallaxText baseVelocity={1}>Совкомбанк Pink Hairlab</ParallaxText>

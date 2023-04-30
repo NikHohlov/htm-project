@@ -39,7 +39,6 @@ export default function Contacts() {
                     initial={false}
                     mode="wait"
                 >
-
                     {submitted
                         ?
                         (

@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 
 import useTheme from "@/lib/hooks/useTheme";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { createContext, useEffect, useState } from "react";
 
@@ -27,6 +27,7 @@ import { Theme } from "@/lib/types";
 import "@/styles/globals.css";
 import Head from "next/head";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 
 const criticalStyles = {
     ...styles,
@@ -71,16 +72,20 @@ export default function App({ Component, pageProps }: AppProps) {
                 />
             </Head>
 
-
             {
                 globalInit
                     ?
-                    Loader
+                    <motion.div
+                        {...opacityFromZeroToOne}
+                    >
+                        {Loader}
+                    </motion.div>
                     :
                     <StylesContext.Provider value={criticalStyles}>
                         <Navbar theme={theme} />
 
                         <MobileMenu />
+
                         <AnimatePresence
                             mode="wait"
                             initial={false}

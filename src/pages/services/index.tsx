@@ -20,6 +20,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
+import { listDelaySlideIn, opacityFromZeroToOne, slideInItem } from "@/lib/animaitons/animations";
 
 export default function Services() {
     const router = useRouter();
@@ -58,26 +59,26 @@ export default function Services() {
             >
                 <motion.div
                     className={styles.textContainer}
-                    animate={{ opacity: 0 }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3, type: "tween", duration: 0.4, ease: "easeInOut" }}
+                    {...opacityFromZeroToOne}
                 >
                     <p className={styles.primaryText}>НАШИ</p>
-
-
                     <p className={styles.primaryText}>УСЛУГИ</p>
 
                 </motion.div>
 
-                <Image
-                    priority
-                    className={styles.image}
-                    fill
-                    src={ourServices}
-                    alt="image"
-                    quality={100}
-                />
+                <motion.div
+                    className={styles.imageWrapper}
+                    {...opacityFromZeroToOne}
+                >
+                    <Image
+                        priority
+                        className={styles.image}
+                        fill
+                        src={ourServices}
+                        alt="image"
+                        quality={100}
+                    />
+                </motion.div>
 
                 <ArrowScroll scrollTo={secondSectionRef}/>
             </motion.div>
@@ -92,10 +93,7 @@ export default function Services() {
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
                 <motion.p className={styles.primaryTextTwo}
-                    initial={{ x: -300, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.2, type: "tween" }}
-                    animate={{ x: -300, opacity: 0 }}
+                    {...slideInItem("toRight", 0.2)}
                     viewport={{ once: true }}
                 >
                     ЧТО МЫ МОЖЕМ
@@ -105,10 +103,7 @@ export default function Services() {
                     {services.map(({ title, icon, name }, index) =>
                         <motion.div
                             key={title}
-                            initial={{ y: -50, opacity: 0 }}
-                            transition={{ delay: index / 8, type: "tween", duration: 0.8 }}
-                            animate={inViewOnce ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }}
-                            viewport={{ once: true }}
+                            {...listDelaySlideIn(inViewOnce, index)}
                         >
                             <ServiceItem
                                 onClick={onClick("/services/[service]")} name={name} key={title} title={title} icon={icon()}

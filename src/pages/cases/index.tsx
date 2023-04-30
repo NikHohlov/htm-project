@@ -16,7 +16,7 @@ import { StylesContext } from "../_app";
 import Head from "next/head";
 import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
-
+import { listDelaySlideIn, opacityFromZeroToOne } from "@/lib/animaitons/animations";
 
 export default function Cases() {
     const router = useRouter();
@@ -65,19 +65,26 @@ export default function Cases() {
             >
                 <motion.div
                     className={styles.textContainer}
-                    animate={{ opacity: 0 }}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+                    {...opacityFromZeroToOne}
                 >
-
                     <p className={styles.primaryText}>НАШИ</p>
-
                     <p className={styles.primaryText}>КЕЙСЫ</p>
 
                 </motion.div>
 
-                <Image priority className={styles.image} fill src={cases} alt="image" quality={100}/>
+                <motion.div
+                    className={styles.imageWrapper}
+                    {...opacityFromZeroToOne}
+                    viewport={{ once: true }}
+                >
+                    <Image
+                        priority
+                        className={styles.image}
+                        fill
+                        src={cases}
+                        alt="image"
+                        quality={100}/>
+                </motion.div>
 
                 <ArrowScroll scrollTo={ref}/>
 
@@ -97,15 +104,18 @@ export default function Cases() {
                     {caseItems.map(({ logo, name, description }, index) =>
                         <motion.div
                             key={logo.src}
-                            initial={{ y: -50, opacity: 0 }}
-                            transition={{ delay: index / 8, type: "tween", duration: 0.8 }}
-                            animate={inViewOnce ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }}
-                            viewport={{ once: true }}
+                            {...listDelaySlideIn(inViewOnce, index)}
                         >
-                            <CaseItem key={name} logo={logo} name={name} description={description} onClick={onClick("/cases/[case]")}/>
-                        </motion.div>)}
+                            <CaseItem
+                                key={name}
+                                logo={logo}
+                                name={name}
+                                description={description}
+                                onClick={onClick("/cases/[case]")}
+                            />
+                        </motion.div>
+                    )}
                 </div>
-
             </motion.div>
         </>
     );

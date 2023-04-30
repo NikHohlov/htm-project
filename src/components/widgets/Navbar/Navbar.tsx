@@ -14,6 +14,7 @@ import { Theme } from "@/lib/types";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import { useContext } from "react";
 import { StylesContext } from "@/pages/_app";
+import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 
 interface NavbarProps {
     theme: Theme
@@ -43,9 +44,7 @@ export default function Navbar({ theme }: NavbarProps) {
 
                 <motion.div
                     className={styles.logo}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.8 }}
+                    {...opacityFromZeroToOne}
                 >
                     <Image alt="image" src={theme === Theme.Light ? logo : logoWhite} width={130} height={91}/>
                 </motion.div>
@@ -98,14 +97,13 @@ export default function Navbar({ theme }: NavbarProps) {
             </div>
 
             <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
+                {...opacityFromZeroToOne}
             >
                 <Link
                     onClick={onClick("/contacts")}
                     className={`${styles.button} ${theme === Theme.Dark ? styles.dark : ""} contacts`}
-                    href="/contacts">
+                    href="/contacts"
+                >
                     <div>
                     КОНТАКТЫ
                         <div className={isActiveRoute(Route.Contacts)}></div>

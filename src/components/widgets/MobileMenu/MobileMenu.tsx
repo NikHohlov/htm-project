@@ -93,9 +93,7 @@ export const MobileMenu: FC = () => {
                     transition={{ type: "tween", ease: "easeIn", delay: isOpen ? 0 : 0.3 }}
                 >
                     <Image alt="image" src={theme === Theme.Light ? logo : logoWhite} width={130} height={91}/>
-                    <div
-                        onClick={onToggleMenu}
-                    >
+                    <div onClick={onToggleMenu} >
                         <MenuClosed gradient={theme === Theme.Light} />
                     </div>
                 </motion.div>

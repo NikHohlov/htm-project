@@ -38,8 +38,7 @@ export default function usePageTransitionL() {
             });
     };
 
-
-    return { variants, transitionHandler };
+    return {  variants, transitionHandler };
 }
 
 export const usePageTransition = singletonHook({

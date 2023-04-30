@@ -25,7 +25,7 @@ interface FeedbackForm {
 
 export default function FeedbackForm({ setSubmitted }: FeedbackForm) {
     const [isVisibleDropdown, setIsVisibleDropdown] = useState(false);
-    const [animate, setAnimate] = useState(false);
+    const [animate, setAnimate] = useState(true);
     const [data, setData] = useState<Form>({
         name: "",
         phone: "",
@@ -64,16 +64,12 @@ export default function FeedbackForm({ setSubmitted }: FeedbackForm) {
     const onSelect = (title: string) => () => {
         setData(prev => ({ ...prev, service: title }));
         setIsVisibleDropdown(false);
+        setAnimate(true);
     };
 
     const onSelectToggle = () => {
-        if (isVisibleDropdown) {
-            setAnimate(true);
-            setTimeout(() => setIsVisibleDropdown(false), 500);
-            return;
-        }
-        setTimeout(() => setIsVisibleDropdown(prev => !prev), 50);
-        setAnimate(false);
+        setAnimate(isVisibleDropdown);
+        setTimeout(() => setIsVisibleDropdown(prev => !prev), isVisibleDropdown ? 500 : 50);
     };
 
     return (
@@ -118,14 +114,14 @@ export default function FeedbackForm({ setSubmitted }: FeedbackForm) {
 
                 <motion.div
                     className={styles.options}
-                    animate={{ height: isVisibleDropdown ?  500 : 0 }}
-                    initial={{ height: 0 }}
+                    animate={{ height: isVisibleDropdown ?  500 : 0, opacity: isVisibleDropdown ?  1 : 0 }}
+                    initial={{ height: 0, opacity: 0 }}
                     transition={{
                         type: "tween",
                         ease: "easeIn"
                     }}
                 >
-                    {isVisibleDropdown && [...services, { title: "Прочее" }].map(({ title }, index) =>
+                    {[...services, { title: "Прочее" }].map(({ title }, index) =>
                         <motion.div
                             className={styles.option}
                             onClick={onSelect(title)}
@@ -135,7 +131,7 @@ export default function FeedbackForm({ setSubmitted }: FeedbackForm) {
                             transition={{
                                 delay: index * 0.02,
                                 type: "tween",
-                                ease: "easeIn"
+                                ease: "easeIn",
                             }}
                             viewport={{ once: true }}
                         >

@@ -10,12 +10,12 @@ import Button from "@/components/ui/Button/Button";
 
 import { motion } from "framer-motion";
 
-import { usePageTransition } from "@/lib/hooks/usePageTransition";
-import { useContext, useEffect, useRef, useState } from "react";
-import { StylesContext } from "../_app";
+import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 import Head from "next/head";
 import Link from "next/link";
-import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
+import { useContext, useEffect, useRef, useState } from "react";
+import { StylesContext } from "../_app";
+import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 // import { Plus } from "@/assets/icons/Plus";
 
 export default function Service() {
@@ -23,8 +23,6 @@ export default function Service() {
     const { service: styles } = useContext(StylesContext);
     const [service, setService] = useState<typeof services[0]>();
     const [isServiceLoaded, setIsServiceLoaded] = useState(false);
-
-    const { variants } = usePageTransition();
 
     useEffect(() => {
         if (!isServiceLoaded) {
@@ -51,23 +49,16 @@ export default function Service() {
 
             <motion.div
                 ref={ref}
-                variants={{ ...variants }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
             >
-
-                <motion.div
-                    className={styles.firstSection}
-                >
-
+                <section className={styles.firstSection}>
                     <motion.div
                         className={styles.leftSection}
-                        initial={{ opacity: 0 }}
-                        whileInView={{  opacity: 1 }}
+                        {...opacityFromZeroToOne}
                         transition={{ type: "tween", duration: 0.3 }}
-                        animate={{ opacity: 0 }}
                         viewport={{ once: true }}
                     >
                         <div className={styles.iconBackground}>
@@ -81,10 +72,8 @@ export default function Service() {
 
                     <motion.div
                         className={styles.descriptionSection}
-                        initial={{ opacity: 0 }}
-                        whileInView={{  opacity: 1 }}
+                        {...opacityFromZeroToOne}
                         transition={{ type: "tween", duration: 0.3 }}
-                        animate={{ opacity: 0 }}
                         viewport={{ once: true }}
                     >
                         <p className={styles.title}>{service?.title}</p>
@@ -106,7 +95,7 @@ export default function Service() {
                             }
                         </div>
                     </motion.div>
-                </motion.div>
+                </section>
 
                 {service?.points && (
                     <motion.div

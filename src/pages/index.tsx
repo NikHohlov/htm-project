@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 
 import Image from "next/image";
 
@@ -20,9 +20,12 @@ import { Theme } from "@/lib/types";
 import Head from "next/head";
 import Link from "next/link";
 import { StylesContext } from "./_app";
+import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+import { opacityFromZeroToOne, slideInItem } from "@/lib/animaitons/animations";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
+    const [loading, setLoading] = useState(true);
 
     const { about: styles } = useContext(StylesContext);
 
@@ -41,7 +44,7 @@ export default function About() {
                 <title>HTM</title>
             </Head>
 
-            <motion.div
+            <motion.section
                 ref={ref}
                 className={styles.firstSection}
                 variants={variants}
@@ -53,25 +56,21 @@ export default function About() {
 
                 <motion.div
                     className={styles.logoHolder}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1, type: "tween", ease: "easeInOut" }}
+                    {...opacityFromZeroToOne}
                 >
+                    {loading && <LogoMiniLoader />}
                     <Image
-                        priority
                         className={styles.logo}
                         src={main}
                         alt="image"
                         quality={100}
+                        onLoad={(() => setLoading(false))}
                     />
                 </motion.div>
 
                 <div className={styles.arrowContainer}>
                     <motion.div
-                        animate={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 1 }}
+                        {...opacityFromZeroToOne}
                     >
                         <motion.div
                             className={styles.textContainer}
@@ -82,24 +81,20 @@ export default function About() {
                 </div>
 
                 <ArrowScroll scrollTo={ref} gradient/>
-            </motion.div>
+            </motion.section>
 
-            <motion.div
+            <motion.section
                 className={styles.secondSection}
-                animate={{ opacity: 0 }}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
+                {...opacityFromZeroToOne}
             >
                 <motion.div
                     className={styles.secondText}
-                    initial={{ x: -200, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 1, type: "tween" }}
-                    animate={{ x: -200, opacity: 0 }}
+                    {...slideInItem("toRight")}
                 >
                     <motion.p>HIT THE MARKET</motion.p>
-                    <motion.p className={styles.secondaryText}>независимое<br/> SOCIAL & digital агентство</motion.p>
+                    <motion.p className={styles.secondaryText}>
+                        независимое<br/> SOCIAL & digital агентство
+                    </motion.p>
                 </motion.div>
 
 
@@ -107,45 +102,35 @@ export default function About() {
                 <motion.div
                     className={styles.textures}
                     initial={{ rotate: -5 }}
+                    animate={{ rotate: -5 }}
                     whileInView={{ x: 0, rotate: 0 }}
                     transition={{ type: "tween", duration: 5 }}
-                    animate={{ rotate: -5 }}
                 >
                     <Image fill src={textures} alt="image" quality={100}/>
                 </motion.div>
-            </motion.div>
+            </motion.section>
 
-            <div className={styles.thirdSection}>
+            <section className={styles.thirdSection}>
                 <motion.div
-                    animate={{ x: -200, opacity: 0 }}
-                    initial={{ x: -200, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.9, type: "tween", ease: "easeIn" }}
+                    {...slideInItem("toRight")}
                 >
                     <Image className={styles.qaImage} fill src={third} alt="image" quality={100}/>
                 </motion.div>
 
                 <motion.div
                     className={styles.description}
-                    animate={{ x: 200, opacity: 0 }}
-                    initial={{ x: 200, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 1, type: "tween", ease: "easeIn" }}
+                    {...slideInItem("toLeft")}
                 >
                     <motion.p
-                        initial={{ x: 200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ type: "tween", ease: "easeIn" }}
                         className={styles.thirdText}
+                        {...slideInItem("toLeft", 0)}
                     >
                         HIT THE MARKET УВЕЛИЧИВАЕТ ПРОДАЖИ
                     </motion.p>
 
                     <motion.p
-                        initial={{ x: 200, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ type: "tween", ease: "easeIn" }}
                         className={styles.secondaryText}
+                        {...slideInItem("toLeft", 0)}
                     >
                         Наша цель не только предоставить стратегии
                         и инструменты, но и достичь результата вместе с вами:
@@ -153,39 +138,30 @@ export default function About() {
 
                     {points.map((point, index) => (
                         <motion.div
-                            initial={{ x: 200, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            transition={{ delay: 0.5, type: "tween", ease: "easeIn", staggerChildren: 1 }}
-                            key={index}
                             className={styles.point}
+                            key={index}
+                            {...slideInItem("toLeft", 0.5)}
                         >
                             <motion.p
-                                initial={{ x: 200, opacity: 0 }}
-                                animate={{ x: 200, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                transition={{ delay: index / 8, type: "tween", ease: "easeIn" }}
+                                {...slideInItem("toLeft", index / 8)}
                             >
                                 {index + 1}
                             </motion.p>
                             <motion.p
-                                animate={{ x: 150, opacity: 0 }}
-                                initial={{ x: 150, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                transition={{ delay: index / 8, type: "tween", ease: "easeIn" }}
                                 className={styles.secondaryText}
+                                {...slideInItem("toLeft", index / 8)}
                             >
                                 {point}
                             </motion.p>
                         </motion.div>
                     ))}
-
                 </motion.div>
 
                 <Link className={styles.contacts} href="/contacts" scroll={false}>
                     <Button title="КОНТАКТЫ" theme={Theme.Light}/>
                 </Link>
 
-            </div>
+            </section>
         </>
     );
 }
