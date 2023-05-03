@@ -34,24 +34,24 @@ export const LogoLoaderGradient = (): JSX.Element => (
             <defs>
                 <linearGradient id="left-to-right" x1="0.5" y1="1" x2="0.5" y2="0">
                     <stop offset="0%" stopColor="#34C3FB">
-                        <animate dur="0.2s" attributeName="offset" fill="freeze" from="0" to="0.3" />
+                        <animate dur="0.3s" attributeName="offset" fill="freeze" from="0" to="0.3" />
                     </stop>
                     <stop offset="0%" stopColor="#615AF4">
-                        <animate dur="0.2s" attributeName="offset" fill="freeze" from="0.3" to="1" />
+                        <animate dur="0.3s" attributeName="offset" fill="freeze" from="0.3" to="1" />
                     </stop>
                     <stop offset="0%" stopColor="transparent">
-                        <animate dur="0.2s" attributeName="offset" fill="freeze" from="0" to="1" />
+                        <animate dur="0.3s" attributeName="offset" fill="freeze" from="0" to="1" />
                     </stop>
                 </linearGradient>
                 <linearGradient id="left-to-right2" x1="0.5" y1="1" x2="0.5" y2="0">
                     <stop offset="0" stopColor="#34C3FB">
-                        <animate dur="0.5s" attributeName="offset" fill="freeze" from="0" to="0.3" />
+                        <animate dur="0.6s" attributeName="offset" fill="freeze" from="0" to="0.3" />
                     </stop>
                     <stop offset="0%" stopColor="#615AF4">
-                        <animate dur="0.5s" attributeName="offset" fill="freeze" from="0.3" to="1" />
+                        <animate dur="0.6s" attributeName="offset" fill="freeze" from="0.3" to="1" />
                     </stop>
                     <stop offset="0" stopColor="transparent">
-                        <animate dur="0.5s" attributeName="offset" fill="freeze" from="0" to="1" />
+                        <animate dur="0.6s" attributeName="offset" fill="freeze" from="0" to="1" />
                     </stop>
                 </linearGradient>
             </defs>

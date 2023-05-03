@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 import { RefObject } from "react";
 import styles from "./ArrowScroll.module.scss";
+import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 
 interface ArrowScrollProps {
     scrollTo: RefObject<HTMLDivElement>;
@@ -22,10 +23,7 @@ export const ArrowScroll = ({ scrollTo, gradient }: ArrowScrollProps) => {
         <motion.div
             onClick={scrollDown}
             className={styles.arrow}
-            animate={{ opacity: 0 }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 1, type: "tween", duration: 0.4, ease: "easeInOut" }}
+            {...opacityFromZeroToOne}
         >
             {gradient
                 ? <ArrowDownGradient />

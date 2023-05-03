@@ -52,7 +52,7 @@ export default function Service() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+                transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
             >
                 <section className={styles.firstSection}>
                     <motion.div

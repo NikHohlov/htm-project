@@ -11,6 +11,7 @@ import { services } from "@/data/services";
 
 import styles from "./FeedbackForm.module.scss";
 import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 interface Form {
     name: string;
@@ -21,11 +22,14 @@ interface Form {
 
 interface FeedbackForm {
     setSubmitted: Dispatch<SetStateAction<boolean>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function FeedbackForm({ setSubmitted }: FeedbackForm) {
+export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) {
     const [isVisibleDropdown, setIsVisibleDropdown] = useState(false);
     const [animate, setAnimate] = useState(true);
+    const isMobile = useIsMobile();
+
     const [data, setData] = useState<Form>({
         name: "",
         phone: "",
@@ -35,14 +39,20 @@ export default function FeedbackForm({ setSubmitted }: FeedbackForm) {
     const ref = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLDivElement>(null);
     const { scrollToSmoothly } = useSmoothScroll();
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 
     useEffect(() => {
-        setTimeout(() => {
-            if (!formRef.current) return;
-            scrollToSmoothly(formRef.current.getBoundingClientRect().top, 0);
-        }, 1300);
-    }, []);
+        if (isMobile && timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+        if (timeoutRef.current === null) {
+            timeoutRef.current = setTimeout(() => {
+                if (!formRef.current) return;
+                scrollToSmoothly(formRef.current.getBoundingClientRect().top, 0);
+            }, 1300);
+        }
+    }, [isMobile]);
 
     const handleSubmit = () => {
         fetch("/api/contact", {
@@ -68,6 +78,7 @@ export default function FeedbackForm({ setSubmitted }: FeedbackForm) {
     };
 
     const onSelectToggle = () => {
+        setIsOpen(prev => !prev);
         setAnimate(isVisibleDropdown);
         setTimeout(() => setIsVisibleDropdown(prev => !prev), isVisibleDropdown ? 500 : 50);
     };

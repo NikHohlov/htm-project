@@ -46,7 +46,7 @@ export default function Case() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+                transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
             >
 
                 <div className={styles.leftSection}>

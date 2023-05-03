@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 
 import Image from "next/image";
 
@@ -15,17 +15,13 @@ import { motion } from "framer-motion";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 
 import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
-import Button from "@/components/ui/Button/Button";
-import { Theme } from "@/lib/types";
-import Head from "next/head";
-import Link from "next/link";
-import { StylesContext } from "./_app";
-import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 import { opacityFromZeroToOne, slideInItem } from "@/lib/animaitons/animations";
+import Head from "next/head";
+import { StylesContext } from "./_app";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
     const { about: styles } = useContext(StylesContext);
 
@@ -58,13 +54,13 @@ export default function About() {
                     className={styles.logoHolder}
                     {...opacityFromZeroToOne}
                 >
-                    {loading && <LogoMiniLoader />}
+                    {/* {loading && <LogoMiniLoader />} */}
                     <Image
                         className={styles.logo}
                         src={main}
                         alt="image"
                         quality={100}
-                        onLoad={(() => setLoading(false))}
+                        // onLoad={(() => setLoading(false))}
                     />
                 </motion.div>
 
@@ -105,6 +101,7 @@ export default function About() {
                     animate={{ rotate: -5 }}
                     whileInView={{ x: 0, rotate: 0 }}
                     transition={{ type: "tween", duration: 5 }}
+                    viewport={{ once: true }}
                 >
                     <Image fill src={textures} alt="image" quality={100}/>
                 </motion.div>
@@ -112,14 +109,14 @@ export default function About() {
 
             <section className={styles.thirdSection}>
                 <motion.div
-                    {...slideInItem("toRight")}
+                    {...slideInItem("toRight", 0.3)}
                 >
                     <Image className={styles.qaImage} fill src={third} alt="image" quality={100}/>
                 </motion.div>
 
                 <motion.div
                     className={styles.description}
-                    {...slideInItem("toLeft")}
+                    {...slideInItem("toLeft", 0.3)}
                 >
                     <motion.p
                         className={styles.thirdText}
@@ -140,7 +137,7 @@ export default function About() {
                         <motion.div
                             className={styles.point}
                             key={index}
-                            {...slideInItem("toLeft", 0.5)}
+                            {...slideInItem("toLeft", 0.9)}
                         >
                             <motion.p
                                 {...slideInItem("toLeft", index / 8)}
@@ -149,17 +146,13 @@ export default function About() {
                             </motion.p>
                             <motion.p
                                 className={styles.secondaryText}
-                                {...slideInItem("toLeft", index / 8)}
+                                {...slideInItem("toLeft", index / 12)}
                             >
                                 {point}
                             </motion.p>
                         </motion.div>
                     ))}
                 </motion.div>
-
-                <Link className={styles.contacts} href="/contacts" scroll={false}>
-                    <Button title="КОНТАКТЫ" theme={Theme.Light}/>
-                </Link>
 
             </section>
         </>

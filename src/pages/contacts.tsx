@@ -12,16 +12,24 @@ import FeedbackForm from "@/components/widgets/FeedbackForm/FeedbackForm";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import Head from "next/head";
 import { StylesContext } from "./_app";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 export default function Contacts() {
     const [submitted, setSubmitted] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const isMobile = useIsMobile();
+
+    const [heightlosed, heightOpen] = isMobile ? ["150vh", "200vh"] : ["120vh", "220vh"];
 
     const { contacts: styles } = useContext(StylesContext);
 
     const { variants } = usePageTransition();
 
     return (
-        <>
+        <motion.div
+            className={styles.pageWrapper}
+            animate={{ height: isOpen ? heightOpen : heightlosed }}
+        >
             <Head>
                 <title>HTM: Контакты</title>
             </Head>
@@ -81,12 +89,12 @@ export default function Contacts() {
                                     <SocialMediaList />
                                 </div>
 
-                                <FeedbackForm setSubmitted={setSubmitted}/>
+                                <FeedbackForm setIsOpen={setIsOpen} setSubmitted={setSubmitted}/>
                             </motion.div>
                         )
                     }
                 </AnimatePresence>
             </motion.div>
-        </>
+        </motion.div>
     );
 }

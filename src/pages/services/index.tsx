@@ -15,16 +15,17 @@ import { useRouter } from "next/router";
 import { motion, useInView } from "framer-motion";
 
 import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
+import { listDelaySlideIn, opacityFromZeroToOne, slideInItem } from "@/lib/animaitons/animations";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import Head from "next/head";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
-import { listDelaySlideIn, opacityFromZeroToOne, slideInItem } from "@/lib/animaitons/animations";
 
 export default function Services() {
     const router = useRouter();
     const [inViewOnce, setInViewOnce] = useState(false);
+
     const secondSectionRef = useRef<HTMLDivElement>(null);
 
     const { services: styles } = useContext(StylesContext);

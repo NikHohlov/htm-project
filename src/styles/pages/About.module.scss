@@ -177,11 +177,7 @@
     align-items: flex-start;
     margin-bottom: 3em;
     width: 90%;
-    gap: 1em;
-
-    @media (max-width: 900px) {
-        gap: 2.5em;
-    }
+    gap: 2.5em;
 }
 
 .thirdText {
