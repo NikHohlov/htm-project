@@ -101,6 +101,7 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
             <div className={styles.inputField}>
                 <p className={styles.inputName}>ТЕЛЕФОН</p>
                 <input
+                    value={`+7${data.phone.slice(2)}`}
                     name="phone"
                     onChange={onChange}
                     className={styles.input}
