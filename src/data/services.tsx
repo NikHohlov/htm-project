@@ -111,7 +111,7 @@ export const services = [
         description: "Данный товар находится на стадии разработки.",
     },
     {
-        title: "Продвижение концертов и мероприятий",
+        title: "Продвижение мероприятий",
         icon: (props?: IconProps) => <Events {...props}/>,
         name: "events",
         description:

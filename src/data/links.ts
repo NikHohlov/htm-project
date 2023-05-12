@@ -4,4 +4,5 @@ export const links = {
     instagram: "https://instagram.com/htm.ru",
     youTube: "https://youtube.com/@htmteam",
     zen: "https://dzen.ru/htmteam",
+    chat: "https://t.me/htmreviews"
 };

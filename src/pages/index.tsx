@@ -18,6 +18,7 @@ import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 import { opacityFromZeroToOne, slideInItem } from "@/lib/animaitons/animations";
 import Head from "next/head";
 import { StylesContext } from "./_app";
+import SocialMediaList from "@/components/widgets/SocialMediaList/SocialMediaList";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
@@ -83,6 +84,7 @@ export default function About() {
                 className={styles.secondSection}
                 {...opacityFromZeroToOne}
             >
+                <SocialMediaList circle />
                 <motion.div
                     className={styles.secondText}
                     {...slideInItem("toRight")}

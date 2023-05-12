@@ -7,6 +7,10 @@
     align-items: flex-end;
     justify-content: center;
     overflow: hidden;
+
+    @media (max-width: 900px) {
+        height: 100dvh;
+    }
 }
 
 .secondSection{
@@ -35,10 +39,10 @@
     position: relative;
 
     @media (max-width: 900px) {
-        margin-bottom: 5em;
-        margin-left: 3em;
-        height: 80%;
-        width: 80%;
+        // margin-bottom: 4vh;
+        margin-left: 3vh;
+        height: 100%;
+        width: 100%;
     }
 }
 
@@ -71,7 +75,7 @@
         flex-direction: column;
         align-items: center;
         margin-top: 8em;
-        gap: 45vh;
+        gap: 45dvh;
         top: 0;
         padding: 0;
     }

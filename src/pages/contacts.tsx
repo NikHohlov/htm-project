@@ -19,7 +19,7 @@ export default function Contacts() {
     const [isOpen, setIsOpen] = useState(false);
     const isMobile = useIsMobile();
 
-    const [heightlosed, heightOpen] = isMobile ? ["150vh", "200vh"] : ["120vh", "220vh"];
+    const [heightlosed, heightOpen] = isMobile ? ["150vh", "230vh"] : ["120vh", "220vh"];
 
     const { contacts: styles } = useContext(StylesContext);
 

@@ -7,11 +7,15 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+
+    @media (max-width: 900px) {
+        height: 100svh;
+    }
 }
 
 .secondSection{
     min-height: 100vh;
-    margin: 2% 5% 27% 5%;
+    margin: 9% 5% 27% 5%;
     height: 110vh;
 }
 
@@ -28,6 +32,7 @@
         // height: auto !important;
         // margin-top: 27vh;
         // margin-left: 1.8em; 
+        right: unset !important;
     }
 }
 
@@ -37,9 +42,9 @@
     width: 100%;
 
     @media (max-width: 900px) {
-        width: 85%;
-        height: 100%;
-        margin-left: 2.5em; 
+        // width: 85%;
+        // height: 100%;
+        // margin-left: 6vh; 
     }
 }
 
@@ -67,6 +72,7 @@
     margin-bottom: 7%;
 
     @media (max-width: 900px) {
+        position: absolute;
         justify-content: center;
         flex-direction: column;
         gap: 20em;
