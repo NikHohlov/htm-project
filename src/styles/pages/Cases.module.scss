@@ -8,7 +8,7 @@
     justify-content: center;
     width: 100%;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         height: 100svh;
     }
 }
@@ -25,7 +25,7 @@
     left: inherit !important;
     right: 1.5em !important;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         // right: 0 !important;
         // inset: 0 !important;
         // width: 85% !important;
@@ -41,7 +41,7 @@
     height: 100%;
     width: 100%;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         // width: 85%;
         // height: 100%;
         // margin-left: 6vh; 
@@ -51,7 +51,7 @@
 .primaryText {
     @include text(96px, 140.64px, 800, Codenext);
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         @include text(55px, 81px, 800, Codenext);
     }
 }
@@ -71,7 +71,7 @@
     padding: 7% 7% 0 7%;
     margin-bottom: 7%;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         position: absolute;
         justify-content: center;
         flex-direction: column;
@@ -90,7 +90,7 @@
     flex-wrap: wrap;
     margin-top: 9em;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;

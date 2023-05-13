@@ -21,10 +21,12 @@ import Head from "next/head";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
+import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 
 export default function Services() {
     const router = useRouter();
     const [inViewOnce, setInViewOnce] = useState(false);
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
 
     const secondSectionRef = useRef<HTMLDivElement>(null);
 
@@ -67,9 +69,13 @@ export default function Services() {
 
                 </motion.div>
 
+                {!isImageLoaded && <LogoMiniLoader white/>}
+
                 <motion.div
                     className={styles.imageWrapper}
-                    {...opacityFromZeroToOne}
+                    // {...opacityFromZeroToOne}
+                    animate={{ opacity: isImageLoaded ? 1 : 0 }}
+                    transition={{ duration: 1 }}
                 >
                     <Image
                         priority
@@ -78,6 +84,7 @@ export default function Services() {
                         src={ourServices}
                         alt="image"
                         quality={100}
+                        onLoadingComplete={() => setIsImageLoaded(true)}
                     />
                 </motion.div>
 

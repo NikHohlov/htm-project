@@ -5,7 +5,7 @@
     flex-direction: column;
     height: 105vh;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         height: 100svh;
     }
 }
@@ -23,7 +23,7 @@
     @include text(270px, 324px, 700);
     @include fontBackground();
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         @include text(187px, 224px, 700);  
     }
 }
@@ -33,7 +33,7 @@
     @include button(642px, 123px, 70px);
     cursor: default;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         @include text(24px, 35px, 700);  
         @include button(280px, 48px, 70px);
     }
@@ -45,7 +45,7 @@
     margin-top: 32px;
     margin-bottom: 2em;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         @include text(18px, 22px, 700);  
         color: black;
         width: 80%;
@@ -56,14 +56,14 @@
 .logo {
     object-fit: contain;
     height: auto !important;
-    top: 1% !important;
+    top: -2% !important;
     z-index: 1;
 
     @media (max-width: 1400px) {
         top: 4% !important;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         object-fit: cover;
         height: 90vw !important;
         width: 100% !important;
@@ -82,7 +82,7 @@
     margin-bottom: 10em;
     margin-top: 15em;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         gap: 5em;
         // margin-top: 22em;
     }
@@ -93,7 +93,7 @@
     width: 300px;
     height: 200px;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         width: 140px;
         height: 140px;
     }
@@ -101,14 +101,14 @@
 
 .parallax {
     position: relative;
-    margin-top: 8%;
+    margin-top: 5%;
     top: 13%;
     z-index: 0;
     display: flex;
     flex-direction: column;
     gap: 47svh;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         margin-top: 35%;
     }
 }

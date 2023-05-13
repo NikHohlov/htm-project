@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 
 import Image from "next/image";
 
@@ -19,10 +19,11 @@ import { opacityFromZeroToOne, slideInItem } from "@/lib/animaitons/animations";
 import Head from "next/head";
 import { StylesContext } from "./_app";
 import SocialMediaList from "@/components/widgets/SocialMediaList/SocialMediaList";
+import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 
 export default function About() {
     const ref = useRef<HTMLDivElement>(null);
-    // const [loading, setLoading] = useState(true);
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
 
     const { about: styles } = useContext(StylesContext);
 
@@ -51,17 +52,20 @@ export default function About() {
                 transition={{ type: "linear", duration: 0.9, ease: "easeInOut" }}
             >
 
+                {!isImageLoaded && <LogoMiniLoader />}
+
                 <motion.div
                     className={styles.logoHolder}
-                    {...opacityFromZeroToOne}
+                    // {...opacityFromZeroToOne}
+                    animate={{ opacity: isImageLoaded ? 1 : 0 }}
+                    transition={{ duration: 1 }}
                 >
-                    {/* {loading && <LogoMiniLoader />} */}
                     <Image
                         className={styles.logo}
                         src={main}
                         alt="image"
                         quality={100}
-                        // onLoad={(() => setLoading(false))}
+                        onLoadingComplete={(() => setIsImageLoaded(true))}
                     />
                 </motion.div>
 

@@ -91,11 +91,13 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
     useEffect(() => {
         if (!commentRef.current?.clientWidth) return;
 
-        if (data.comment.length * 15 < commentRef.current?.clientWidth) {
+        const letterSize = isMobile ? 10 : 15;
+
+        if (data.comment.length * letterSize < commentRef.current?.clientWidth) {
             setRows(1);
             return;
         }
-        setRows(Math.ceil(data.comment.length * 15 / commentRef.current?.clientWidth));
+        setRows(Math.ceil(data.comment.length * letterSize / commentRef.current?.clientWidth));
     }, [data.comment]);
 
     return (

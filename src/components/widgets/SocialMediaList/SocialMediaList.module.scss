@@ -9,7 +9,7 @@ $shift: 41%;
     background: white;
     border-radius: 50%;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         width: 46px;
         height: 46px;
 
@@ -43,7 +43,7 @@ $shift: 41%;
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
         display: none;
     }
 }
