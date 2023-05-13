@@ -44,6 +44,11 @@
         }
     }
 
+    .comment {
+        @extend .input;
+        resize: none;
+    }
+
     .inputField {
         display: flex;
         flex-direction: column;

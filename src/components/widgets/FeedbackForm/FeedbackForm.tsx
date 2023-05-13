@@ -29,8 +29,10 @@ interface FeedbackForm {
 export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) {
     const [isVisibleDropdown, setIsVisibleDropdown] = useState(false);
     const [animate, setAnimate] = useState(true);
+    const [rows, setRows] = useState(1);
     const isMobile = useIsMobile();
     const router = useRouter();
+    const { scrollToSmoothly } = useSmoothScroll();
 
     const [data, setData] = useState<Form>({
         name: "",
@@ -40,8 +42,8 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
     });
     const ref = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLDivElement>(null);
-    const { scrollToSmoothly } = useSmoothScroll();
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const commentRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const scrollMultiplier = window.scrollY === 0 ? 0.66 : 8;
@@ -71,7 +73,7 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
         window.scrollTo({ behavior: "smooth", top: 0 });
     };
 
-    const onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    const onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
         setData(prev => ({ ...prev, [event.target.name]: event.target.value }));
 
     const onSelect = (title: string) => () => {
@@ -85,6 +87,16 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
         setAnimate(isVisibleDropdown);
         setTimeout(() => setIsVisibleDropdown(prev => !prev), isVisibleDropdown ? 500 : 50);
     };
+
+    useEffect(() => {
+        if (!commentRef.current?.clientWidth) return;
+
+        if (data.comment.length * 15 < commentRef.current?.clientWidth) {
+            setRows(1);
+            return;
+        }
+        setRows(Math.ceil(data.comment.length * 15 / commentRef.current?.clientWidth));
+    }, [data.comment]);
 
     return (
         <div ref={formRef} className={styles.feedbackForm}>
@@ -156,12 +168,14 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
                 </motion.div>
             </div>
 
-            <div className={styles.inputField}>
+            <div ref={commentRef} className={styles.inputField}>
                 <p className={styles.inputName}>КОММЕНТАРИЙ</p>
-                <input
+                <textarea
+                    maxLength={110}
+                    rows={rows}
                     name="comment"
                     onChange={onChange}
-                    className={styles.input}
+                    className={styles.comment}
                     placeholder="МЕНЯ ИНТЕРЕСУЕТ..."
                 />
             </div>
