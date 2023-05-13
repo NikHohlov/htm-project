@@ -12,6 +12,7 @@ import { services } from "@/data/services";
 import styles from "./FeedbackForm.module.scss";
 import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 import { useIsMobile } from "@/lib/hooks/useIsMobile";
+import { useRouter } from "next/router";
 
 interface Form {
     name: string;
@@ -29,12 +30,13 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
     const [isVisibleDropdown, setIsVisibleDropdown] = useState(false);
     const [animate, setAnimate] = useState(true);
     const isMobile = useIsMobile();
+    const router = useRouter();
 
     const [data, setData] = useState<Form>({
         name: "",
         phone: "",
         comment: "",
-        service: ""
+        service: router.query.keyword as string ?? ""
     });
     const ref = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLDivElement>(null);

@@ -16,7 +16,12 @@ interface ServiceItemProps {
 export default function ServiceItem({ title, icon, name, onClick }: ServiceItemProps) {
 
     return (
-        <Link onClick={onClick} scroll={false} href={`/services/${name}`} className={styles.box} >
+        <Link
+            onClick={onClick}
+            scroll={false}
+            href={`/services/${name}`}
+            className={styles.box}
+        >
             <div className={styles.icon}>
                 <Target />
                 <div className={styles.serviceIcon}>

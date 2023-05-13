@@ -16,7 +16,6 @@ import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
 import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
-// import { Plus } from "@/assets/icons/Plus";
 
 export default function Service() {
     const router = useRouter();
@@ -85,7 +84,7 @@ export default function Service() {
                         <div className={styles.buttons}>
                             {service?.points &&
                             <>
-                                <Link href="/contacts" scroll={false}>
+                                <Link href={{ pathname: "/contacts", query: { keyword: service?.title } }} scroll={false} >
                                     <Button theme={Theme.Dark} title="Заказать"/>
                                 </Link>
                                 <Link href="/cases" scroll={false}>
@@ -102,13 +101,6 @@ export default function Service() {
                         className={styles.secondSection}
                         exit={{ opacity: 0 }}
                     >
-                        {/* <div className={styles.step}>
-                            <div className={styles.stepContainer}>
-                                <p>Шаг 1: Аналитика</p>
-                                <Plus />
-                                <Plus className={styles.plus} />
-                            </div>
-                        </div> */}
 
                         <p className={styles.secondTitle}>В услугу входит</p>
 
