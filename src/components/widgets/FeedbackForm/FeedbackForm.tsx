@@ -41,15 +41,16 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
     const { scrollToSmoothly } = useSmoothScroll();
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-
     useEffect(() => {
+        const scrollMultiplier = window.scrollY === 0 ? 0.66 : 8;
+
         if (isMobile && timeoutRef.current) {
             clearTimeout(timeoutRef.current);
         }
         if (timeoutRef.current === null) {
             timeoutRef.current = setTimeout(() => {
                 if (!formRef.current) return;
-                scrollToSmoothly(formRef.current.getBoundingClientRect().top, 0);
+                scrollToSmoothly(formRef.current.getBoundingClientRect().top * scrollMultiplier, 0);
             }, 1300);
         }
     }, [isMobile]);
@@ -122,7 +123,6 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
                     </div>
                     <SelectArrow className={isVisibleDropdown ? styles.open : ""}/>
                 </div>
-
 
                 <motion.div
                     className={styles.options}
