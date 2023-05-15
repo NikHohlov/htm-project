@@ -25,6 +25,9 @@
 
     @media (max-width: 1200px) {
         flex-direction: column;
+    }
+
+    @media (max-width: 700px) {
         height: 100svh;
     }
 }
@@ -72,7 +75,7 @@
     left: auto !important;
     width: auto !important;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         height: 85vw !important;
     }
 }
@@ -135,7 +138,7 @@
         text-align: center;
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 700px) {
         top: 0;
 
         flex-direction: column;
@@ -151,7 +154,7 @@
     @include text(64px, 93.76px, 800, Codenext);
     left: 1em;
     position: relative;
-    width: 524px;
+    width: 41vw;
     left: 60px;
     z-index: 5;
 

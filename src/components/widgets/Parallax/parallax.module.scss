@@ -17,7 +17,7 @@
     display: flex;
     flex-wrap: nowrap;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
       @include text(60px, 60px, 800, Codenext); 
     }
   }

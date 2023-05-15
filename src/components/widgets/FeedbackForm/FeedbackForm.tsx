@@ -55,7 +55,7 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
             timeoutRef.current = setTimeout(() => {
                 if (!formRef.current) return;
                 scrollToSmoothly(formRef.current.getBoundingClientRect().top * scrollMultiplier, 0);
-            }, 1300);
+            }, 1000);
         }
     }, [isMobile]);
 
