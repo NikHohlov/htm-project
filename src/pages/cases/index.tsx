@@ -17,7 +17,7 @@ import Head from "next/head";
 import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 import { listDelaySlideIn, opacityFromZeroToOne } from "@/lib/animaitons/animations";
-import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+// import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 
 export default function Cases() {
     const router = useRouter();
@@ -74,12 +74,10 @@ export default function Cases() {
 
                 </motion.div>
 
-                {!isImageLoaded && <LogoMiniLoader white />}
+                {/* {!isImageLoaded && <LogoMiniLoader white />} */}
 
                 <motion.div
                     className={styles.imageWrapper}
-                    // {...opacityFromZeroToOne}
-                    // viewport={{ once: true }}
                     animate={{ opacity: isImageLoaded ? 1 : 0 }}
                     transition={{ duration: 1 }}
                 >
