@@ -8,7 +8,7 @@ export const opacityFromZeroToOne = {
 export const listDelaySlideIn = (inViewOnce: boolean, index: number) => (
     {
         initial: { y: -10, opacity: 0 },
-        transition: { delay: index / 12, type: "twe",  duration: 1 },
+        transition: { delay: index / 12,  duration: 1 },
         animate: inViewOnce ? { y: 0, opacity: 1 } : { y: -10, opacity: 0 },
         viewport: { once: true }
     }

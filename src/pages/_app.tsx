@@ -30,73 +30,56 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 
 const criticalStyles = {
-    ...styles,
-    navbar,
-    parallax,
-    smm,
-    button,
-    caseItem,
-    serviceItem,
-    mobileMenu,
-    arrow,
-    feedbackForm
+  ...styles,
+  navbar,
+  parallax,
+  smm,
+  button,
+  caseItem,
+  serviceItem,
+  mobileMenu,
+  arrow,
+  feedbackForm,
 };
 
 export const StylesContext = createContext(criticalStyles);
 
-
 export default function App({ Component, pageProps }: AppProps) {
-    const { theme, path } = useTheme();
-    const [globalInit, setGlobalInit] = useState(true);
+  const { theme, path } = useTheme();
+  const [globalInit, setGlobalInit] = useState(true);
 
+  useEffect(() => {
+    history.scrollRestoration = "manual";
+    setTimeout(() => {
+      setGlobalInit(false);
+    }, 1000);
+  }, []);
 
-    useEffect(() => {
-        history.scrollRestoration = "manual";
-        setTimeout(() => {
-            setGlobalInit(false);
-        }, 1000);
-    }, []);
+  const Loader = theme === Theme.Dark ? <LogoLoader /> : <LogoLoaderGradient />;
 
-    const Loader = theme === Theme.Dark ? <LogoLoader /> : <LogoLoaderGradient />;
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="Независимое SOCIAL & digital агентство"
+        />
+      </Head>
 
-    return (
-        <>
-            <Head>
-                <meta
-                    name="viewport"
-                    content="initial-scale=1.0, width=device-width"
-                />
-                <meta
-                    name="description"
-                    content="Независимое SOCIAL & digital агентство"
-                />
-            </Head>
+      {globalInit ? (
+        <motion.div {...opacityFromZeroToOne}>{Loader}</motion.div>
+      ) : (
+        <StylesContext.Provider value={criticalStyles}>
+          <Navbar theme={theme} />
 
-            {
-                globalInit
-                    ?
-                    <motion.div
-                        {...opacityFromZeroToOne}
-                    >
-                        {Loader}
-                    </motion.div>
-                    :
-                    <StylesContext.Provider value={criticalStyles}>
-                        <Navbar theme={theme} />
+          <MobileMenu />
 
-                        <MobileMenu />
-
-                        <AnimatePresence
-                            mode="wait"
-                            initial={false}
-                        >
-                            <Component {...pageProps} key={path}/>
-                        </AnimatePresence>
-                    </StylesContext.Provider>
-
-            }
-
-
-        </>
-    );
+          <AnimatePresence mode="wait" initial={false}>
+            <Component {...pageProps} key={path} />
+          </AnimatePresence>
+        </StylesContext.Provider>
+      )}
+    </>
+  );
 }

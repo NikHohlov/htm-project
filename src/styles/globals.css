@@ -10,6 +10,7 @@ body::-webkit-scrollbar {
 
 body {
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -30,6 +31,7 @@ input[type="submit"] {
      border-radius: 0;
      border: none;
      border-color: transparent;
+     box-shadow: none;
 }
 
 input:-webkit-autofill,

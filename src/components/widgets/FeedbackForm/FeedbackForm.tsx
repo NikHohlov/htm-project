@@ -80,6 +80,7 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
         setData(prev => ({ ...prev, service: title }));
         setIsVisibleDropdown(false);
         setAnimate(true);
+        setIsOpen(false);
     };
 
     const onSelectToggle = () => {

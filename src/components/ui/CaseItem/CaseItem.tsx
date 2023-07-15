@@ -4,25 +4,39 @@ import Link from "next/link";
 import styles from "./CaseItem.module.scss";
 
 interface CaseItemProps {
-    logo: StaticImageData;
-    name: string;
-    description: string;
-    onClick: () => void;
+  id: string;
+  logo: StaticImageData;
+  name: string;
+  service: string;
+  description: string;
+  onClick: () => void;
 }
 
-export default function CaseItem({ logo, name, description, onClick }: CaseItemProps) {
-    return (
-        <Link scroll={false} href={`/cases/${name}`} onClick={onClick} className={styles.logoContainer} key={name}>
+export default function CaseItem({
+  service,
+  logo,
+  id,
+  name,
+  description,
+  onClick,
+}: CaseItemProps) {
+  return (
+    <Link
+      scroll={false}
+      href={`/cases/${id}`}
+      onClick={onClick}
+      className={styles.logoContainer}
+      key={id}
+    >
+      <Image className={styles.logo} src={logo} alt="image" />
 
-            <Image className={styles.logo} src={logo} alt="image"/>
+      <div className={styles.descriptionContainer}>
+        <p className={styles.serviceText}>{service}</p>
 
-            <div className={styles.descriptionContainer}>
-                <p className={styles.serviceText}>{name}</p>
+        <p className={styles.title}>{name}</p>
 
-                <p className={styles.title}>{name}</p>
-
-                <p className={styles.secondaryText}>{description}</p>
-            </div>
-        </Link>
-    );
+        <p className={styles.secondaryText}>{description}</p>
+      </div>
+    </Link>
+  );
 }

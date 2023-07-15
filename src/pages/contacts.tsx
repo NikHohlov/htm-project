@@ -15,86 +15,75 @@ import { StylesContext } from "./_app";
 import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 export default function Contacts() {
-    const [submitted, setSubmitted] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const isMobile = useIsMobile();
+  const [submitted, setSubmitted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
 
-    const [heightlosed, heightOpen] = isMobile ? ["150vh", "230vh"] : ["120vh", "220vh"];
+  const [heightlosed, heightOpen] = isMobile
+    ? ["1200px", "1640px"]
+    : ["120vh", "220vh"];
 
-    const { contacts: styles } = useContext(StylesContext);
+  const { contacts: styles } = useContext(StylesContext);
 
-    const { variants } = usePageTransition();
+  const { variants } = usePageTransition();
 
-    return (
-        <motion.div
-            className={styles.pageWrapper}
-            animate={{ height: isOpen ? heightOpen : heightlosed }}
-        >
-            <Head>
-                <title>HTM: Контакты</title>
-            </Head>
+  return (
+    <motion.div
+      className={styles.pageWrapper}
+      animate={{ height: isOpen ? heightOpen : heightlosed }}
+    >
+      <Head>
+        <title>HTM: Контакты</title>
+      </Head>
 
+      <motion.div
+        className={styles.firstSection}
+        variants={variants}
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+      >
+        <AnimatePresence initial={false} mode="wait">
+          {submitted ? (
             <motion.div
-                className={styles.firstSection}
-                variants={variants}
-                initial="hidden"
-                animate="enter"
-                exit="exit"
-                transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+              className={styles.container}
+              key="thankYou"
+              animate={{ y: -200, opacity: 0 }}
+              initial={{ y: -200, opacity: 0 }}
+              whileInView={{ y: 200, opacity: 1 }}
+              transition={{ delay: 0.5, type: "tween", ease: "easeIn" }}
             >
+              <Image className={styles.image} src={thankyou} alt="thankyou" />
 
-                <AnimatePresence
-                    initial={false}
-                    mode="wait"
-                >
-                    {submitted
-                        ?
-                        (
-                            <motion.div
-                                className={styles.container}
-                                key="thankYou"
-                                animate={{ y: -200, opacity: 0 }}
-                                initial={{ y: -200, opacity: 0 }}
-                                whileInView={{ y: 200, opacity: 1 }}
-                                transition={{ delay: 0.5, type: "tween", ease: "easeIn" }}
-                            >
+              <div className={styles.thankYouText}>
+                <p>СПАСИБО</p>
+                <p>
+                  Наши специалисты свяжутся
+                  <br />с Вами в ближайшее время!
+                </p>
 
-                                <Image className={styles.image} src={thankyou} alt="thankyou"/>
-
-                                <div className={styles.thankYouText}>
-                                    <p>СПАСИБО</p>
-                                    <p>
-                                        Наши специалисты свяжутся<br/>
-                                        с Вами в ближайшее время!
-                                    </p>
-
-                                    <SocialMediaList />
-
-                                </div>
-
-                            </motion.div>
-                        )
-                        :
-                        (
-                            <motion.div
-                                className={styles.containerLeft}
-                                key="text"
-                                exit={{ opacity: 0, y: 300 }}
-                                transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
-                            >
-                                <div className={styles.leftSection}>
-
-                                    <p className={styles.text}>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
-
-                                    <SocialMediaList />
-                                </div>
-
-                                <FeedbackForm setIsOpen={setIsOpen} setSubmitted={setSubmitted}/>
-                            </motion.div>
-                        )
-                    }
-                </AnimatePresence>
+                <SocialMediaList />
+              </div>
             </motion.div>
-        </motion.div>
-    );
+          ) : (
+            <motion.div
+              className={styles.containerLeft}
+              key="text"
+              exit={{ opacity: 0, y: 300 }}
+              transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
+            >
+              <div className={styles.leftSection}>
+                <p className={styles.text}>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
+
+                <SocialMediaList />
+              </div>
+
+              <FeedbackForm setIsOpen={setIsOpen} setSubmitted={setSubmitted} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </motion.div>
+  );
 }
