@@ -19,7 +19,7 @@ import { opacityFromZeroToOne, slideInItem } from "@/lib/animaitons/animations";
 import Head from "next/head";
 import { StylesContext } from "./_app";
 import SocialMediaList from "@/components/widgets/SocialMediaList/SocialMediaList";
-// import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
@@ -51,7 +51,7 @@ export default function About() {
         exit="exit"
         transition={{ type: "linear", duration: 0.9, ease: "easeInOut" }}
       >
-        {/* {!isImageLoaded && <LogoMiniLoader />} */}
+        {!isImageLoaded && <LogoMiniLoader />}
 
         <motion.div
           className={styles.logoHolder}
