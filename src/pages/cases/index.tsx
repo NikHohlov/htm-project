@@ -102,7 +102,7 @@ export default function Cases() {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
+        transition={{ type: "linear", duration: 0.7, ease: "easeIn" }}
       >
         <div ref={refCases} className={styles.casesContainer}>
           {allCases.map(({ id, name, description, service }, index) => (

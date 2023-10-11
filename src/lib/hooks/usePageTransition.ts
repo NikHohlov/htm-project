@@ -32,18 +32,14 @@ export default function usePageTransitionL() {
   };
 
   const transitionHandler = (current: string, next: string) => {
-    // if (nestedPaths.includes(next)) {
-    //   setVariants(
-    //     isMobile
-    //       ? mobileAnimation
-    //       : {
-    //           hidden: { opacity: 0, x: width, y: 0 },
-    //           enter: { opacity: 1, x: 0, y: 0 },
-    //           exit: { opacity: 0, x: 0, y: -height * 1.9 },
-    //         }
-    //   );
-    //   return;
-    // }
+    if (nestedPaths.includes(next) && isMobile) {
+      setVariants({
+        hidden: { opacity: 0, x: width, y: 0 },
+        enter: { opacity: 1, x: 0, y: 0 },
+        exit: { opacity: 0, x: -width, y: 0 },
+      });
+      return;
+    }
     paths.indexOf(current) < paths.indexOf(next)
       ? setVariants(
           isMobile

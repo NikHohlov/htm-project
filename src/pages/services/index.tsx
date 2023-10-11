@@ -96,7 +96,7 @@ export default function Services() {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
+        transition={{ type: "linear", duration: 0.7, ease: "easeIn" }}
       >
         <motion.p
           className={styles.primaryTextTwo}

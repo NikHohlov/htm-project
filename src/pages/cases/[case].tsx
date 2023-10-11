@@ -22,6 +22,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
+import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 
 export const getStaticPaths = async () => {
   const paths = cases.map(({ id }) => ({ params: { case: id } }));
@@ -47,6 +48,8 @@ export default function Case({ images }: { images: string[] }) {
 
   useEffect(() => {
     if (!isCaseLoaded) {
+      window.scrollTo(0, 0);
+
       setCurrentCase(
         cases.find((item) => item.id === router.query.case) as (typeof cases)[0]
       );
@@ -59,67 +62,99 @@ export default function Case({ images }: { images: string[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollToSmoothly } = useSmoothScroll();
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (!ref.current) return;
-      scrollToSmoothly(ref.current.getBoundingClientRect().top, 50);
-    }, 100);
-  }, []);
+  // useEffect(() => {
+  //   // window.scrollTo(0, 0);
+  //   setTimeout(() => {
+  //     if (!ref.current) return;
+  //     // scrollToSmoothly(ref.current.getBoundingClientRect().top, 50);
+  //   }, 100);
+  // }, []);
 
   return (
     <>
       <Head>
         <title>HTM: Кейсы</title>
       </Head>
-
-      <div>
-        <motion.div
-          ref={ref}
-          className={styles.firstSection}
-          variants={variants}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
-        >
-          <div className={styles.leftSection}>
-            <Carousel
-              showStatus={false}
-              showIndicators={false}
-              showThumbs={false}
-              className={styles.carousel}
-            >
-              {images.map((image) => (
-                <div key={image}>
-                  <Image
-                    className={styles.image}
-                    src={`/static/images/${currentCase?.id}/${image}`}
-                    alt="image"
-                    width={592}
-                    height={592}
-                  />
-                </div>
-              ))}
-            </Carousel>
-          </div>
-
-          <div className={styles.descriptionSection}>
-            <div className={styles.descriptionContainer}>
-              <p className={styles.serviceText}>{currentCase?.service}</p>
-
-              <p className={styles.title}>{currentCase?.name}</p>
-
-              <p className={styles.secondaryText}>{currentCase?.description}</p>
+      {!isCaseLoaded ? (
+        <div className={styles.loaderWrapper}>
+          <LogoMiniLoader />
+        </div>
+      ) : (
+        <div>
+          <motion.div
+            ref={ref}
+            className={styles.firstSection}
+            variants={variants}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
+          >
+            <div className={styles.leftSection}>
+              <Carousel
+                showStatus={false}
+                showIndicators={false}
+                showThumbs={false}
+                className={styles.carousel}
+              >
+                {images.map((image) => (
+                  <div key={image}>
+                    <Image
+                      className={styles.image}
+                      src={`/static/images/${currentCase?.id}/${image}`}
+                      alt="image"
+                      width={592}
+                      height={592}
+                    />
+                  </div>
+                ))}
+              </Carousel>
             </div>
 
-            <p className={styles.description}>
-              {currentCase?.text[0].map((item) =>
-                item === "" ? <br key={item}></br> : <p key={item}>{item}</p>
-              )}
-            </p>
-          </div>
+            <div className={styles.descriptionSection}>
+              <div className={styles.descriptionContainer}>
+                <p className={styles.serviceText}>{currentCase?.service}</p>
 
-          {isMobile && (
+                <p className={styles.title}>{currentCase?.name}</p>
+
+                <p className={styles.secondaryText}>
+                  {currentCase?.description}
+                </p>
+              </div>
+
+              <p className={styles.description}>
+                {currentCase?.text[0].map((item) =>
+                  item === "" ? <br key={item}></br> : <p key={item}>{item}</p>
+                )}
+              </p>
+            </div>
+
+            {isMobile && (
+              <div className={styles.secondSection}>
+                <p className={styles.bottomDescription}>
+                  {currentCase?.text
+                    .slice(1)
+                    .map((item) => item.map((item) => textRender(item)))}
+                </p>
+                {currentCase?.video && (
+                  <video
+                    className={styles.video}
+                    height={500}
+                    width={600}
+                    controls
+                  >
+                    <source src={currentCase?.video} type="video/mp4" />
+                  </video>
+                )}
+                <div className={styles.buttons}>
+                  <Link href="/cases" scroll={false}>
+                    <Button theme={Theme.Light} title="К кейсам" />
+                  </Link>
+                </div>
+              </div>
+            )}
+          </motion.div>
+          {!isMobile && (
             <div className={styles.secondSection}>
               <p className={styles.bottomDescription}>
                 {currentCase?.text
@@ -143,27 +178,8 @@ export default function Case({ images }: { images: string[] }) {
               </div>
             </div>
           )}
-        </motion.div>
-        {!isMobile && (
-          <div className={styles.secondSection}>
-            <p className={styles.bottomDescription}>
-              {currentCase?.text
-                .slice(1)
-                .map((item) => item.map((item) => textRender(item)))}
-            </p>
-            {currentCase?.video && (
-              <video className={styles.video} height={500} width={600} controls>
-                <source src={currentCase?.video} type="video/mp4" />
-              </video>
-            )}
-            <div className={styles.buttons}>
-              <Link href="/cases" scroll={false}>
-                <Button theme={Theme.Light} title="К кейсам" />
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }

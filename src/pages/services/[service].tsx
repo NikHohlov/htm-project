@@ -16,6 +16,7 @@ import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
 import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
+import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 
 export default function Service() {
   const router = useRouter();
@@ -46,74 +47,80 @@ export default function Service() {
         <title>HTM: {service?.title}</title>
       </Head>
 
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
-      >
-        <section className={styles.firstSection}>
-          <motion.div
-            className={styles.leftSection}
-            {...opacityFromZeroToOne}
-            transition={{ type: "tween", duration: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <div className={styles.iconBackground}>
-              <Target gradient width={229} height={229} />
-              <div className={styles.serviceIcon}>
-                {service?.icon({ width: 109, height: 109, gradient: true })}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className={styles.descriptionSection}
-            {...opacityFromZeroToOne}
-            transition={{ type: "tween", duration: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <p className={styles.title}>{service?.title}</p>
-
-            <p className={styles.description}>{service?.description}</p>
-
-            <div className={styles.buttons}>
-              {service?.points && (
-                <>
-                  <Link
-                    href={{
-                      pathname: "/contacts",
-                      query: { keyword: service?.title },
-                    }}
-                    scroll={false}
-                  >
-                    <Button theme={Theme.Dark} title="Заказать" />
-                  </Link>
-                  <Link href="/cases" scroll={false}>
-                    <Button theme={Theme.Dark} title="К кейсам" />
-                  </Link>
-                </>
-              )}
-            </div>
-          </motion.div>
-        </section>
-
-        {service?.points && (
-          <motion.div className={styles.secondSection} exit={{ opacity: 0 }}>
-            <p className={styles.secondTitle}>В услугу входит</p>
-
-            <div className={styles.pointsContainer}>
-              {service?.points.map((item) => (
-                <div key={item} className={styles.point}>
-                  <div className={styles.circle} />
-                  {item}
+      {!isServiceLoaded ? (
+        <div className={styles.loaderWrapper}>
+          <LogoMiniLoader white />
+        </div>
+      ) : (
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
+        >
+          <section className={styles.firstSection}>
+            <motion.div
+              className={styles.leftSection}
+              {...opacityFromZeroToOne}
+              transition={{ type: "tween", duration: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className={styles.iconBackground}>
+                <Target gradient width={229} height={229} />
+                <div className={styles.serviceIcon}>
+                  {service?.icon({ width: 109, height: 109, gradient: true })}
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </motion.div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className={styles.descriptionSection}
+              {...opacityFromZeroToOne}
+              transition={{ type: "tween", duration: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <p className={styles.title}>{service?.title}</p>
+
+              <p className={styles.description}>{service?.description}</p>
+
+              <div className={styles.buttons}>
+                {service?.points && (
+                  <>
+                    <Link
+                      href={{
+                        pathname: "/contacts",
+                        query: { keyword: service?.title },
+                      }}
+                      scroll={false}
+                    >
+                      <Button theme={Theme.Dark} title="Заказать" />
+                    </Link>
+                    <Link href="/cases" scroll={false}>
+                      <Button theme={Theme.Dark} title="К кейсам" />
+                    </Link>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </section>
+
+          {service?.points && (
+            <motion.div className={styles.secondSection} exit={{ opacity: 0 }}>
+              <p className={styles.secondTitle}>В услугу входит</p>
+
+              <div className={styles.pointsContainer}>
+                {service?.points.map((item) => (
+                  <div key={item} className={styles.point}>
+                    <div className={styles.circle} />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </motion.div>
+      )}
     </>
   );
 }

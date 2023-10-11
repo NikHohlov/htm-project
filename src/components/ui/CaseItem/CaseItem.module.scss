@@ -33,7 +33,7 @@
     @media (max-width: 1200px) {
         min-width: 0;
         max-width: 40vw;
-        height: 80vw;
+        height: unset;
         justify-content: flex-start;
     }
 }
