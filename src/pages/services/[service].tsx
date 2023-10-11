@@ -36,8 +36,8 @@ export default function Service() {
   useEffect(() => {
     setTimeout(() => {
       if (!ref.current) return;
-      scrollToSmoothly(ref.current.getBoundingClientRect().top, 0);
-    }, 1100);
+      scrollToSmoothly(ref.current.getBoundingClientRect().top, 50);
+    }, 100);
   }, []);
 
   return (

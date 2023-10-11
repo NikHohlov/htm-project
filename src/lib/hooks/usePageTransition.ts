@@ -1,51 +1,81 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { singletonHook } from "react-singleton-hook";
+import { useIsMobile } from "./useIsMobile";
+
+type Variant = {
+  hidden: { opacity: number; x?: number; y?: number };
+  enter: { opacity: number; x?: number; y?: number };
+  exit: { opacity: number; x?: number; y?: number };
+};
 
 export default function usePageTransitionL() {
-    const [variants, setVariants] = useState({
-        hidden: { opacity: 1, x: 0, y: 0 },
-        enter: { opacity: 1, x: 0, y: 0 },
-        exit: { opacity: 1, x: 0, y: 0 },
-    });
+  const [variants, setVariants] = useState<Variant>({
+    hidden: { opacity: 1, x: 0, y: 0 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 1, x: 0, y: 0 },
+  });
 
-    const width = window.screen.width;
+  const isMobile = useIsMobile();
 
-    const height = window.screen.height;
+  const width = window.screen.width;
 
-    const paths = ["/", "/services", "/partners", "/cases", "/contacts"];
+  const height = window.screen.height;
 
-    const nestedPaths = ["/services/[service]", "/cases/[case]"];
+  const paths = ["/", "/services", "/partners", "/cases", "/contacts"];
 
-    const transitionHandler = (current: string, next: string) => {
-        if (nestedPaths.includes(next)) {
-            setVariants({
+  const nestedPaths = ["/services/[service]", "/cases/[case]"];
+
+  const mobileAnimation = {
+    hidden: { opacity: 0 },
+    enter: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+
+  const transitionHandler = (current: string, next: string) => {
+    // if (nestedPaths.includes(next)) {
+    //   setVariants(
+    //     isMobile
+    //       ? mobileAnimation
+    //       : {
+    //           hidden: { opacity: 0, x: width, y: 0 },
+    //           enter: { opacity: 1, x: 0, y: 0 },
+    //           exit: { opacity: 0, x: 0, y: -height * 1.9 },
+    //         }
+    //   );
+    //   return;
+    // }
+    paths.indexOf(current) < paths.indexOf(next)
+      ? setVariants(
+          isMobile
+            ? mobileAnimation
+            : {
                 hidden: { opacity: 0, x: width, y: 0 },
                 enter: { opacity: 1, x: 0, y: 0 },
-                exit: { opacity: 0, x: 0, y: -height * 1.9 },
-            });
-            return;
-        }
-        paths.indexOf(current) < paths.indexOf(next) ? setVariants({
-            hidden: { opacity: 0, x: width, y: 0 },
-            enter: { opacity: 1, x: 0, y: 0 },
-            exit: { opacity: 0, x: -width, y: 0 },
-        })
-            :
-            setVariants({
+                exit: { opacity: 0, x: -width, y: 0 },
+              }
+        )
+      : setVariants(
+          isMobile
+            ? mobileAnimation
+            : {
                 hidden: { opacity: 0, x: -width, y: 0 },
                 enter: { opacity: 1, x: 0, y: 0 },
                 exit: { opacity: 0, x: width, y: 0 },
-            });
-    };
+              }
+        );
+  };
 
-    return {  variants, transitionHandler };
+  return { variants, transitionHandler };
 }
 
-export const usePageTransition = singletonHook({
+export const usePageTransition = singletonHook(
+  {
     variants: {
-        hidden: { opacity: 0, x: 1600, y: 0 },
-        enter: { opacity: 1, x: 0, y: 0 },
-        exit: { opacity: 0, x: -1600, y: 0 },
+      hidden: { opacity: 0, x: 1600, y: 0 },
+      enter: { opacity: 1, x: 0, y: 0 },
+      exit: { opacity: 0, x: -1600, y: 0 },
     },
-    transitionHandler: () => undefined
-}, usePageTransitionL);
+    transitionHandler: () => undefined,
+  },
+  usePageTransitionL
+);

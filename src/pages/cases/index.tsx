@@ -52,7 +52,7 @@ export default function Cases() {
     setTimeout(() => {
       if (!ref.current) return;
       scrollToSmoothly(ref.current.getBoundingClientRect().top, 0);
-    }, 1300);
+    }, 100);
   }, []);
 
   return (
@@ -102,11 +102,17 @@ export default function Cases() {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+        transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
       >
         <div ref={refCases} className={styles.casesContainer}>
           {allCases.map(({ id, name, description, service }, index) => (
-            <motion.div key={id} {...listDelaySlideIn(inViewOnce, index)}>
+            <motion.div
+              key={id}
+              initial={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+              animate={inViewOnce ? { opacity: 1 } : { opacity: 0 }}
+              viewport={{ once: true }}
+            >
               <CaseItem
                 id={id}
                 key={id}

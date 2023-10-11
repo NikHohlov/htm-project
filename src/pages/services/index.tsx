@@ -25,7 +25,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
-// import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 
 export default function Services() {
   const router = useRouter();
@@ -69,7 +69,7 @@ export default function Services() {
           <p className={styles.primaryText}>УСЛУГИ</p>
         </motion.div>
 
-        {/* {!isImageLoaded && <LogoMiniLoader white/>} */}
+        {!isImageLoaded && <LogoMiniLoader white/>}
 
         <motion.div
           className={styles.imageWrapper}
@@ -96,7 +96,7 @@ export default function Services() {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+        transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
       >
         <motion.p
           className={styles.primaryTextTwo}
@@ -108,7 +108,13 @@ export default function Services() {
 
         <div ref={ref} className={styles.servicesContainer}>
           {services.map(({ title, icon, name }, index) => (
-            <motion.div key={title} {...listDelaySlideIn(inViewOnce, index)}>
+            <motion.div
+              key={title}
+              initial={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+              animate={inViewOnce ? { opacity: 1 } : { opacity: 0 }}
+              viewport={{ once: true }}
+            >
               <ServiceItem
                 onClick={onClick("/services/[service]")}
                 name={name}
