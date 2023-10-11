@@ -8,8 +8,6 @@ import third from "@/assets/pictures/aboutPage/third.png";
 
 import textures from "@/assets/pictures/aboutPage/textures.png";
 
-import main from "@/assets/pictures/main.gif";
-
 import { motion } from "framer-motion";
 
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
@@ -60,9 +58,11 @@ export default function About() {
         >
           <Image
             className={styles.logo}
-            src={main}
+            src="/static/images/main.gif"
             alt="image"
             priority
+            width={728}
+            height={728}
             onLoadingComplete={() => setIsImageLoaded(true)}
           />
         </motion.div>
