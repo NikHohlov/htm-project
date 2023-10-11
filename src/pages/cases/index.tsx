@@ -22,7 +22,7 @@ import {
   listDelaySlideIn,
   opacityFromZeroToOne,
 } from "@/lib/animaitons/animations";
-// import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 
 export default function Cases() {
   const router = useRouter();
@@ -75,7 +75,7 @@ export default function Cases() {
           <p className={styles.primaryText}>КЕЙСЫ</p>
         </motion.div>
 
-        {/* {!isImageLoaded && <LogoMiniLoader white />} */}
+        {!isImageLoaded && <LogoMiniLoader white />}
 
         <motion.div
           className={styles.imageWrapper}

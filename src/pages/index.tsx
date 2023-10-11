@@ -63,6 +63,7 @@ export default function About() {
             src={main}
             alt="image"
             quality={100}
+            priority
             onLoadingComplete={() => setIsImageLoaded(true)}
           />
         </motion.div>

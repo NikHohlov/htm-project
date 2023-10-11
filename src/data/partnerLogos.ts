@@ -1,7 +1,7 @@
-import buySide from "@/assets/pictures/partnersPage/Buy Side.png";
-import desertRose from "@/assets/pictures/partnersPage/Desert Rose.png";
-import digitalHypers from "@/assets/pictures/partnersPage/Digital Hypers.png";
-import pink from "@/assets/pictures/partnersPage/Pink Hairlab.png";
+import buySide from "@/assets/pictures/partnersPage/BuySide.png";
+import desertRose from "@/assets/pictures/partnersPage/DesertRose.png";
+import digitalHypers from "@/assets/pictures/partnersPage/DigitalHypers.png";
+import pink from "@/assets/pictures/partnersPage/PinkHairlab.png";
 import tmf from "@/assets/pictures/partnersPage/TMF.png";
 import sovkom from "@/assets/pictures/partnersPage/Совком.png";
 
