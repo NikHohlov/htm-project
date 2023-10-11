@@ -106,12 +106,12 @@ export default function Cases() {
         transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
       >
         <div ref={refCases} className={styles.casesContainer}>
-          {allCases.map(({ id, images, name, description, service }, index) => (
+          {allCases.map(({ id, name, description, service }, index) => (
             <motion.div key={id} {...listDelaySlideIn(inViewOnce, index)}>
               <CaseItem
                 id={id}
                 key={id}
-                logo={images?.[0]}
+                logo={`/static/images/${id}/logo.png`}
                 name={name}
                 service={service}
                 description={description}

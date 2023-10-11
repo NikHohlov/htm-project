@@ -1,11 +1,11 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./CaseItem.module.scss";
 
 interface CaseItemProps {
   id: string;
-  logo: StaticImageData;
+  logo: string;
   name: string;
   service: string;
   description: string;
@@ -28,7 +28,7 @@ export default function CaseItem({
       className={styles.logoContainer}
       key={id}
     >
-      <Image className={styles.logo} src={logo} alt="image" />
+      <Image width={334} height={334} className={styles.logo} src={logo} alt="image" />
 
       <div className={styles.descriptionContainer}>
         <p className={styles.serviceText}>{service}</p>

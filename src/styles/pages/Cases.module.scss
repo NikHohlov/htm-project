@@ -16,7 +16,7 @@
 .secondSection{
     min-height: 100vh;
     margin: 9% 5% 27% 5%;
-    height: 110vh;
+    min-height: 110vh;
 }
 
 .image {
@@ -84,7 +84,9 @@
 }
 
 .casesContainer {
-    @include flexCenter();
+    // @include flexCenter();
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     align-items: center;
     row-gap: 10em;

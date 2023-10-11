@@ -8,12 +8,26 @@
     margin-bottom: 6em;
 
     @media (max-width: 1200px) {
+        margin-bottom: 0;
+        height: unset;
         justify-content: flex-start;
         flex-direction: column;
         gap: 1em;
-        position: absolute;
+        // position: absolute;
         margin-top: 6em;
         padding: 0;
+    }
+}
+
+.secondSection {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15% 7% 15%;
+    gap: 3em;
+    margin-bottom: 6em;
+
+    @media (max-width: 1200px) {
+        padding: 0 7%;;
     }
 }
 
@@ -35,9 +49,14 @@
     @media (max-width: 1200px) {
         @include text(12px, 14px, 400);
         color: black;
-        margin-bottom: 5em;
-        height: 200px;
+        // margin-bottom: 5em;
+        height: fit-content;
     }
+}
+
+.bottomDescription {
+    @extend .description;
+    height: unset;
 }
 
 .secondaryText {
@@ -59,8 +78,17 @@
     width: 592px;
     height: 592px;
 
+    :global(.slide) {
+        display: flex;
+        justify-content: center;
+    }
+
+    :global(.carousel.carousel-slider .control-arrow) {
+        opacity: 1;
+    }
     :global(.carousel.carousel-slider .control-arrow:hover) {
         background: none;
+        opacity: 1;
     }
 
     :global(button.control-arrow.control-next)::before{
@@ -94,6 +122,7 @@
 }
 
 .buttons {
+    margin-bottom: 5em;
     @media (max-width: 1200px) {
         button {
             width: 116px;
@@ -117,5 +146,13 @@
     @media (max-width: 1200px) {
         max-width: 280px;
         max-height: 280px;
+    }
+}
+
+.video {
+    width: 60vw;
+    @media (max-width: 1200px) {
+        width: 85vw;
+        height: 200px;
     }
 }
