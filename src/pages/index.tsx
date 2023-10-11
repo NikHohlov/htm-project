@@ -61,6 +61,7 @@ export default function About() {
             src="/static/images/main.gif"
             alt="image"
             priority
+            quality={35}
             width={728}
             height={728}
             onLoadingComplete={() => setIsImageLoaded(true)}
