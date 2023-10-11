@@ -88,7 +88,6 @@ export default function Cases() {
             fill
             src={cases}
             alt="image"
-            quality={100}
             onLoadingComplete={() => setIsImageLoaded(true)}
           />
         </motion.div>

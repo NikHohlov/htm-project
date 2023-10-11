@@ -62,7 +62,6 @@ export default function About() {
             className={styles.logo}
             src={main}
             alt="image"
-            quality={100}
             priority
             onLoadingComplete={() => setIsImageLoaded(true)}
           />
