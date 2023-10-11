@@ -23,7 +23,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-singleton-hook": "^4.0.1",
     "sass": "^1.59.3",
-    "sharp": "^0.32.0",
+    "sharp": "^0.32.6",
     "smoothscroll-polyfill": "^0.4.4",
     "typescript": "4.9.5"
   },
