@@ -87,6 +87,8 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
         setIsOpen(prev => !prev);
         setAnimate(isVisibleDropdown);
         setTimeout(() => setIsVisibleDropdown(prev => !prev), isVisibleDropdown ? 500 : 50);
+        if(!ref.current) return;
+        scrollToSmoothly(ref?.current?.getBoundingClientRect().top, 0);
     };
 
     useEffect(() => {

@@ -19,7 +19,6 @@ module.exports = {
         },
     ],
     rules: {
-        indent: [1, 4],
         "react-hooks/rules-of-hooks": 0,
         "react-hooks/exhaustive-deps": "off",
         "@typescript-eslint/no-unused-vars": [0, { varsIgnorePattern: "^_", argsIgnorePattern: "^_" }],

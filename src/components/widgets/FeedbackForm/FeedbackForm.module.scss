@@ -31,6 +31,10 @@
         border-left-width: 0;
         border-right-width: 0;
 
+        &:focus {
+            outline: none;
+        }
+
         &:focus-visible {
             outline: none;
         }
@@ -60,7 +64,8 @@
         display: flex;
         flex-direction: column;
         gap: 9px;
-        overflow: hidden
+        overflow: hidden;
+        justify-content: space-between;
     }
 
     .option {
