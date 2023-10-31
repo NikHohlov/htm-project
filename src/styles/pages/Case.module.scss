@@ -3,9 +3,9 @@
 .firstSection {
     @include flexCenter();
     height: 100vh;
-    padding: 15% 15% 7% 15%;
+    padding: 15% 15% 4% 15%;
     gap: 3em;
-    margin-bottom: 6em;
+    margin-bottom: 1em;
 
     @media (max-width: 1200px) {
         margin-bottom: 0;
@@ -42,7 +42,7 @@
 }
 
 .description {
-    @include text(16px, 22.88px, 400);
+    @include text(18px, 22.88px, 400);
     color: black;
     height: 300px;
 
@@ -81,6 +81,10 @@
     :global(.slide) {
         display: flex;
         justify-content: center;
+    }
+
+    :global(.carousel .slide img) {
+        width: 99%;
     }
 
     :global(.carousel.carousel-slider .control-arrow) {

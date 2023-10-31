@@ -57,7 +57,7 @@ export default function Navbar({ theme }: NavbarProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                 >
                     <Link className="about" href="/" onClick={onClick("/")}>
-                    О НАС
+                    О&nbsp; НАС
                         <div className={isActiveRoute(Route.About)}/>
                     </Link>
                 </motion.div>

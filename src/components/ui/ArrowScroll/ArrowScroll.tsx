@@ -22,7 +22,7 @@ export const ArrowScroll = ({ scrollTo, gradient }: ArrowScrollProps) => {
     return (
         <motion.div
             onClick={scrollDown}
-            className={styles.arrow}
+            className={`${styles.arrow} arrow-scroll`}
             {...opacityFromZeroToOne}
         >
             {gradient

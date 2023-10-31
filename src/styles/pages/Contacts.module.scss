@@ -2,7 +2,7 @@
 
 .pageWrapper {
     overflow: hidden;
-    height: 120vh;
+    height: 100vh;
 }
 
 .firstSection {
@@ -20,7 +20,7 @@
 }
 
 .text {
-    @include text(48px, 63.36px, 700);
+    @include text(60px, 73.36px, 700);
     width: 6em;
     position: relative;
     left: 0.5em;
@@ -38,9 +38,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 3em;
-    margin-top: 10em;
-
+    margin-top: 4.5em;
+    
     @media (max-width: 1200px) {
+        margin-top: 10em;
         align-items: center;
     }
 }
@@ -100,7 +101,7 @@
 .containerLeft{
     display: flex;
     gap: 9em;
-    margin: 10em 0 10em 0;
+    margin: 8em 0 10em 0;
     align-items: flex-start;
 
     @media (max-width: 1200px) {

@@ -45,19 +45,19 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const commentRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const scrollMultiplier = window.scrollY === 0 ? 0.66 : 8;
+    // useEffect(() => {
+    //     const scrollMultiplier = window.scrollY === 0 ? 0.66 : 8;
 
-        if (isMobile && timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
-        if (timeoutRef.current === null) {
-            timeoutRef.current = setTimeout(() => {
-                if (!formRef.current) return;
-                scrollToSmoothly(formRef.current.getBoundingClientRect().top * scrollMultiplier, 0);
-            }, 1000);
-        }
-    }, [isMobile]);
+    //     if (isMobile && timeoutRef.current) {
+    //         clearTimeout(timeoutRef.current);
+    //     }
+    //     if (timeoutRef.current === null) {
+    //         timeoutRef.current = setTimeout(() => {
+    //             if (!formRef.current) return;
+    //             scrollToSmoothly(formRef.current.getBoundingClientRect().top * scrollMultiplier, 0);
+    //         }, 1000);
+    //     }
+    // }, [isMobile]);
 
     const handleSubmit = () => {
         fetch("/api/contact", {

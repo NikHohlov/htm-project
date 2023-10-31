@@ -17,6 +17,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
 import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 
 export default function Service() {
   const router = useRouter();
@@ -32,6 +33,7 @@ export default function Service() {
   }, [router.query.service]);
 
   const ref = useRef<HTMLDivElement>(null);
+  const secondRef = useRef<HTMLDivElement>(null);
   const { scrollToSmoothly } = useSmoothScroll();
 
   useEffect(() => {
@@ -103,10 +105,15 @@ export default function Service() {
                 )}
               </div>
             </motion.div>
+            {service?.points && <ArrowScroll scrollTo={secondRef} />}
           </section>
 
           {service?.points && (
-            <motion.div className={styles.secondSection} exit={{ opacity: 0 }}>
+            <motion.div
+              ref={secondRef}
+              className={styles.secondSection}
+              exit={{ opacity: 0 }}
+            >
               <p className={styles.secondTitle}>В услугу входит</p>
 
               <div className={styles.pointsContainer}>

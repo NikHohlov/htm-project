@@ -12,6 +12,10 @@
         align-items: flex-start;
         gap: 2em;
         justify-content: flex-start;
+
+        :global(.arrow-scroll) {
+            align-self: center
+        }
     }
 }
 
@@ -20,10 +24,11 @@
     margin-top: 3em;
     flex-direction: column;
     justify-content: flex-start;
+    height: 100vh;
 }
 
 .description {
-    @include text(16px, 22.88px, 400);
+    @include text(18px, 22.88px, 400);
     @media (max-width: 1200px) {
         @include text(14px, 20px, 400);
     }
@@ -83,7 +88,7 @@
     gap: 3em;
 
     @media (max-width: 1200px) {
-        margin-top: 10em;
+        margin-top: 7em;
     }
 }
 

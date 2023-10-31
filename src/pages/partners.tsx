@@ -100,10 +100,8 @@ export default function Partners({ logos }: { logos: string[] }) {
         />
 
         <motion.div className={styles.parallax} {...opacityFromZeroToOne}>
-          <ParallaxText baseVelocity={-1}>
-            Buy I side Digital Hypers
-          </ParallaxText>
-          <ParallaxText baseVelocity={1}>Совкомбанк Pink Hairlab</ParallaxText>
+          <ParallaxText baseVelocity={-1}>Аксиома Sale Japan</ParallaxText>
+          <ParallaxText baseVelocity={1}>Совкомбанк Orion</ParallaxText>
         </motion.div>
 
         <div ref={refIcons} className={styles.logosContainer}>

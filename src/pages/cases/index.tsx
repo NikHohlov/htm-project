@@ -41,6 +41,8 @@ export default function Cases() {
 
   const ref = useRef<HTMLDivElement>(null);
 
+  const anchorRef = useRef<HTMLDivElement>(null);
+
   const refCases = useRef(null);
   const isInViewCases = useInView(refCases);
 
@@ -49,6 +51,15 @@ export default function Cases() {
   }, [isInViewCases]);
 
   useEffect(() => {
+    if (!router.asPath.includes("all")) return;
+    if (!anchorRef.current) return;
+    scrollToSmoothly(anchorRef.current.getBoundingClientRect().top, 0);
+    // setTimeout(() => {}, 0);
+  }, []);
+
+  useEffect(() => {
+    if (router.asPath.includes("all")) return;
+
     setTimeout(() => {
       if (!ref.current) return;
       scrollToSmoothly(ref.current.getBoundingClientRect().top, 0);
@@ -65,8 +76,8 @@ export default function Cases() {
         ref={ref}
         className={styles.firstSection}
         variants={variants}
-        initial="hidden"
-        animate="enter"
+        initial={router.asPath.includes("all") ? "" : "initial"}
+        animate={router.asPath.includes("all") ? "" : "enter"}
         exit="exit"
         transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
       >
@@ -94,7 +105,7 @@ export default function Cases() {
 
         <ArrowScroll scrollTo={ref} />
       </motion.div>
-
+      <div ref={anchorRef} />
       <motion.div
         ref={secondSectionRef}
         className={styles.secondSection}
@@ -105,7 +116,7 @@ export default function Cases() {
         transition={{ type: "linear", duration: 0.7, ease: "easeIn" }}
       >
         <div ref={refCases} className={styles.casesContainer}>
-          {allCases.map(({ id, name, description, service }, index) => (
+          {allCases.map(({ id, name, description, service, logo }, index) => (
             <motion.div
               key={id}
               initial={{ opacity: 0 }}
@@ -116,7 +127,7 @@ export default function Cases() {
               <CaseItem
                 id={id}
                 key={id}
-                logo={`/static/images/${id}/logo.png`}
+                logo={logo}
                 name={name}
                 service={service}
                 description={description}

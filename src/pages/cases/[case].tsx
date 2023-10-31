@@ -147,7 +147,7 @@ export default function Case({ images }: { images: string[] }) {
                   </video>
                 )}
                 <div className={styles.buttons}>
-                  <Link href="/cases" scroll={false}>
+                  <Link href="/cases#all">
                     <Button theme={Theme.Light} title="К кейсам" />
                   </Link>
                 </div>
@@ -172,7 +172,7 @@ export default function Case({ images }: { images: string[] }) {
                 </video>
               )}
               <div className={styles.buttons}>
-                <Link href="/cases" scroll={false}>
+                <Link href="/cases#all">
                   <Button theme={Theme.Light} title="К кейсам" />
                 </Link>
               </div>
