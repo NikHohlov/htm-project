@@ -51,15 +51,6 @@ export default function Cases() {
   }, [isInViewCases]);
 
   useEffect(() => {
-    if (!router.asPath.includes("all")) return;
-    if (!anchorRef.current) return;
-    scrollToSmoothly(anchorRef.current.getBoundingClientRect().top, 0);
-    // setTimeout(() => {}, 0);
-  }, []);
-
-  useEffect(() => {
-    if (router.asPath.includes("all")) return;
-
     setTimeout(() => {
       if (!ref.current) return;
       scrollToSmoothly(ref.current.getBoundingClientRect().top, 0);
@@ -76,8 +67,8 @@ export default function Cases() {
         ref={ref}
         className={styles.firstSection}
         variants={variants}
-        initial={router.asPath.includes("all") ? "" : "initial"}
-        animate={router.asPath.includes("all") ? "" : "enter"}
+        initial="initial"
+        animate="enter"
         exit="exit"
         transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
       >

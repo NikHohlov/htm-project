@@ -84,7 +84,10 @@ export default function Service() {
             >
               <p className={styles.title}>{service?.title}</p>
 
-              <p className={styles.description}>{service?.description}</p>
+              <div
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: service?.description ?? "" }}
+              />
 
               <div className={styles.buttons}>
                 {service?.points && (

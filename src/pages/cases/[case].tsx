@@ -122,32 +122,36 @@ export default function Case({ images }: { images: string[] }) {
                 </p>
               </div>
 
-              <p className={styles.description}>
-                {currentCase?.text[0].map((item) =>
-                  item === "" ? <br key={item}></br> : <p key={item}>{item}</p>
-                )}
-              </p>
+              <p
+                className={styles.description}
+                dangerouslySetInnerHTML={{
+                  __html: currentCase?.text.header ?? "",
+                }}
+              ></p>
             </div>
 
             {isMobile && (
               <div className={styles.secondSection}>
-                <p className={styles.bottomDescription}>
-                  {currentCase?.text
-                    .slice(1)
-                    .map((item) => item.map((item) => textRender(item)))}
-                </p>
-                {currentCase?.video && (
+                <p
+                  className={styles.bottomDescription}
+                  dangerouslySetInnerHTML={{
+                    __html: currentCase?.text.header ?? "",
+                  }}
+                ></p>
+                {currentCase?.videos?.map((video, index) => (
                   <video
+                    preload={index === 0 ? undefined : "none"}
+                    key={video}
                     className={styles.video}
                     height={500}
                     width={600}
                     controls
                   >
-                    <source src={currentCase?.video} type="video/mp4" />
+                    <source src={video} type="video/mp4" />
                   </video>
-                )}
+                ))}
                 <div className={styles.buttons}>
-                  <Link href="/cases#all">
+                  <Link href="/cases">
                     <Button theme={Theme.Light} title="К кейсам" />
                   </Link>
                 </div>
@@ -156,23 +160,26 @@ export default function Case({ images }: { images: string[] }) {
           </motion.div>
           {!isMobile && (
             <div className={styles.secondSection}>
-              <p className={styles.bottomDescription}>
-                {currentCase?.text
-                  .slice(1)
-                  .map((item) => item.map((item) => textRender(item)))}
-              </p>
-              {currentCase?.video && (
+              <p
+                className={styles.bottomDescription}
+                dangerouslySetInnerHTML={{
+                  __html: currentCase?.text.body ?? "",
+                }}
+              ></p>
+              {currentCase?.videos?.map((video, index) => (
                 <video
+                  preload={index === 0 ? undefined : "none"}
+                  key={video}
                   className={styles.video}
                   height={500}
                   width={600}
                   controls
                 >
-                  <source src={currentCase?.video} type="video/mp4" />
+                  <source src={video} type="video/mp4" />
                 </video>
-              )}
+              ))}
               <div className={styles.buttons}>
-                <Link href="/cases#all">
+                <Link href="/cases">
                   <Button theme={Theme.Light} title="К кейсам" />
                 </Link>
               </div>

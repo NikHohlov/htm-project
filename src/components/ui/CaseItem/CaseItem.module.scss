@@ -61,6 +61,7 @@
 .secondaryText {
     @include text(16px, 17.28px, 400);
     color: black;
+    width: 80%;
 
     @media (max-width: 800px) {
         @include text(12px, 14px, 400);

@@ -115,7 +115,7 @@ export default function FeedbackForm({ setSubmitted, setIsOpen }: FeedbackForm) 
                     name="name"
                     onChange={onChange}
                     className={styles.input}
-                    placeholder="ИВАН ИВАНОВ"
+                    placeholder="ФИЛИП КОТЛЕР"
                 />
             </div>
 

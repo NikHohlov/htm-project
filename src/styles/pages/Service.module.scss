@@ -29,6 +29,7 @@
 
 .description {
     @include text(18px, 22.88px, 400);
+    text-align: justify;
     @media (max-width: 1200px) {
         @include text(14px, 20px, 400);
     }

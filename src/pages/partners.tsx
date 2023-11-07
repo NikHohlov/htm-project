@@ -108,6 +108,10 @@ export default function Partners({ logos }: { logos: string[] }) {
           {logos.map((logo, index) => (
             <motion.div
               key={logo}
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.3 },
+              }}
               className={styles.wrapper}
               initial={{ y: -50, opacity: 0 }}
               transition={{ delay: index / 8, type: "tween", duration: 0.8 }}

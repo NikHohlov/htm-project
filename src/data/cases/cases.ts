@@ -1,8 +1,20 @@
+import { airsoftText } from "./descriptions/airsoft";
+import { aistText } from "./descriptions/aist";
+import { angelText } from "./descriptions/angel";
+import { axiomaText } from "./descriptions/axioma";
+import { bovaText } from "./descriptions/bova";
 import { buySideText } from "./descriptions/buySide";
 import { desertRoseText } from "./descriptions/desertRose";
 import { fakeParisText } from "./descriptions/fakeParis";
+import { foodyText } from "./descriptions/foody";
 import { lapLandText } from "./descriptions/lapLand";
+import { malleText } from "./descriptions/malle";
+import { notGamblerText } from "./descriptions/notGambler";
+import { orionText } from "./descriptions/orion";
+import { orsaBorsaText } from "./descriptions/orsaBorsa";
 import { pinkHairLabText } from "./descriptions/pinkHairLab";
+import { saleJapanText } from "./descriptions/saleJapan";
+import { siemensText } from "./descriptions/siemens";
 import { staffStudioText } from "./descriptions/staffStudio";
 import { tmfText } from "./descriptions/tmf";
 import { whiteWayText } from "./descriptions/whiteWayAuto";
@@ -12,9 +24,9 @@ type Case = {
   name: string;
   id: string;
   description: string;
-  text: string[][];
+  text: { header: string; body: string };
   service: string;
-  video?: string;
+  videos?: string[];
 };
 
 export const cases: Case[] = [
@@ -33,8 +45,9 @@ export const cases: Case[] = [
     text: desertRoseText,
     service: "Дизайн, продвижение",
     logo: `/static/images/logos/desertRose.png`,
-    video:
+    videos: [
       "https://drive.google.com/uc?export=download&id=1D9taj5c0d2wO5wuU4iakCjZ-3fNJIAmi",
+    ],
   },
   {
     name: "FAKE.PARIS",
@@ -52,8 +65,9 @@ export const cases: Case[] = [
     service: "Дизайн, продвижение",
     logo: `/static/images/logos/buySide.png`,
 
-    video:
+    videos: [
       "https://drive.google.com/uc?export=download&id=1Hub_D8f0WFt-uJNrBgE_2u3Z1WJxn6SV",
+    ],
   },
   {
     name: "Staff studio",
@@ -61,7 +75,6 @@ export const cases: Case[] = [
     description: "Новостной telegram-канал",
     text: staffStudioText,
     logo: `/static/images/logos/staffStudio.png`,
-
     service: "Дизайн, продвижение",
   },
   {
@@ -71,9 +84,10 @@ export const cases: Case[] = [
     text: whiteWayText,
     service: "Дизайн, продвижение",
     logo: `/static/images/logos/whiteWay.png`,
-    
-    video:
+
+    videos: [
       "https://drive.google.com/uc?export=download&id=1J2WfLRGVbThOLytqLvbsPihStQCyP8bT",
+    ],
   },
   {
     name: "Pink Hair Lab",
@@ -83,8 +97,9 @@ export const cases: Case[] = [
     logo: `/static/images/logos/pinkHairLab.png`,
 
     service: "Дизайн, продвижение",
-    video:
+    videos: [
       "https://drive.google.com/uc?export=download&id=1Y6xFYrxumW-Kv0ZO67YCe9baD3iXWQh8",
+    ],
   },
   {
     name: "TMF",
@@ -94,5 +109,146 @@ export const cases: Case[] = [
     description: "Производство котлов, печей и каминов",
     text: tmfText,
     service: "Дизайн, продвижение",
+  },
+  {
+    name: "Аксиома",
+    id: "axioma",
+    logo: `/static/images/logos/axioma.png`,
+    description: "Антикражные системы",
+    text: axiomaText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/WWzJ3NTr1wI1ww",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/J-iZjiTghQ_2Ug",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/WiPmqr5-CGqZ_w",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/dwIGf9uLd2cibg",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/2n77eJDMlbMgnw",
+    ],
+  },
+  {
+    name: "SALE JAPAN",
+    id: "saleJapan",
+    logo: `/static/images/logos/saleJapan.png`,
+    description: "Cервис по выкупу товаров из Японии без посредников",
+    text: saleJapanText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/IvsF4u7SYRhbHw",
+    ],
+  },
+  {
+    name: "Orsa Borsa",
+    id: "orsaBorsa",
+    logo: `/static/images/logos/orsaBorsa.png`,
+    description: "Магазин сумок и аксессуаров",
+    text: orsaBorsaText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/FJ1KH7Y8QsR0Mw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/ABXTRMu4zKsqyw",
+    ],
+  },
+  {
+    name: "НЕ ЛУДОМАН | NOT GAMBLER",
+    id: "notGambler",
+    logo: `/static/images/logos/notGambler.png`,
+    description: "Уникальная ассоциация опытных капперов",
+    text: notGamblerText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/tWgY3yYCLJmBXw",
+    ],
+  },
+  {
+    name: "SIEMENS MOTORS",
+    id: "siemens",
+    logo: `/static/images/logos/siemens.png`,
+    description: "Электродвигатели Siemens",
+    text: siemensText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/muj60KGYi_Tzvw",
+    ],
+  },
+  {
+    name: "Malle's Family",
+    id: "malle",
+    logo: `/static/images/logos/malle.png`,
+    description: "Концептуальный шоурум",
+    text: malleText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/0JBbjkQYqxAdzw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/Qq7x4u6lkZZt7A",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/3W3g0IGj4a0B4A",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/bL3_xJSi4chmuA",
+    ],
+  },
+  {
+    name: "99% Angel",
+    id: "angel",
+    logo: `/static/images/logos/angel.png`,
+    description: "Бренд женской одежды",
+    text: angelText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/W3U1dtEukIoCLw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/1qAPGi1fQePtmw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/pqHhA4pTIyFbyg",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/elMkcRo8O0mArA",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/PvNh3UfUAnKY4g",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/UH5jd_oMcSTLlQ",
+    ],
+  },
+  {
+    name: "BOVA PAY",
+    id: "bova",
+    logo: `/static/images/logos/bova.png`,
+    description: "Платёжный онлайн-сервис",
+    text: bovaText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/WLtPqhH_h2tjSA",
+    ],
+  },
+  {
+    name: "Фуди Люди",
+    id: "foody",
+    logo: `/static/images/logos/foody.png`,
+    description: "Сервис по доставке еды",
+    text: foodyText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/6lhnlvA652JTDA",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/ufYFhdJeUTbGiw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/xaeYdW43HPBdpg",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/ORUMLW_URGTYKw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/GcGMaOEBSYqtlg",
+    ],
+  },
+  {
+    name: "АИСТ",
+    id: "aist",
+    logo: `/static/images/logos/aist.png`,
+    description: "Комплекс фотовидеофиксации “АИСТ - КОНТРОЛЬ",
+    text: aistText,
+    service: "Разработка логотипа",
+  },
+  {
+    name: "Orion Technologies",
+    id: "orion",
+    logo: `/static/images/logos/orion.png`,
+    description:
+      "Разработчик систем видеоаналитики и контроля дорожного движения",
+    text: orionText,
+    service: "Создание сайта",
+  },
+  {
+    name: "Airsoft Sports",
+    id: "airsoft",
+    logo: `/static/images/logos/airsoft.png`,
+    description: "Страйкбол Спорт магазин",
+    text: airsoftText,
+    service: "Продвижение",
   },
 ];
