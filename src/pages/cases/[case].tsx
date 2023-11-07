@@ -74,6 +74,7 @@ export default function Case({ images }: { images: string[] }) {
     <>
       <Head>
         <title>HTM: Кейсы</title>
+        <meta name="referrer" content="no-referrer"></meta>
       </Head>
       {!isCaseLoaded ? (
         <div className={styles.loaderWrapper}>
