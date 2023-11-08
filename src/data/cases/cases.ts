@@ -58,15 +58,14 @@ export const cases: Case[] = [
     logo: `/static/images/logos/fakeParis.png`,
   },
   {
-    name: "Buy | Side",
-    id: "buySide",
-    description: "Cервис денежных переводов",
-    text: buySideText,
+    name: "BOVA PAY",
+    id: "bova",
+    logo: `/static/images/logos/bova.png`,
+    description: "Платёжный онлайн-сервис",
+    text: bovaText,
     service: "Дизайн, продвижение",
-    logo: `/static/images/logos/buySide.png`,
-
     videos: [
-      "https://drive.google.com/uc?export=download&id=1Hub_D8f0WFt-uJNrBgE_2u3Z1WJxn6SV",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/WLtPqhH_h2tjSA",
     ],
   },
   {
@@ -90,26 +89,18 @@ export const cases: Case[] = [
     ],
   },
   {
-    name: "Pink Hair Lab",
-    id: "pinkHairLab",
-    description: "Cалон красоты",
-    text: pinkHairLabText,
-    logo: `/static/images/logos/pinkHairLab.png`,
-
+    name: "Buy | Side",
+    id: "buySide",
+    description: "Cервис денежных переводов",
+    text: buySideText,
     service: "Дизайн, продвижение",
+    logo: `/static/images/logos/buySide.png`,
+
     videos: [
-      "https://drive.google.com/uc?export=download&id=1Y6xFYrxumW-Kv0ZO67YCe9baD3iXWQh8",
+      "https://drive.google.com/uc?export=download&id=1Hub_D8f0WFt-uJNrBgE_2u3Z1WJxn6SV",
     ],
   },
-  {
-    name: "TMF",
-    id: "tmf",
-    logo: `/static/images/logos/tmf.png`,
 
-    description: "Производство котлов, печей и каминов",
-    text: tmfText,
-    service: "Дизайн, продвижение",
-  },
   {
     name: "Аксиома",
     id: "axioma",
@@ -126,6 +117,15 @@ export const cases: Case[] = [
     ],
   },
   {
+    name: "Orion Technologies",
+    id: "orion",
+    logo: `/static/images/logos/orion.png`,
+    description:
+      "Разработчик систем видеоаналитики и контроля дорожного движения",
+    text: orionText,
+    service: "Создание сайта",
+  },
+  {
     name: "SALE JAPAN",
     id: "saleJapan",
     logo: `/static/images/logos/saleJapan.png`,
@@ -137,15 +137,17 @@ export const cases: Case[] = [
     ],
   },
   {
-    name: "Orsa Borsa",
-    id: "orsaBorsa",
-    logo: `/static/images/logos/orsaBorsa.png`,
-    description: "Магазин сумок и аксессуаров",
-    text: orsaBorsaText,
+    name: "Malle's Family",
+    id: "malle",
+    logo: `/static/images/logos/malle.png`,
+    description: "Концептуальный шоурум",
+    text: malleText,
     service: "Дизайн, продвижение",
     videos: [
-      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/FJ1KH7Y8QsR0Mw",
-      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/ABXTRMu4zKsqyw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/0JBbjkQYqxAdzw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/Qq7x4u6lkZZt7A",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/3W3g0IGj4a0B4A",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/bL3_xJSi4chmuA",
     ],
   },
   {
@@ -171,20 +173,6 @@ export const cases: Case[] = [
     ],
   },
   {
-    name: "Malle's Family",
-    id: "malle",
-    logo: `/static/images/logos/malle.png`,
-    description: "Концептуальный шоурум",
-    text: malleText,
-    service: "Дизайн, продвижение",
-    videos: [
-      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/0JBbjkQYqxAdzw",
-      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/Qq7x4u6lkZZt7A",
-      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/3W3g0IGj4a0B4A",
-      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/bL3_xJSi4chmuA",
-    ],
-  },
-  {
     name: "99% Angel",
     id: "angel",
     logo: `/static/images/logos/angel.png`,
@@ -198,17 +186,6 @@ export const cases: Case[] = [
       "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/elMkcRo8O0mArA",
       "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/PvNh3UfUAnKY4g",
       "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/UH5jd_oMcSTLlQ",
-    ],
-  },
-  {
-    name: "BOVA PAY",
-    id: "bova",
-    logo: `/static/images/logos/bova.png`,
-    description: "Платёжный онлайн-сервис",
-    text: bovaText,
-    service: "Дизайн, продвижение",
-    videos: [
-      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/WLtPqhH_h2tjSA",
     ],
   },
   {
@@ -227,6 +204,19 @@ export const cases: Case[] = [
     ],
   },
   {
+    name: "Orsa Borsa",
+    id: "orsaBorsa",
+    logo: `/static/images/logos/orsaBorsa.png`,
+    description: "Магазин сумок и аксессуаров",
+    text: orsaBorsaText,
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/FJ1KH7Y8QsR0Mw",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/ABXTRMu4zKsqyw",
+    ],
+  },
+
+  {
     name: "АИСТ",
     id: "aist",
     logo: `/static/images/logos/aist.png`,
@@ -234,15 +224,7 @@ export const cases: Case[] = [
     text: aistText,
     service: "Разработка логотипа",
   },
-  {
-    name: "Orion Technologies",
-    id: "orion",
-    logo: `/static/images/logos/orion.png`,
-    description:
-      "Разработчик систем видеоаналитики и контроля дорожного движения",
-    text: orionText,
-    service: "Создание сайта",
-  },
+
   {
     name: "Airsoft Sports",
     id: "airsoft",
@@ -250,5 +232,27 @@ export const cases: Case[] = [
     description: "Страйкбол Спорт магазин",
     text: airsoftText,
     service: "Продвижение",
+  },
+
+  {
+    name: "Pink Hair Lab",
+    id: "pinkHairLab",
+    description: "Cалон красоты",
+    text: pinkHairLabText,
+    logo: `/static/images/logos/pinkHairLab.png`,
+
+    service: "Дизайн, продвижение",
+    videos: [
+      "https://drive.google.com/uc?export=download&id=1Y6xFYrxumW-Kv0ZO67YCe9baD3iXWQh8",
+    ],
+  },
+  {
+    name: "TMF",
+    id: "tmf",
+    logo: `/static/images/logos/tmf.png`,
+
+    description: "Производство котлов, печей и каминов",
+    text: tmfText,
+    service: "Дизайн, продвижение",
   },
 ];

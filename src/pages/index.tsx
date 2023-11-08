@@ -88,7 +88,8 @@ export default function About() {
           <motion.p>HIT THE MARKET</motion.p>
           <motion.p className={styles.secondaryText}>
             независимое
-            <br /> SOCIAL & digital агентство
+            <br /> SOCIAL <span className={styles.ampersand}>&</span> digital
+            агентство
           </motion.p>
         </motion.div>
 
