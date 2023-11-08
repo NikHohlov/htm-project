@@ -108,26 +108,29 @@ export default function Partners({ logos }: { logos: string[] }) {
           {logos.map((logo, index) => (
             <motion.div
               key={logo}
+              transition={{ delay: 0, duration: 0.3 }}
               whileHover={{
                 scale: 1.05,
-                transition: { duration: 0.3 },
               }}
-              className={styles.wrapper}
-              initial={{ y: -50, opacity: 0 }}
-              transition={{ delay: index / 8, type: "tween", duration: 0.8 }}
-              animate={
-                inViewOnce ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }
-              }
-              viewport={{ once: true }}
             >
-              <Image
-                fill
-                className={styles.partnerLogo}
-                key={logo}
-                src={`/static/images/partnerLogos/${logo}`}
-                alt="image"
-                quality={100}
-              />
+              <motion.div
+                className={styles.wrapper}
+                initial={{ y: -50, opacity: 0 }}
+                transition={{ delay: index / 8, type: "tween", duration: 0.8 }}
+                animate={
+                  inViewOnce ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }
+                }
+                viewport={{ once: true }}
+              >
+                <Image
+                  fill
+                  className={styles.partnerLogo}
+                  key={logo}
+                  src={`/static/images/partnerLogos/${logo}`}
+                  alt="image"
+                  quality={100}
+                />
+              </motion.div>
             </motion.div>
           ))}
         </div>

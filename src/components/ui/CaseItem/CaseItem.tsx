@@ -28,11 +28,16 @@ export default function CaseItem({
       className={styles.logoContainer}
       key={id}
     >
-      <Image width={334} height={334} className={styles.logo} src={logo} alt="image" />
+      <p className={styles.serviceText}>{service}</p>
+      <Image
+        width={334}
+        height={334}
+        className={styles.logo}
+        src={logo}
+        alt="image"
+      />
 
       <div className={styles.descriptionContainer}>
-        <p className={styles.serviceText}>{service}</p>
-
         <p className={styles.title}>{name}</p>
 
         <p className={styles.secondaryText}>{description}</p>

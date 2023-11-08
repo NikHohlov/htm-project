@@ -42,7 +42,7 @@
 }
 
 .description {
-    @include text(18px, 22.88px, 400);
+    @include text(20px, 23.88px, 400);
     color: black;
     height: 300px;
 
@@ -154,10 +154,10 @@
 }
 
 .video {
-    width: 60vw;
+    width: fit-content;
     @media (max-width: 1200px) {
-        width: 85vw;
-        height: 200px;
+        max-width: 85vw;
+        max-height: 200px;
     }
 }
 

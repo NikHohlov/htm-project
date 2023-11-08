@@ -141,7 +141,7 @@ export default function Case({ images }: { images: string[] }) {
                 ></p>
                 {currentCase?.videos?.map((video, index) => (
                   <video
-                    preload={index === 0 ? undefined : "none"}
+                    // preload={index === 0 ? undefined : "none"}
                     key={video}
                     className={styles.video}
                     height={500}
@@ -169,7 +169,7 @@ export default function Case({ images }: { images: string[] }) {
               ></p>
               {currentCase?.videos?.map((video, index) => (
                 <video
-                  preload={index === 0 ? undefined : "none"}
+                  // preload={index === 0 ? undefined : "none"}
                   key={video}
                   className={styles.video}
                   height={500}
