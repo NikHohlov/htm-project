@@ -22,6 +22,7 @@ import { whiteWayText } from "./descriptions/whiteWayAuto";
 type Case = {
   logo: string;
   name: string;
+  shortName?: string;
   id: string;
   description: string;
   subtitle?: string;
@@ -124,8 +125,7 @@ export const cases: Case[] = [
     logo: `/static/images/logos/orion.png`,
     description:
       "Разработчик систем видеоаналитики и контроля дорожного движения",
-    subtitle:
-      "Разработчик систем видеоаналитики",
+    subtitle: "Разработчик систем видеоаналитики",
     text: orionText,
     service: "Создание сайта",
   },
@@ -134,6 +134,7 @@ export const cases: Case[] = [
     id: "saleJapan",
     logo: `/static/images/logos/saleJapan.png`,
     description: "Cервис по выкупу товаров из Японии без посредников",
+    subtitle: "Cервис по выкупу товаров из Японии",
     text: saleJapanText,
     service: "Дизайн, продвижение",
     videos: [
@@ -156,9 +157,11 @@ export const cases: Case[] = [
   },
   {
     name: "НЕ ЛУДОМАН | NOT GAMBLER",
+    shortName: "NOT GAMBLER",
     id: "notGambler",
     logo: `/static/images/logos/notGambler.png`,
     description: "Уникальная ассоциация опытных капперов",
+    subtitle: "Ассоциация опытных капперов",
     text: notGamblerText,
     service: "Дизайн, продвижение",
     videos: [
