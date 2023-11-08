@@ -64,6 +64,7 @@ export default function Contacts() {
                 </p>
 
                 <SocialMediaList />
+                <p className={styles.number}>+7 991 971 17 17</p>
               </div>
             </motion.div>
           ) : (
@@ -81,6 +82,7 @@ export default function Contacts() {
                 <p className={styles.text}>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
 
                 <SocialMediaList />
+                <p className={styles.number}>+7 991 971 17 17</p>
               </div>
 
               <FeedbackForm setIsOpen={setIsOpen} setSubmitted={setSubmitted} />
