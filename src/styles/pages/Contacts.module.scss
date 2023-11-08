@@ -101,10 +101,13 @@
 .containerLeft{
     display: flex;
     gap: 11em;
-    margin: 8em 0 10em 0;
+    // margin: 8em 0 10em 0;
     align-items: flex-start;
+    position: absolute;
+    top: 20vh;
 
     @media (max-width: 1200px) {
+        top: unset;
         flex-direction: column-reverse;
         align-items: center !important;
         margin-top: 10em;
@@ -112,10 +115,10 @@
     }
 
     @media (min-height: 800px) {
-        margin-top: 10em;
+        // margin-top: 10em;
     }
 
     @media (min-height: 900px) {
-        margin-top: 12em;
+        // margin-top: 12em;
     }
 }
