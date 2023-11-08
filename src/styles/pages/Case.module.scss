@@ -52,6 +52,11 @@
         // margin-bottom: 5em;
         height: fit-content;
     }
+
+    :global(.ampersand) {
+        font-family: Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
 }
 
 .bottomDescription {

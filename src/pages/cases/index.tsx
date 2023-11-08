@@ -67,7 +67,7 @@ export default function Cases() {
         ref={ref}
         className={styles.firstSection}
         variants={variants}
-        initial="initial"
+        initial="hidden"
         animate="enter"
         exit="exit"
         transition={{ type: "linear", duration: 1, ease: "easeInOut" }}

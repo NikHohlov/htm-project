@@ -1,6 +1,6 @@
 export const staffStudioText = {
   header: `
-    Staff Studio - новостной telegram-канал с  полезной информацией, новостями и идеями о HRtech/AI&HR/Technology&Recruitmen/IT-Recruitment. 
+    Staff Studio - новостной telegram-канал с  полезной информацией, новостями и идеями о HRtech/AI<span class="ampersand">&</span>HR/Technology<span class="ampersand">&</span>Recruitmen/IT-Recruitment. 
     `,
   body: `
   <div><span>Брендирование основывалось на существующем логотипе. </span></div>
