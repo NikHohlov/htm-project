@@ -160,6 +160,7 @@
 
 .video {
     width: fit-content;
+    max-width: 100%;
     @media (max-width: 1200px) {
         max-width: 85vw;
         max-height: 200px;
@@ -170,4 +171,17 @@
     display: flex;
     justify-content: center;
     margin-top: 5em;
+}
+
+.videos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 1em;
+
+    @media (max-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

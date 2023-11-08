@@ -9,6 +9,7 @@ interface CaseItemProps {
   name: string;
   service: string;
   description: string;
+  subtitle?: string;
   onClick: () => void;
 }
 
@@ -18,6 +19,7 @@ export default function CaseItem({
   id,
   name,
   description,
+  subtitle,
   onClick,
 }: CaseItemProps) {
   return (
@@ -40,7 +42,7 @@ export default function CaseItem({
       <div className={styles.descriptionContainer}>
         <p className={styles.title}>{name}</p>
 
-        <p className={styles.secondaryText}>{description}</p>
+        <p className={styles.secondaryText}>{subtitle ?? description}</p>
       </div>
     </Link>
   );

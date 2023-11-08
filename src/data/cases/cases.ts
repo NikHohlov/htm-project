@@ -24,6 +24,7 @@ type Case = {
   name: string;
   id: string;
   description: string;
+  subtitle?: string;
   text: { header: string; body: string };
   service: string;
   videos?: string[];
@@ -80,6 +81,7 @@ export const cases: Case[] = [
     name: "WHITE WAY AUTO",
     id: "whiteWay",
     description: "Сервис по подбору и доставке автомобилей из Южной Кореи",
+    subtitle: "Сервис по подбору и доставке автомобилей",
     text: whiteWayText,
     service: "Дизайн, продвижение",
     logo: `/static/images/logos/whiteWay.png`,
@@ -122,6 +124,8 @@ export const cases: Case[] = [
     logo: `/static/images/logos/orion.png`,
     description:
       "Разработчик систем видеоаналитики и контроля дорожного движения",
+    subtitle:
+      "Разработчик систем видеоаналитики",
     text: orionText,
     service: "Создание сайта",
   },
@@ -220,7 +224,8 @@ export const cases: Case[] = [
     name: "АИСТ",
     id: "aist",
     logo: `/static/images/logos/aist.png`,
-    description: "Комплекс фотовидеофиксации “АИСТ - КОНТРОЛЬ",
+    description: `Комплекс фотовидеофиксации "АИСТ - КОНТРОЛЬ"`,
+    subtitle: "Комплекс фотовидеофиксации",
     text: aistText,
     service: "Разработка логотипа",
   },

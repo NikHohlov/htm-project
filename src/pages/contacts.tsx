@@ -71,7 +71,11 @@ export default function Contacts() {
               className={styles.containerLeft}
               key="text"
               exit={{ opacity: 0, y: 300 }}
-              transition={{ type: "linear", duration: 0.5, ease: "easeInOut" }}
+              transition={{
+                type: "linear",
+                duration: 0.5,
+                ease: "easeInOut",
+              }}
             >
               <div className={styles.leftSection}>
                 <p className={styles.text}>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>

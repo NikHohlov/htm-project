@@ -110,4 +110,12 @@
         margin-top: 10em;
         gap: 0;
     }
+
+    @media (min-height: 800px) {
+        margin-top: 10em;
+    }
+
+    @media (min-height: 900px) {
+        margin-top: 12em;
+    }
 }

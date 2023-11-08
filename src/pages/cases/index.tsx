@@ -107,7 +107,7 @@ export default function Cases() {
         transition={{ type: "linear", duration: 0.7, ease: "easeIn" }}
       >
         <div ref={refCases} className={styles.casesContainer}>
-          {allCases.map(({ id, name, description, service, logo }, index) => (
+          {allCases.map(({ id, name, description, service, logo, subtitle }, index) => (
             <motion.div
               key={id}
               initial={{ opacity: 0 }}
@@ -121,6 +121,7 @@ export default function Cases() {
                 logo={logo}
                 name={name}
                 service={service}
+                subtitle={subtitle}
                 description={description}
                 onClick={onClick("/cases/[case]")}
               />
