@@ -17,29 +17,50 @@ export const tmfText = {
   <div><span>SMM-ведение осуществлялось в следующих социальных сетях:</span></div>
   <br />
   <div><span>- ВКонтакте</span></div>
+  <br>
   <div><span>- Telegram</span></div>
+  <br>
   <div><span>- Одноклассники </span></div>
+  <br>
   <br />
   <div><span>В услуги входило: </span></div>
   <br />
   <div><span>- создание обложки для ПК-версии</span></div>
+  <br>
   <div><span>- создание шаблонов для stories </span></div>
+  <br>
   <div><span>- premium-оформление Telegram </span></div>
+  <br>
   <div><span>- промо-акции </span></div>
+  <br>
   <div><span>- статьи для информационного меню </span></div>
+  <br>
   <div><span>- шаблоны для обложек (информационных статей)</span></div>
+  <br>
   <div><span>- шаблоны для постов </span></div>
+  <br>
   <div><span>- написание статей</span></div>
+  <br>
   <div><span>- монтаж VK-клипов</span></div>
+  <br>
   <div><span>- проведение социальных опросов </span></div>
+  <br>
   <div><span>- взаимодействие с аудиторией </span></div>
+  <br>
   <div><span>- мониторинг потоков аудитории </span></div>
+  <br>
   <div><span>- проработка креатива</span></div>
+  <br>
   <div><span>- настройка таргетинга</span></div>
+  <br>
   <div><span>- работа с хештегами</span></div>
+  <br>
   <div><span>- работа с геотегами </span></div>
+  <br>
   <div><span>- дополнительный брендинг </span></div>
+  <br>
   <div><span>- составление KPI-отчетов</span></div>
+  <br>
   <div><span>- прочее</span></div>
   <br />
   <div><span>Была произведена сегментация контента на продающий, развлекательный и экспертный.</span></div>

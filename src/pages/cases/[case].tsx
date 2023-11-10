@@ -136,7 +136,7 @@ export default function Case({ images }: { images: string[] }) {
                 <p
                   className={styles.bottomDescription}
                   dangerouslySetInnerHTML={{
-                    __html: currentCase?.text.header ?? "",
+                    __html: currentCase?.text.body ?? "",
                   }}
                 ></p>
                 <div className={styles.videos}>
