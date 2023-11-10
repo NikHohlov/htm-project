@@ -69,7 +69,7 @@ export default function Services() {
           <p className={styles.primaryText}>УСЛУГИ</p>
         </motion.div>
 
-        {!isImageLoaded && <LogoMiniLoader white/>}
+        {!isImageLoaded && <LogoMiniLoader white />}
 
         <motion.div
           className={styles.imageWrapper}
@@ -98,15 +98,18 @@ export default function Services() {
         exit="exit"
         transition={{ type: "linear", duration: 0.7, ease: "easeIn" }}
       >
-        <motion.p
-          className={styles.primaryTextTwo}
-          {...slideInItem("toRight", 0.2)}
-          viewport={{ once: true }}
-        >
-          ЧТО МЫ МОЖЕМ
-        </motion.p>
-
         <div ref={ref} className={styles.servicesContainer}>
+          <motion.p
+            className={styles.textWrapper}
+            {...slideInItem("toRight", 0.2)}
+            viewport={{ once: true }}
+          >
+            <p className={styles.primaryTextTwo}>ЧТО МЫ МОЖЕМ</p>
+          </motion.p>
+          <div className={styles.placeholder}/>
+          <div className={styles.placeholder}/>
+          <div className={styles.placeholder}/>
+
           {services.map(({ title, icon, name }, index) => (
             <motion.div
               key={title}
@@ -124,11 +127,10 @@ export default function Services() {
               />
             </motion.div>
           ))}
+          <Link className={styles.contacts} href="/contacts" scroll={false}>
+            <Button title="КОНТАКТЫ" theme={Theme.Light} />
+          </Link>
         </div>
-
-        <Link className={styles.contacts} href="/contacts" scroll={false}>
-          <Button title="КОНТАКТЫ" theme={Theme.Light} />
-        </Link>
       </motion.div>
     </>
   );

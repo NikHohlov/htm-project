@@ -172,6 +172,10 @@
         @media (max-width: 1200px) {
             @include text(28px, 32px, 400);
         }
+        
+        @media (min-width: 1536px) {
+            width: 90%;
+        }
     }
 }
 

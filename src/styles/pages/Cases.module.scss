@@ -92,6 +92,7 @@
     row-gap: 1em;
     flex-wrap: wrap;
     margin-top: 5em;
+    margin-bottom: 7%;
     justify-items: center;
 
     @media (max-width: 1200px) {
@@ -101,4 +102,25 @@
         row-gap: 3em;
         margin-top: 0;
     }
+}
+
+.contacts {
+    grid-column-start: 1;
+    width: 336px;
+
+    @media (max-width: 1200px) {
+        left: unset;
+        grid-column-end: 3;
+        display: flex;
+        justify-content: center;
+        button {
+            width: 132px;
+            height: 29px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 17px;
+        }
+}
 }

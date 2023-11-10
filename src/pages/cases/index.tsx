@@ -23,6 +23,9 @@ import {
   opacityFromZeroToOne,
 } from "@/lib/animaitons/animations";
 import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+import { Theme } from "@/lib/types";
+import Link from "next/link";
+import Button from "@/components/ui/Button/Button";
 
 export default function Cases() {
   const router = useRouter();
@@ -107,27 +110,35 @@ export default function Cases() {
         transition={{ type: "linear", duration: 0.7, ease: "easeIn" }}
       >
         <div ref={refCases} className={styles.casesContainer}>
-          {allCases.map(({ id, name, description, service, logo, subtitle, shortName }, index) => (
-            <motion.div
-              key={id}
-              initial={{ opacity: 0 }}
-              transition={{ duration: 1 }}
-              animate={inViewOnce ? { opacity: 1 } : { opacity: 0 }}
-              viewport={{ once: true }}
-            >
-              <CaseItem
-                id={id}
+          {allCases.map(
+            (
+              { id, name, description, service, logo, subtitle, shortName },
+              index
+            ) => (
+              <motion.div
                 key={id}
-                logo={logo}
-                name={name}
-                service={service}
-                subtitle={subtitle}
-                shortName={shortName}
-                description={description}
-                onClick={onClick("/cases/[case]")}
-              />
-            </motion.div>
-          ))}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                animate={inViewOnce ? { opacity: 1 } : { opacity: 0 }}
+                viewport={{ once: true }}
+              >
+                <CaseItem
+                  id={id}
+                  key={id}
+                  logo={logo}
+                  name={name}
+                  service={service}
+                  subtitle={subtitle}
+                  shortName={shortName}
+                  description={description}
+                  onClick={onClick("/cases/[case]")}
+                />
+              </motion.div>
+            )
+          )}
+        <Link className={styles.contacts} href="/contacts" scroll={false}>
+          <Button title="КОНТАКТЫ" theme={Theme.Light} />
+        </Link>
         </div>
       </motion.div>
     </>

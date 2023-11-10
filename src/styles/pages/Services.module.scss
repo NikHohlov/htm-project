@@ -15,7 +15,7 @@
 
 .secondSection{
     min-height: 100vh;
-    margin: 7% 7% 7% 7%;
+    margin: 1% 7% 7% 7%;
 }
 
 .image {
@@ -58,11 +58,33 @@
     }
 }
 
+.textWrapper {
+    width: 224px;
+    align-self: center;
+
+    @media (max-width: 1200px) {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+.placeholder {
+    @media (max-width: 1200px) {
+        display: none;
+    }
+}
+
 .primaryTextTwo {
     @include text(48px, 70.32px, 800, Codenext);
     @include fontBackground(#6158F3, #41C0FF, 0.82%, 47.36%);
+    white-space: nowrap;
+    position: absolute;
 
     @media (max-width: 1200px) {
+        left: unset;
         @include text(24px, 35px, 800, Codenext);
     }
 }
@@ -91,7 +113,7 @@
     grid-template-rows: 1fr 1fr;
     gap: 3em;
     justify-items: center;
-    margin: 7% 0 7% 0;
+    margin: 0 0 7% 0;
 
     @media (max-width: 1200px) {
         grid-template-columns: repeat(2, 1fr);
@@ -103,7 +125,12 @@
 }
 
 .contacts {
+    position: relative;
+    grid-column-start: 1;
+    width: 224px;
     @media (max-width: 1200px) {
+        left: unset;
+        grid-column-end: 3;
         display: flex;
         justify-content: center;
         button {
