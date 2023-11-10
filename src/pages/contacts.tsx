@@ -66,7 +66,9 @@ export default function Contacts() {
 
                 <SocialMediaList />
                 <Link href="tel:79919711717" className={styles.numberWrapper}>
-                  <p className={styles.number}>+7 991 971 17 17</p>
+                  <p className={styles.number}>
+                    +7 991&nbsp; 971&nbsp; 17&nbsp; 17
+                  </p>
                 </Link>
               </div>
             </motion.div>
@@ -86,7 +88,9 @@ export default function Contacts() {
                 <SocialMediaList />
 
                 <Link href="tel:79919711717" className={styles.numberWrapper}>
-                  <p className={styles.number}>+7 991 971 17 17</p>
+                  <p className={styles.number}>
+                    +7&nbsp; 991&nbsp; 971&nbsp; 17&nbsp; 17
+                  </p>
                 </Link>
               </div>
 

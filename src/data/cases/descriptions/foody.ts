@@ -29,7 +29,7 @@ export const foodyText = {
 <br><br>
 <p>- Instagram</p>
 <br><br>
-<strong><p>В услуги входило:</p></strong>
+<p>В услуги входило:</p>
 <br><br>
 <p>- создание анимированной 2D обложки</p>
 <br><br>

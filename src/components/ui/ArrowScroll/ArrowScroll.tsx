@@ -16,7 +16,7 @@ export const ArrowScroll = ({ scrollTo, gradient }: ArrowScrollProps) => {
 
     const scrollDown = () => {
         if (!scrollTo.current) return;
-        scrollToSmoothly(scrollTo.current?.offsetHeight + 10, 100);
+        scrollToSmoothly(scrollTo.current?.offsetHeight + 15, 100);
     };
 
     return (

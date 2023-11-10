@@ -14,8 +14,7 @@ export const fakeParisText = {
   <br />
   <div><span>SMM-ведение осуществлялось в социальной сети Instagram*.</span></div>
   <br />
-  <strong><p>В услуги входило:</p></strong>
-  <br />
+<p>В услуги входило:</p>  <br />
   <div><span>- создание шаблонов для постов </span></div>
   <br>
   <div><span>- создание шаблонов для stories </span></div>

@@ -119,7 +119,7 @@
 }
 
 .bottomText {
-    margin-bottom: 10em;
+    margin-bottom: 3em;
     @include text(26px, 22px);  
     
     @media (max-width: 800px) {

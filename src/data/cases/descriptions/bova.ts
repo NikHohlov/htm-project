@@ -17,7 +17,7 @@ export const bovaText = {
 <br>
 <p>- Telegram</p>
 <br>
-<strong><p>В услуги входило:</p></strong>
+<p>В услуги входило:</p>
 <br>
 <p>- создание анимированной 2D обложки</p>
 <br>

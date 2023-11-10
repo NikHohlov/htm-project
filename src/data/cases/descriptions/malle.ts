@@ -27,7 +27,7 @@ export const malleText = {
 <p><br></p>
 <p>- Instagram</p>
 <p><br></p>
-<strong><p>В услуги входило:</p></strong>
+<p>В услуги входило:</p>
 <p><br></p>
 <p>- создание анимированной 2D обложки</p>
 <p><br></p>

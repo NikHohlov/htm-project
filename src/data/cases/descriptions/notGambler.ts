@@ -11,7 +11,7 @@ export const notGamblerText = {
 <p><br></p>
 <p>SMM-ведение осуществлялось в социальной сети Telegram.</p>
 <p><br></p>
-<strong><p>В услуги входило:</p></strong>
+<p>В услуги входило:</p>
 <p><br></p>
 <p>- 2D/3D дизайн</p>
 <p><br></p>

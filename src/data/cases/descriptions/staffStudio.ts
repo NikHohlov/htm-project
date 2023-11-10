@@ -16,8 +16,7 @@ export const staffStudioText = {
   <br />
   <div><span>SMM-ведение осуществлялось в социальной сети Telegram на английском языке. </span></div>
   <br />
-  <strong><p>В услуги входило:</p></strong>
-  <br />
+<p>В услуги входило:</p>  <br />
   <div><span>- 2D/3D дизайн</span></div>
   <br>
   <div><span>- premium-оформление Telegram </span></div>

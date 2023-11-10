@@ -17,8 +17,7 @@ export const desertRoseText = {
   <br />
   <div><span>SMM-ведение осуществлялось в социальной сети ВКонтакте.</span></div>
   <br />
-  <strong><p>В услуги входило:</p></strong>
-  <br />
+<p>В услуги входило:</p>  <br />
   <div><span>- создание анимированной 2D обложки</span></div>
   <br>
   <div><span>- создание обложки для ПК-версии</span></div>
