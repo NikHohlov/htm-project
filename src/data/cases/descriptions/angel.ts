@@ -12,7 +12,7 @@ export const angelText = {
 <p><br></p>
 <p>SMM-ведение осуществлялось в социальной сети Telegram.</p>
 <p><br></p>
-<p>В услуги входило:</p>
+<strong><p>В услуги входило:</p></strong>
 <p><br></p>
 <p>- 2D/3D дизайн</p>
 <p><br></p>

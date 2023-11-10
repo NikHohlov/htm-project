@@ -117,3 +117,12 @@
     flex-direction: column;
     align-items: center;
 }
+
+.bottomText {
+    margin-bottom: 10em;
+    @include text(26px, 22px);  
+    
+    @media (max-width: 800px) {
+        @include text(20px, 22px);  
+    }
+}

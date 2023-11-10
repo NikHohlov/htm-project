@@ -21,7 +21,7 @@ export const pinkHairLabText = {
   <br>
   <div><span>- Instagram*</span></div>
   <br />
-  <div><span>В услуги входило: </span></div>
+  <strong><p>В услуги входило:</p></strong>
   <br />
   <div><span>- создание анимированной 2D обложки</span></div>
   <br>

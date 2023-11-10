@@ -134,6 +134,7 @@ export default function Partners({ logos }: { logos: string[] }) {
             </motion.div>
           ))}
         </div>
+        <p className={styles.bottomText}>И многие другие</p>
       </motion.div>
     </>
   );

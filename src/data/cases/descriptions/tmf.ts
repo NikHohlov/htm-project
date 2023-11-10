@@ -23,7 +23,7 @@ export const tmfText = {
   <div><span>- Одноклассники </span></div>
   <br>
   <br />
-  <div><span>В услуги входило: </span></div>
+  <strong><p>В услуги входило:</p></strong>
   <br />
   <div><span>- создание обложки для ПК-версии</span></div>
   <br>

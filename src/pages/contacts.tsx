@@ -13,6 +13,7 @@ import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import Head from "next/head";
 import { StylesContext } from "./_app";
 import { useIsMobile } from "@/lib/hooks/useIsMobile";
+import Link from "next/link";
 
 export default function Contacts() {
   const [submitted, setSubmitted] = useState(false);
@@ -64,7 +65,9 @@ export default function Contacts() {
                 </p>
 
                 <SocialMediaList />
-                <p className={styles.number}>+7 991 971 17 17</p>
+                <Link href="tel:79919711717" className={styles.numberWrapper}>
+                  <p className={styles.number}>+7 991 971 17 17</p>
+                </Link>
               </div>
             </motion.div>
           ) : (
@@ -80,9 +83,11 @@ export default function Contacts() {
             >
               <div className={styles.leftSection}>
                 <p className={styles.text}>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
-
                 <SocialMediaList />
-                <p className={styles.number}>+7 991 971 17 17</p>
+
+                <Link href="tel:79919711717" className={styles.numberWrapper}>
+                  <p className={styles.number}>+7 991 971 17 17</p>
+                </Link>
               </div>
 
               <FeedbackForm setIsOpen={setIsOpen} setSubmitted={setSubmitted} />

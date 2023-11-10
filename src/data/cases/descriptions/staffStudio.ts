@@ -1,10 +1,12 @@
 export const staffStudioText = {
   header: `
-    Staff Studio - новостной telegram-канал с  полезной информацией, новостями и идеями о HRtech/AI<span class="ampersand">&</span>HR/Technology<span class="ampersand">&</span>Recruitmen/IT-Recruitment. 
+    Staff Studio - новостной telegram-канал с  полезной информацией, новостями и идеями о HRtech / AI<span class="ampersand">&</span>HR / Technology<span class="ampersand">&</span>Recruitmen / IT-Recruitment. 
+    <br><br>
+    <div><span>Брендирование основывалось на существующем логотипе. </span></div>
+  <br />
     `,
   body: `
-  <div><span>Брендирование основывалось на существующем логотипе. </span></div>
-  <br />
+  
   <div><span>Основной задачей являлось отразить нестандартный подход HR-специалистов к решению задач в индустрии рекрутинга.</span></div>
   <div><span></span></div>
   <br>
@@ -14,7 +16,7 @@ export const staffStudioText = {
   <br />
   <div><span>SMM-ведение осуществлялось в социальной сети Telegram на английском языке. </span></div>
   <br />
-  <div><span>В услуги входило: </span></div>
+  <strong><p>В услуги входило:</p></strong>
   <br />
   <div><span>- 2D/3D дизайн</span></div>
   <br>

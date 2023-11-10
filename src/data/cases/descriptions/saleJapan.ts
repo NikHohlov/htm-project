@@ -18,7 +18,7 @@ export const saleJapanText = {
 <p><br></p>
 <p>- Telegram</p>
 <p><br></p>
-<p>В услуги входило:</p>
+<strong><p>В услуги входило:</p></strong>
 <p><br></p>
 <p>- создание анимированной 2D обложки</p>
 <p><br></p>
