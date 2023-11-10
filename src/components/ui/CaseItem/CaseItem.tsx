@@ -34,8 +34,8 @@ export default function CaseItem({
     >
       <p className={styles.serviceText}>{service}</p>
       <Image
-        width={334}
-        height={334}
+        width={336}
+        height={336}
         className={styles.logo}
         src={logo}
         alt="image"

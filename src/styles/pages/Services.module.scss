@@ -90,7 +90,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;
     gap: 3em;
-    justify-items: start;
+    justify-items: center;
     margin: 7% 0 7% 0;
 
     @media (max-width: 1200px) {

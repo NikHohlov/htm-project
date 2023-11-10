@@ -22,9 +22,9 @@
 .secondSection {
     display: flex;
     flex-direction: column;
-    padding: 0 15% 7% 15%;
+    padding: 0 15% 3% 15%;
     gap: 3em;
-    margin-bottom: 6em;
+    // margin-bottom: 6em;
 
     @media (max-width: 1200px) {
         padding: 0 7%;;

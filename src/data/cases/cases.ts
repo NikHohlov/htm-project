@@ -47,9 +47,7 @@ export const cases: Case[] = [
     text: desertRoseText,
     service: "Дизайн, продвижение",
     logo: `/static/images/logos/desertRose.png`,
-    videos: [
-      "https://drive.google.com/uc?export=download&id=1D9taj5c0d2wO5wuU4iakCjZ-3fNJIAmi",
-    ],
+    videos: [],
   },
   {
     name: "FAKE.PARIS",
@@ -87,9 +85,7 @@ export const cases: Case[] = [
     service: "Дизайн, продвижение",
     logo: `/static/images/logos/whiteWay.png`,
 
-    videos: [
-      "https://drive.google.com/uc?export=download&id=1J2WfLRGVbThOLytqLvbsPihStQCyP8bT",
-    ],
+    videos: [],
   },
   {
     name: "Buy | Side",
@@ -100,7 +96,7 @@ export const cases: Case[] = [
     logo: `/static/images/logos/buySide.png`,
 
     videos: [
-      "https://drive.google.com/uc?export=download&id=1Hub_D8f0WFt-uJNrBgE_2u3Z1WJxn6SV",
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/vzNrCLNWbaCoWg",
     ],
   },
 
@@ -128,6 +124,9 @@ export const cases: Case[] = [
     subtitle: "Разработчик систем видеоаналитики",
     text: orionText,
     service: "Создание сайта",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/-CIgKJfziteBug",
+    ],
   },
   {
     name: "SALE JAPAN",
@@ -231,6 +230,9 @@ export const cases: Case[] = [
     subtitle: "Комплекс фотовидеофиксации",
     text: aistText,
     service: "Разработка логотипа",
+    videos: [
+      "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/i/Q13wqUT4XOPKRw",
+    ],
   },
 
   {
@@ -250,9 +252,7 @@ export const cases: Case[] = [
     logo: `/static/images/logos/pinkHairLab.png`,
 
     service: "Дизайн, продвижение",
-    videos: [
-      "https://drive.google.com/uc?export=download&id=1Y6xFYrxumW-Kv0ZO67YCe9baD3iXWQh8",
-    ],
+    videos: [],
   },
   {
     name: "TMF",

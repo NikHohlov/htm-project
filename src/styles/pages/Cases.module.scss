@@ -15,7 +15,7 @@
 
 .secondSection{
     min-height: 100vh;
-    margin: 5% 5% 27% 5%;
+    margin: 5% 5% 12% 5%;
     min-height: 110vh;
 }
 
@@ -89,9 +89,10 @@
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     align-items: center;
-    row-gap: 10em;
+    row-gap: 1em;
     flex-wrap: wrap;
     margin-top: 5em;
+    justify-items: center;
 
     @media (max-width: 1200px) {
         display: grid;
