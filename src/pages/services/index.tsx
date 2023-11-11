@@ -99,13 +99,13 @@ export default function Services() {
         transition={{ type: "linear", duration: 0.7, ease: "easeIn" }}
       >
         <div ref={ref} className={styles.servicesContainer}>
-          <motion.p
+          <motion.div
             className={styles.textWrapper}
             {...slideInItem("toRight", 0.2)}
             viewport={{ once: true }}
           >
             <p className={styles.primaryTextTwo}>ЧТО МЫ МОЖЕМ</p>
-          </motion.p>
+          </motion.div>
           <div className={styles.placeholder}/>
           <div className={styles.placeholder}/>
           <div className={styles.placeholder}/>
