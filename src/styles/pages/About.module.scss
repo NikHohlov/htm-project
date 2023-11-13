@@ -154,11 +154,11 @@
     @include text(64px, 93.76px, 800, Codenext);
     left: 1em;
     position: relative;
-    width: 41vw;
+    width: 39vw;
     left: 60px;
     z-index: 5;
 
-    @media (max-width: 1530px) {
+    @media (max-width: 1595px) {
         margin-bottom: 20%;
     }
 
