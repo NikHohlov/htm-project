@@ -75,7 +75,7 @@
     left: auto !important;
     width: auto !important;
 
-    @media (max-width: 800px) {
+    @media (max-width: 1000px) {
         height: 85vw !important;
     }
 }
@@ -158,9 +158,19 @@
     left: 60px;
     z-index: 5;
 
+    @media (max-width: 1530px) {
+        margin-bottom: 20%;
+    }
+
+    @media (max-width: 1400px) {
+        width: unset;
+        margin-bottom: 40%;
+    }
+
     @media (max-width: 1200px) {
+        margin-bottom: unset;
         @include text(34px, 45px, 800, Codenext);
-        width: 88%;    
+        width: 88%;
         top: 20%;
         left: 0;
     }

@@ -108,7 +108,7 @@ export default function Service() {
                 )}
               </div>
             </motion.div>
-            {service?.points && <ArrowScroll scrollTo={secondRef} />}
+            {service?.points && <ArrowScroll extraOffset={30} scrollTo={secondRef} />}
           </section>
 
           {service?.points && (
