@@ -124,7 +124,7 @@ export default function FeedbackForm({
       <div className={styles.inputField}>
         <p className={styles.inputName}>ИМЯ</p>
         <input
-          type="text"
+          type="tel"
           name="name"
           onChange={onChange}
           className={styles.input}
