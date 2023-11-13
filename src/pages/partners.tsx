@@ -21,6 +21,10 @@ import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 import { GetStaticProps } from "next";
 import path from "path";
 import { promises as fs } from "fs";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import useTheme from "@/lib/hooks/useTheme";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 export const getStaticProps: GetStaticProps = async () => {
   const directoryPath = path.join(
@@ -36,6 +40,10 @@ export default function Partners({ logos }: { logos: string[] }) {
   const { variants } = usePageTransition();
   const [inViewOnce, setInViewOnce] = useState(false);
   const secondSectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+
+  const isMobile = useIsMobile()
 
   const { partners: styles } = useContext(StylesContext);
 
@@ -70,8 +78,12 @@ export default function Partners({ logos }: { logos: string[] }) {
         variants={variants}
         initial="hidden"
         animate="enter"
-        exit="exit"
-        transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+        exit={"exit"}
+        transition={{
+          type: "linear",
+          duration: 1,
+          ease: "easeInOut",
+        }}
       >
         <motion.div className={styles.counterWrapper} {...opacityFromZeroToOne}>
           <motion.span className={styles.counter} ref={ref}>
@@ -118,7 +130,7 @@ export default function Partners({ logos }: { logos: string[] }) {
                 initial={{ y: -50, opacity: 0 }}
                 transition={{ delay: index / 8, type: "tween", duration: 0.8 }}
                 animate={
-                  inViewOnce ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }
+                  inViewOnce ? { y: 0, opacity: 1 } : { y: isMobile ? 0 : -50, opacity: 0 }
                 }
                 viewport={{ once: true }}
               >
@@ -134,7 +146,9 @@ export default function Partners({ logos }: { logos: string[] }) {
             </motion.div>
           ))}
         </div>
-        <p className={styles.bottomText}>И многие другие</p>
+        <Link href="/cases#all" className={styles.numberWrapper}>
+          <p className={styles.number}>И многие другие</p>
+        </Link>
       </motion.div>
     </>
   );

@@ -65,7 +65,7 @@ export default function Contacts() {
                 </p>
 
                 <SocialMediaList />
-                <Link href="tel:79919711717" className={styles.numberWrapper}>
+                <Link href="tel:+79919711717" className={styles.numberWrapper}>
                   <p className={styles.number}>
                     +7 991&nbsp; 971&nbsp; 17&nbsp; 17
                   </p>
@@ -87,7 +87,7 @@ export default function Contacts() {
                 <p className={styles.text}>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
                 <SocialMediaList />
 
-                <Link href="tel:79919711717" className={styles.numberWrapper}>
+                <Link href="tel:+79919711717" className={styles.numberWrapper}>
                   <p className={styles.number}>
                     +7&nbsp; 991&nbsp; 971&nbsp; 17&nbsp; 17
                   </p>

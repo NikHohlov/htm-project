@@ -4,6 +4,7 @@
     @include flexCenter();
     gap: 9em;
     min-height: 100vh;
+    position: relative;
     background: linear-gradient(5deg, #34C3FB 1%, #5149e0 99%);
     padding: 2% 15% 7% 15%;
 

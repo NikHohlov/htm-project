@@ -22,7 +22,6 @@ export const tmfText = {
   <div><span>- Telegram</span></div>
   <br>
   <div><span>- Одноклассники </span></div>
-  <br>
   <br />
 <p>В услуги входило:</p>  <br />
   <div><span>- создание обложки для ПК-версии</span></div>

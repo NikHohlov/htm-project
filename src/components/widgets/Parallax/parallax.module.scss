@@ -22,6 +22,6 @@
     flex-wrap: nowrap;
 
     @media (max-width: 800px) {
-      @include text(60px, 60px, 800, Codenext); 
+      @include text(80px, 80px, 800, Codenext); 
     }
   }

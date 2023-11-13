@@ -4,8 +4,6 @@ import cases from "@/assets/pictures/casesPage/cases.png";
 
 import { cases as allCases } from "@/data/cases/cases";
 
-import { caseItems } from "@/data/caseItem";
-
 import { motion, useInView } from "framer-motion";
 
 import CaseItem from "@/components/ui/CaseItem/CaseItem";
@@ -18,10 +16,7 @@ import { StylesContext } from "../_app";
 import Head from "next/head";
 import { ArrowScroll } from "@/components/ui/ArrowScroll/ArrowScroll";
 import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
-import {
-  listDelaySlideIn,
-  opacityFromZeroToOne,
-} from "@/lib/animaitons/animations";
+import { opacityFromZeroToOne } from "@/lib/animaitons/animations";
 import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
 import { Theme } from "@/lib/types";
 import Link from "next/link";
@@ -136,9 +131,9 @@ export default function Cases() {
               </motion.div>
             )
           )}
-        <Link className={styles.contacts} href="/contacts" scroll={false}>
-          <Button title="КОНТАКТЫ" theme={Theme.Light} />
-        </Link>
+          <Link className={styles.contacts} href="/contacts" scroll={false}>
+            <Button title="КОНТАКТЫ" theme={Theme.Light} />
+          </Link>
         </div>
       </motion.div>
     </>

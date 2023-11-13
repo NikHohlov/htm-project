@@ -47,7 +47,7 @@
     height: 300px;
 
     @media (max-width: 1200px) {
-        @include text(12px, 14px, 400);
+        @include text(18px, 21.4px, 400);
         color: black;
         // margin-bottom: 5em;
         height: fit-content;
