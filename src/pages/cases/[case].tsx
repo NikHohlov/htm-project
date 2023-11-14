@@ -139,20 +139,22 @@ export default function Case({ images }: { images: string[] }) {
                     __html: currentCase?.text.body ?? "",
                   }}
                 ></p>
-                <div className={styles.videos}>
-                  {currentCase?.videos?.map((video, index) => (
-                    <video
-                      // preload={index === 0 ? undefined : "none"}
-                      key={video}
-                      className={styles.video}
-                      height={500}
-                      width={600}
-                      controls
-                    >
-                      <source src={video} type="video/mp4" />
-                    </video>
-                  ))}
-                </div>
+                {currentCase?.videos && (
+                  <div className={styles.videos}>
+                    {currentCase?.videos?.map((video, index) => (
+                      <video
+                        // preload={index === 0 ? undefined : "none"}
+                        key={video}
+                        className={styles.video}
+                        height={500}
+                        width={600}
+                        controls
+                      >
+                        <source src={video} type="video/mp4" />
+                      </video>
+                    ))}
+                  </div>
+                )}
                 <div className={styles.buttons}>
                   <Link href="/cases">
                     <Button theme={Theme.Light} title="К кейсам" />

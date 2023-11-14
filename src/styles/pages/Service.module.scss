@@ -22,7 +22,7 @@
 
 .secondSection{
     @include flexCenter();
-    margin-top: 3em;
+    margin-top: 2em;
     flex-direction: column;
     justify-content: flex-start;
     height: 100vh;
@@ -54,6 +54,8 @@
 
     @media (max-width: 1200px) {
         @include text(24px, 28px, 800, Codenext);
+        padding: 0 15%;
+        margin-right: auto;
     }
 }
 
@@ -197,4 +199,28 @@
     display: flex;
     justify-content: center;
     margin-top: 5em;
+}
+
+.caseButton {
+    display: none;
+    @media (max-width: 1200px) {
+        margin-right: auto;
+        padding: 1.5em 15% 1em 15%;
+        display: block;
+        button {
+            width: 116px;
+            height: 29px;
+
+            p {
+                font-size: 14px;
+                line-height: 17px; 
+            }
+        }
+    }
+}
+
+.extraButton {
+    @media (max-width: 1200px) {
+       display: none;
+    }
 }

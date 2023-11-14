@@ -101,14 +101,21 @@ export default function Service() {
                     >
                       <Button theme={Theme.Dark} title="Заказать" />
                     </Link>
-                    <Link href="/cases" scroll={false}>
+
+                    <Link
+                      href="/cases"
+                      scroll={false}
+                      className={styles.extraButton}
+                    >
                       <Button theme={Theme.Dark} title="К кейсам" />
                     </Link>
                   </>
                 )}
               </div>
             </motion.div>
-            {service?.points && <ArrowScroll extraOffset={30} scrollTo={secondRef} />}
+            {service?.points && (
+              <ArrowScroll extraOffset={30} scrollTo={secondRef} />
+            )}
           </section>
 
           {service?.points && (
@@ -126,6 +133,11 @@ export default function Service() {
                     {item}
                   </div>
                 ))}
+              </div>
+              <div className={styles.caseButton}>
+                <Link href="/cases">
+                  <Button theme={Theme.Light} title="К кейсам" />
+                </Link>
               </div>
             </motion.div>
           )}
