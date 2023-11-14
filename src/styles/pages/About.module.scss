@@ -204,7 +204,6 @@
     
     @media (max-width: 1200px) {
         @include text(24px, 35px, 800, Codenext);
-        margin-left: 6vw;
     }
 }
 
@@ -220,7 +219,7 @@
 
 .point {
     @include flexCenter();
-    gap: 3em;
+    gap: 4vw;
 
     p:first-child{
         @include text(40px, 48px, 500);
@@ -230,10 +229,6 @@
             @include text(19px, 23px, 500);
             color: black;
         }
-    }
-
-    @media (max-width: 1200px) {
-        gap: 4vw;
     }
 }
 
@@ -273,13 +268,9 @@
 }
 
 .digit {
+    width: 0.1vw;
+
     @media (max-width: 1200px) {
         width: 2vw;
-    }
-}
-
-.secondaryTextDescription {
-    @media (max-width: 1200px) {
-        margin-left: 6vw;
     }
 }
