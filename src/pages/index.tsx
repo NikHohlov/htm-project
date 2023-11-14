@@ -132,8 +132,7 @@ export default function About() {
           </motion.p>
 
           <motion.p
-            style={{ marginLeft: "6vw" }}
-            className={styles.secondaryText}
+            className={`${styles.secondaryText} ${styles.secondaryTextDescription}`}
             {...slideInItem("toLeft", 0)}
           >
             Наша цель не только предоставить стратегии и инструменты, но и
