@@ -132,6 +132,7 @@ export default function About() {
           </motion.p>
 
           <motion.p
+            style={{ marginLeft: "6vw" }}
             className={styles.secondaryText}
             {...slideInItem("toLeft", 0)}
           >
@@ -145,7 +146,10 @@ export default function About() {
               key={index}
               {...slideInItem("toLeft", 0.9)}
             >
-              <motion.p {...slideInItem("toLeft", index / 8)}>
+              <motion.p
+                {...slideInItem("toLeft", index / 8)}
+                className={styles.digit}
+              >
                 {index + 1}
               </motion.p>
               <motion.p

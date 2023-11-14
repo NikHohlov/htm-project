@@ -124,7 +124,7 @@ export default function FeedbackForm({
       <div className={styles.inputField}>
         <p className={styles.inputName}>ИМЯ</p>
         <input
-          type="tel"
+          type="text"
           name="name"
           onChange={onChange}
           className={styles.input}
@@ -143,7 +143,7 @@ export default function FeedbackForm({
               return;
             }
           }}
-          type="text"
+          type="tel"
           value={`+7${data.phone.slice(2)}`}
           name="phone"
           onChange={onChange}

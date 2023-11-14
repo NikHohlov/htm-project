@@ -18,7 +18,7 @@ export const LogoMiniLoader = ({ white }: {white?: boolean}) =>{
                 width: "50%",
                 height: "50%",
             }}
-            viewBox="320 -200 2200 2200"
+            viewBox="335 -200 2200 2200"
             xmlns="http://www.w3.org/2000/svg"
         >
             <motion.path

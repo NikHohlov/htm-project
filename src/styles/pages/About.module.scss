@@ -143,7 +143,7 @@
 
         flex-direction: column;
         p {
-            @include text(20px, 29px, 800, Codenext);
+            @include text(38px, 49px, 800, Codenext);
             @include fontBackground(#6158F3, #41C0FF, 19.19%, 96.56%);
             margin-left: 0;
         }
@@ -204,6 +204,7 @@
     
     @media (max-width: 1200px) {
         @include text(24px, 35px, 800, Codenext);
+        margin-left: 6vw;
     }
 }
 
@@ -230,6 +231,10 @@
             color: black;
         }
     }
+
+    @media (max-width: 1200px) {
+        gap: 4vw;
+    }
 }
 
 .logoHolder{
@@ -241,9 +246,7 @@
     @media (max-width: 1200px) {
         position: relative;
         width: 100%;
-        height: 50%;
-        // margin-top: 3em;
-        margin-bottom: 2em;
+        height: 70%;
     }
 }
 
@@ -267,4 +270,10 @@
 .ampersand {
     font-family: montserrat;
     -webkit-font-smoothing: antialiased;
+}
+
+.digit {
+    @media (max-width: 1200px) {
+        width: 2vw;
+    }
 }
