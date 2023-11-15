@@ -24,7 +24,7 @@
     @include fontBackground();
 
     @media (max-width: 1200px) {
-        @include text(187px, 224px, 700);  
+        @include text(187px, 224px, 500);  
     }
 }
 

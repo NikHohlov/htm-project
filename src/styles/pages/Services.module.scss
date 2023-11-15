@@ -16,6 +16,10 @@
 .secondSection{
     min-height: 100vh;
     margin: 1% 7% 7% 7%;
+
+    @media (max-width: 1200px) {
+        margin-bottom: 0;
+    }
 }
 
 .image {
@@ -119,7 +123,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 0;
         row-gap: 2em;
-        margin-bottom: 17%;
+        margin-bottom: 0;
         justify-items: center;
     }
 }
@@ -129,10 +133,11 @@
     grid-column-start: 1;
     width: 224px;
     @media (max-width: 1200px) {
+        grid-column-start: unset;
+        margin-bottom: 1em;
         left: unset;
-        grid-column-end: 3;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         button {
             width: 132px;
             height: 29px;
@@ -143,4 +148,14 @@
             line-height: 17px;
         }
 }
+}
+
+.casesWrapper {
+    grid-column-start: 1;
+    width: 224px;
+
+    @media (max-width: 1200px) {
+        margin-top: 1em;
+        width: 56px;
+    }
 }

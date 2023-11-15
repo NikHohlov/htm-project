@@ -106,9 +106,9 @@ export default function Services() {
           >
             <p className={styles.primaryTextTwo}>ЧТО МЫ МОЖЕМ</p>
           </motion.div>
-          <div className={styles.placeholder}/>
-          <div className={styles.placeholder}/>
-          <div className={styles.placeholder}/>
+          <div className={styles.placeholder} />
+          <div className={styles.placeholder} />
+          <div className={styles.placeholder} />
 
           {services.map(({ title, icon, name }, index) => (
             <motion.div
@@ -127,9 +127,11 @@ export default function Services() {
               />
             </motion.div>
           ))}
-          <Link className={styles.contacts} href="/contacts" scroll={false}>
-            <Button title="КОНТАКТЫ" theme={Theme.Light} />
-          </Link>
+          <div className={styles.casesWrapper}>
+            <Link className={styles.contacts} href="/contacts" scroll={false}>
+              <Button title="КОНТАКТЫ" theme={Theme.Light} />
+            </Link>
+          </div>
         </div>
       </motion.div>
     </>

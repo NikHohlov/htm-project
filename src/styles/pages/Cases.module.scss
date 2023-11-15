@@ -17,6 +17,11 @@
     min-height: 100vh;
     margin: 5% 7% 7% 7%;
     min-height: 110vh;
+
+
+    @media (max-width: 1200px) {
+        margin-bottom: 0;
+    }
 }
 
 .image {
@@ -102,6 +107,7 @@
         justify-items: center;
         row-gap: 0;
         margin-top: 0;
+        margin-bottom: 0;
     }
 }
 
@@ -110,6 +116,10 @@
     width: 336px;
 
     @media (max-width: 1200px) {
+        width: unset;
+        justify-self: baseline;
+        margin-top: 1em;
+        margin-bottom: 1em;
         left: unset;
         grid-column-end: 3;
         display: flex;

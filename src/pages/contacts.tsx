@@ -31,7 +31,9 @@ export default function Contacts() {
   return (
     <motion.div
       className={styles.pageWrapper}
-      animate={{ height: isOpen ? heightOpen : heightlosed }}
+      animate={{
+        height: submitted ? "100vh" : isOpen ? heightOpen : heightlosed,
+      }}
     >
       <Head>
         <title>HTM: Контакты</title>
