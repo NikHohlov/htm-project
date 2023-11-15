@@ -37,7 +37,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>HTM</title>
+        <title>HIT THE MARKET | МАРКЕТИНГОВОЕ АГЕНСТВО</title>
       </Head>
 
       <motion.section
