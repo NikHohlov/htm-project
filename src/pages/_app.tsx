@@ -60,6 +60,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <title>HIT THE MARKET | МАРКЕТИНГОВОЕ АГЕНСТВО</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
