@@ -1,6 +1,6 @@
 import thankyou from "@/assets/pictures/thankyou.png";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import Image from "next/image";
 
@@ -27,6 +27,11 @@ export default function Contacts() {
   const { contacts: styles } = useContext(StylesContext);
 
   const { variants } = usePageTransition();
+
+  useEffect(() => {
+    if (!isMobile) return;
+    setTimeout(() => window.scrollTo(0, 0), 300);
+  }, []);
 
   return (
     <motion.div

@@ -68,7 +68,12 @@ export default function Cases() {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+        transition={{
+          type: "linear",
+          duration: 1,
+          ease: "easeInOut",
+          delay: router.asPath.includes("all") ? 1 : 0,
+        }}
       >
         <motion.div className={styles.textContainer} {...opacityFromZeroToOne}>
           <p className={styles.primaryText}>НАШИ</p>

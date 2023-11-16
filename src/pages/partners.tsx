@@ -39,6 +39,7 @@ export default function Partners({ logos }: { logos: string[] }) {
   const { variants } = usePageTransition();
   const [inViewOnce, setInViewOnce] = useState(false);
   const secondSectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const isMobile = useIsMobile();
 
@@ -75,7 +76,7 @@ export default function Partners({ logos }: { logos: string[] }) {
         variants={variants}
         initial="hidden"
         animate="enter"
-        exit={"exit"}
+        exit={router.asPath.includes("all") ? "" : "exit"}
         transition={{
           type: "linear",
           duration: 1,
