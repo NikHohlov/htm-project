@@ -43,8 +43,9 @@ export default function Case({ images }: { images: string[] }) {
 
   const saveSelectedImageQuery = (selectedSlide: number) => {
     router.push({
-      pathname: `/cases/${currentCase?.id}`,
-      query: { slide: selectedSlide ?? 0 },
+      // pathname: `/cases/${currentCase?.id}`,
+      // query: { slide: selectedSlide ?? 0 },
+      hash: String(selectedSlide),
     });
   };
 
@@ -89,7 +90,7 @@ export default function Case({ images }: { images: string[] }) {
           >
             <div className={styles.leftSection}>
               <Carousel
-                selectedItem={Number(router.query.slide ?? 0) ?? 0}
+                selectedItem={Number(router.asPath.split("#")[1] ?? 0) ?? 0}
                 onChange={saveSelectedImageQuery}
                 showStatus={false}
                 showIndicators={false}
