@@ -34,7 +34,7 @@ type Case = {
 export const cases: Case[] = [
   {
     name: "LapLand",
-    id: "lapLand",
+    id: "lapland",
     description: "Частное производство льда",
     text: lapLandText,
     service: "Дизайн, продвижение",
@@ -42,7 +42,7 @@ export const cases: Case[] = [
   },
   {
     name: "Desert Rose",
-    id: "desertRose",
+    id: "desertrose",
     description: "Ресторан",
     text: desertRoseText,
     service: "Дизайн, продвижение",
@@ -51,7 +51,7 @@ export const cases: Case[] = [
   },
   {
     name: "FAKE.PARIS",
-    id: "fakeParis",
+    id: "fakeparis",
     description: "Косметический бренд",
     text: fakeParisText,
     service: "Дизайн, продвижение",
@@ -70,7 +70,7 @@ export const cases: Case[] = [
   },
   {
     name: "Staff studio",
-    id: "staffStudio",
+    id: "staffstudio",
     description: "Новостной telegram-канал",
     text: staffStudioText,
     logo: `/static/images/logos/staffStudio.png`,
@@ -78,7 +78,7 @@ export const cases: Case[] = [
   },
   {
     name: "WHITE WAY AUTO",
-    id: "whiteWay",
+    id: "whiteway",
     description: "Сервис по подбору и доставке автомобилей из Южной Кореи",
     subtitle: "Сервис по подбору и доставке автомобилей",
     text: whiteWayText,
@@ -89,7 +89,7 @@ export const cases: Case[] = [
   },
   {
     name: "Buy | Side",
-    id: "buySide",
+    id: "buyside",
     description: "Cервис денежных переводов",
     text: buySideText,
     service: "Дизайн, продвижение",
@@ -130,7 +130,7 @@ export const cases: Case[] = [
   },
   {
     name: "SALE JAPAN",
-    id: "saleJapan",
+    id: "salejapan",
     logo: `/static/images/logos/saleJapan.png`,
     description: "Cервис по выкупу товаров из Японии без посредников",
     subtitle: "Cервис по выкупу товаров из Японии",
@@ -157,7 +157,7 @@ export const cases: Case[] = [
   {
     name: "НЕ ЛУДОМАН | NOT GAMBLER",
     shortName: "NOT GAMBLER",
-    id: "notGambler",
+    id: "notgambler",
     logo: `/static/images/logos/notGambler.png`,
     description: "Уникальная ассоциация опытных капперов",
     subtitle: "Ассоциация опытных капперов",
@@ -211,7 +211,7 @@ export const cases: Case[] = [
   },
   {
     name: "Orsa Borsa",
-    id: "orsaBorsa",
+    id: "orsaborsa",
     logo: `/static/images/logos/orsaBorsa.png`,
     description: "Магазин сумок и аксессуаров",
     text: orsaBorsaText,
@@ -246,7 +246,7 @@ export const cases: Case[] = [
 
   {
     name: "Pink Hair Lab",
-    id: "pinkHairLab",
+    id: "pinkhairlab",
     description: "Cалон красоты",
     text: pinkHairLabText,
     logo: `/static/images/logos/pinkHairLab.png`,

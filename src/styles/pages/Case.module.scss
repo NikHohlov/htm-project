@@ -22,9 +22,8 @@
 .secondSection {
     display: flex;
     flex-direction: column;
-    padding: 0 15% 3% 15%;
+    padding: 0 15% 2em 15%;
     gap: 3em;
-    // margin-bottom: 6em;
 
     @media (max-width: 1200px) {
         padding: 0 7%;;
@@ -139,7 +138,6 @@
 }
 
 .buttons {
-    margin-bottom: 5em;
     @media (max-width: 1200px) {
         margin-bottom: 1em;
         button {

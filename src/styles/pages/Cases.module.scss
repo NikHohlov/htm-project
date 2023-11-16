@@ -15,7 +15,7 @@
 
 .secondSection{
     min-height: 100vh;
-    margin: 5% 7% 7% 7%;
+    margin: 5% 7% 2em 7%;
     min-height: 110vh;
 
 
@@ -97,7 +97,6 @@
     row-gap: 1em;
     flex-wrap: wrap;
     margin-top: 5em;
-    margin-bottom: 7%;
     justify-items: center;
 
     @media (max-width: 1200px) {

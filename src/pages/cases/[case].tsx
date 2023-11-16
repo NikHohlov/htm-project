@@ -15,8 +15,6 @@ import { cases } from "@/data/cases/cases";
 import { getImages } from "@/data/cases/getImages";
 import { useIsMobile } from "@/lib/hooks/useIsMobile";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
-import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
-import { textRender } from "@/lib/utils/textRender";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -28,7 +26,7 @@ export const getStaticPaths = async () => {
   const paths = cases.map(({ id }) => ({ params: { case: id } }));
   return {
     paths,
-    fallback: true, // false or "blocking"
+    fallback: true,
   };
 };
 
@@ -42,6 +40,13 @@ export default function Case({ images }: { images: string[] }) {
   const { casestyle: styles } = useContext(StylesContext);
   const router = useRouter();
   const isMobile = useIsMobile();
+
+  const saveSelectedImageQuery = (selectedSlide: number) => {
+    router.push({
+      pathname: `/cases/${currentCase?.id}`,
+      query: { slide: selectedSlide ?? 0 },
+    });
+  };
 
   const [currentCase, setCurrentCase] = useState<(typeof cases)[0]>();
   const [isCaseLoaded, setIsCaseLoaded] = useState(false);
@@ -60,15 +65,6 @@ export default function Case({ images }: { images: string[] }) {
   const { variants } = usePageTransition();
 
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollToSmoothly } = useSmoothScroll();
-
-  // useEffect(() => {
-  //   // window.scrollTo(0, 0);
-  //   setTimeout(() => {
-  //     if (!ref.current) return;
-  //     // scrollToSmoothly(ref.current.getBoundingClientRect().top, 50);
-  //   }, 100);
-  // }, []);
 
   return (
     <>
@@ -93,6 +89,8 @@ export default function Case({ images }: { images: string[] }) {
           >
             <div className={styles.leftSection}>
               <Carousel
+                selectedItem={Number(router.query.slide ?? 0) ?? 0}
+                onChange={saveSelectedImageQuery}
                 showStatus={false}
                 showIndicators={false}
                 showThumbs={false}

@@ -15,7 +15,7 @@
 
 .secondSection{
     min-height: 100vh;
-    margin: 1% 7% 7% 7%;
+    margin: 1% 7% 2em 7%;
 
     @media (max-width: 1200px) {
         margin-bottom: 0;
@@ -117,7 +117,6 @@
     grid-template-rows: 1fr 1fr;
     gap: 3em;
     justify-items: center;
-    margin: 0 0 7% 0;
 
     @media (max-width: 1200px) {
         grid-template-columns: repeat(2, 1fr);
