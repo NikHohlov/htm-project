@@ -30,7 +30,9 @@ export default function Contacts() {
 
   return (
     <motion.div
-      className={styles.pageWrapper}
+      className={`${styles.pageWrapper} ${
+        !isMobile && submitted ? styles.submitted : ""
+      }`}
       animate={{
         height: submitted ? "100vh" : isOpen ? heightOpen : heightlosed,
       }}
@@ -40,7 +42,9 @@ export default function Contacts() {
       </Head>
 
       <motion.div
-        className={styles.firstSection}
+        className={`${styles.firstSection} ${
+          !isMobile && submitted ? styles.submittedFirstSection : ""
+        }`}
         variants={variants}
         initial="hidden"
         animate="enter"
@@ -52,9 +56,9 @@ export default function Contacts() {
             <motion.div
               className={styles.container}
               key="thankYou"
-              animate={{ y: -200, opacity: 0 }}
-              initial={{ y: -200, opacity: 0 }}
-              whileInView={{ y: 200, opacity: 1 }}
+              animate={{ y: -20, opacity: 0 }}
+              initial={{ y: -20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, type: "tween", ease: "easeIn" }}
             >
               <Image className={styles.image} src={thankyou} alt="thankyou" />
