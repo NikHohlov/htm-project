@@ -37,6 +37,14 @@
     width: 97px;
     background: linear-gradient(180deg, var(--gradient-dark-color) 0%, var(--gradient-light-color) 100%);
     border-radius: 50%;
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
     @media (max-width: 1200px) {
         height: 56px;
@@ -50,7 +58,7 @@
 }
 
 .serviceIcon {
-    display: flex;
+    // display: flex;
     position: absolute;
 
     @media (max-width: 1200px) {
