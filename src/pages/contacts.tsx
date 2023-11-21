@@ -14,11 +14,13 @@ import Head from "next/head";
 import { StylesContext } from "./_app";
 import { useIsMobile } from "@/lib/hooks/useIsMobile";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Contacts() {
   const [submitted, setSubmitted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
+  const router = useRouter()
 
   const [heightlosed, heightOpen] = isMobile
     ? ["1200px", "1640px"]
@@ -54,7 +56,12 @@ export default function Contacts() {
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ type: "linear", duration: 1, ease: "easeInOut" }}
+        transition={{
+          type: "linear",
+          duration: 1,
+          ease: "easeInOut",
+          delay: router.asPath.includes("to") ? 0.3 : 0,
+        }}
       >
         <AnimatePresence initial={false} mode="wait">
           {submitted ? (

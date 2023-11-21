@@ -67,10 +67,10 @@ export default function Cases() {
         variants={variants}
         initial="hidden"
         animate="enter"
-        exit="exit"
+        exit={router.asPath.includes("to") ? { opacity: 0 } : "exit"}
         transition={{
           type: "linear",
-          duration: 1,
+          duration: router.asPath.includes("to") ? 0 : 0.7,
           ease: "easeInOut",
           delay: router.asPath.includes("all") ? 1 : 0,
         }}
@@ -106,8 +106,12 @@ export default function Cases() {
         variants={variants}
         initial="hidden"
         animate="enter"
-        exit="exit"
-        transition={{ type: "linear", duration: 0.7, ease: "easeIn" }}
+        exit={router.asPath.includes("to") ? { opacity: 0 } : "exit"}
+        transition={{
+          type: "linear",
+          duration: router.asPath.includes("to") ? 0 : 0.7,
+          ease: "easeIn",
+        }}
       >
         <div ref={refCases} className={styles.casesContainer}>
           {allCases.map(
@@ -136,7 +140,7 @@ export default function Cases() {
               </motion.div>
             )
           )}
-          <Link className={styles.contacts} href="/contacts" scroll={false}>
+          <Link className={styles.contacts} href="/contacts#to">
             <Button title="КОНТАКТЫ" theme={Theme.Light} />
           </Link>
         </div>

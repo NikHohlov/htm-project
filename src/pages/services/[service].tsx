@@ -40,7 +40,7 @@ export default function Service() {
     setTimeout(() => {
       if (!ref.current) return;
       scrollToSmoothly(ref.current.getBoundingClientRect().top, 50);
-    }, 100);
+    }, 0);
   }, []);
 
   return (
