@@ -146,9 +146,9 @@ export default function Partners({ logos }: { logos: string[] }) {
             </motion.div>
           ))}
         </div>
-        <Link href="/cases#all" className={styles.numberWrapper}>
+        <div className={styles.numberWrapper}>
           <p className={styles.number}>И многие другие</p>
-        </Link>
+        </div>
       </motion.div>
     </>
   );

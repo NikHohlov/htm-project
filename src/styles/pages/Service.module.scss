@@ -139,7 +139,7 @@
 
 .point {
     @include flexCenter();
-    @include text(18px, 20.56px, 400);
+    @include text(24px, 28px, 400);
     color: black;
 
     @media (max-width: 1200px) {

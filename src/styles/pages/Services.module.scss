@@ -157,6 +157,7 @@
     width: 224px;
 
     @media (max-width: 1200px) {
+        justify-self: end;
         margin-top: 1em;
         width: 56px;
     }
