@@ -26,11 +26,13 @@ import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { StylesContext } from "../_app";
 import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+import { useSmoothScroll } from "@/lib/hooks/useSmoothScroll";
 
 export default function Services() {
   const router = useRouter();
   const [inViewOnce, setInViewOnce] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const { scrollToSmoothly } = useSmoothScroll();
 
   const secondSectionRef = useRef<HTMLDivElement>(null);
 
@@ -48,6 +50,14 @@ export default function Services() {
   useEffect(() => {
     if (isInView) setInViewOnce(true);
   }, [isInView]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (!router.query.to) return;
+      const el = document.querySelector(`#${router.query.to}`);
+      scrollToSmoothly(el?.getBoundingClientRect()?.top ?? 0, 0);
+    }, 600);
+  }, []);
 
   return (
     <>
@@ -112,6 +122,7 @@ export default function Services() {
 
           {services.map(({ title, icon, name }, index) => (
             <motion.div
+              id={name}
               key={title}
               initial={{ opacity: 0 }}
               transition={{ duration: 1 }}

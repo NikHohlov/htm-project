@@ -33,10 +33,10 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const images = await getImages(context.params?.case as string);
 
-  return { props: { images } };
+  return { props: { images, id: context.params?.case } };
 };
 
-export default function Case({ images }: { images: string[] }) {
+export default function Case({ images, id }: { images: string[]; id: string }) {
   const { casestyle: styles } = useContext(StylesContext);
   const router = useRouter();
   const isMobile = useIsMobile();
@@ -51,6 +51,14 @@ export default function Case({ images }: { images: string[] }) {
 
   const [currentCase, setCurrentCase] = useState<(typeof cases)[0]>();
   const [isCaseLoaded, setIsCaseLoaded] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("popstate", () => {
+      router.push({
+        query: { to: id },
+      });
+    });
+  }, []);
 
   useEffect(() => {
     if (!isCaseLoaded) {

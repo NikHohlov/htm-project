@@ -11,6 +11,7 @@ import Link from "next/link";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 const routes = [
   {
@@ -38,6 +39,7 @@ const routes = [
 export const MobileMenu: FC = () => {
   const { mobileMenu: styles } = useContext(StylesContext);
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile()
   const [menuTrigger, setMenuTrigger] = useState(false);
   const { theme } = useTheme();
   const { transitionHandler } = usePageTransition();
@@ -49,6 +51,8 @@ export const MobileMenu: FC = () => {
     onToggleMenu();
     transitionHandler(router.pathname, next);
   };
+
+  const inverted = router.pathname === "/" && isMobile
 
   useEffect(() => {
     setTimeout(() => setMenuTrigger(isOpen), 300);
@@ -92,13 +96,13 @@ export const MobileMenu: FC = () => {
           <Link href="/">
             <Image
               alt="image"
-              src={theme === Theme.Light ? logo : logoWhite}
+              src={theme === Theme.Light && !inverted ? logo : logoWhite}
               width={130}
               height={91}
             />
           </Link>
           <div onClick={onToggleMenu}>
-            <MenuClosed gradient={theme === Theme.Light} />
+            <MenuClosed gradient={theme === Theme.Light && !inverted} />
           </div>
         </motion.div>
       )}

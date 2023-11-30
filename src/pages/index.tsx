@@ -7,6 +7,7 @@ import second from "@/assets/pictures/aboutPage/second.png";
 import third from "@/assets/pictures/aboutPage/third.png";
 
 import textures from "@/assets/pictures/aboutPage/textures.png";
+import texturesMobile from "@/assets/pictures/aboutPage/texturesMobile.png";
 
 import { motion } from "framer-motion";
 
@@ -18,10 +19,13 @@ import Head from "next/head";
 import { StylesContext } from "./_app";
 import SocialMediaList from "@/components/widgets/SocialMediaList/SocialMediaList";
 import { LogoMiniLoader } from "@/assets/icons/LogoMiniLoader";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  const isMobile = useIsMobile();
 
   const { about: styles } = useContext(StylesContext);
 
@@ -34,50 +38,54 @@ export default function About() {
     "Повысим узнаваемость",
   ];
 
+  const FirstSection = () => (
+    <motion.section
+      ref={ref}
+      className={styles.firstSection}
+      variants={variants}
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      transition={{ type: "linear", duration: 0.9, ease: "easeInOut" }}
+    >
+      {!isImageLoaded && <LogoMiniLoader />}
+
+      <motion.div
+        className={styles.logoHolder}
+        animate={{ opacity: isImageLoaded ? 1 : 0 }}
+        transition={{ duration: 1 }}
+      >
+        <Image
+          className={styles.logo}
+          src="/static/images/main.gif"
+          alt="image"
+          priority
+          quality={35}
+          width={728}
+          height={728}
+          onLoadingComplete={() => setIsImageLoaded(true)}
+        />
+      </motion.div>
+
+      <div className={styles.arrowContainer}>
+        <motion.div {...opacityFromZeroToOne}>
+          <motion.div className={styles.textContainer}>
+            <p>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      <ArrowScroll scrollTo={ref} gradient />
+    </motion.section>
+  );
+
   return (
     <>
       <Head>
         <title>HIT THE MARKET | МАРКЕТИНГОВОЕ АГЕНСТВО</title>
       </Head>
 
-      <motion.section
-        ref={ref}
-        className={styles.firstSection}
-        variants={variants}
-        initial="hidden"
-        animate="enter"
-        exit="exit"
-        transition={{ type: "linear", duration: 0.9, ease: "easeInOut" }}
-      >
-        {!isImageLoaded && <LogoMiniLoader />}
-
-        <motion.div
-          className={styles.logoHolder}
-          animate={{ opacity: isImageLoaded ? 1 : 0 }}
-          transition={{ duration: 1 }}
-        >
-          <Image
-            className={styles.logo}
-            src="/static/images/main.gif"
-            alt="image"
-            priority
-            quality={35}
-            width={728}
-            height={728}
-            onLoadingComplete={() => setIsImageLoaded(true)}
-          />
-        </motion.div>
-
-        <div className={styles.arrowContainer}>
-          <motion.div {...opacityFromZeroToOne}>
-            <motion.div className={styles.textContainer}>
-              <p>ПОПАДЕМ В ТВОЮ АУДИТОРИЮ</p>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        <ArrowScroll scrollTo={ref} gradient />
-      </motion.section>
+      {!isMobile && <FirstSection />}
 
       <motion.section
         className={styles.secondSection}
@@ -108,7 +116,12 @@ export default function About() {
           transition={{ type: "tween", duration: 5 }}
           viewport={{ once: true }}
         >
-          <Image fill src={textures} alt="image" quality={100} />
+          <Image
+            fill
+            src={isMobile ? texturesMobile : textures}
+            alt="image"
+            quality={100}
+          />
         </motion.div>
       </motion.section>
 
@@ -161,6 +174,8 @@ export default function About() {
           ))}
         </motion.div>
       </section>
+
+      {isMobile && <FirstSection />}
     </>
   );
 }

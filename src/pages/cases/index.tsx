@@ -55,6 +55,14 @@ export default function Cases() {
     }, 100);
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (!router.query.to) return;
+      const el = document.querySelector(`#${router.query.to}`);
+      scrollToSmoothly(el?.getBoundingClientRect()?.top ?? 0, 0);
+    }, 100);
+  }, []);
+
   return (
     <>
       <Head>
@@ -121,6 +129,7 @@ export default function Cases() {
             ) => (
               <motion.div
                 key={id}
+                id={id}
                 initial={{ opacity: 0 }}
                 transition={{ duration: 1 }}
                 animate={inViewOnce ? { opacity: 1 } : { opacity: 0 }}

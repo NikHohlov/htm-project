@@ -26,6 +26,14 @@ export default function Service() {
   const [isServiceLoaded, setIsServiceLoaded] = useState(false);
 
   useEffect(() => {
+    window.addEventListener("popstate", () => {
+      router.push({
+        query: { to: router.query.service },
+      });
+    });
+  }, []);
+
+  useEffect(() => {
     if (!isServiceLoaded) {
       setService(services.find((item) => item.name === router.query.service));
       if (router.query.service) setIsServiceLoaded(true);
