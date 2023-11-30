@@ -5,7 +5,7 @@ import { Gradient } from "./gradient";
 
 import { Icon } from "./Icon";
 
-export const MenuClosed = ({
+export const MenuClosedGradient = ({
   fill = "none",
   width = "33",
   height = "16",
@@ -15,7 +15,7 @@ export const MenuClosed = ({
   <Icon {...{ fill, width, height, viewBox, className }}>
     <path
       d="M31 2L2 2M31 8L2 8M31 14L2 14"
-      stroke="white"
+      stroke="url(#gradient)"
       strokeWidth="3"
       strokeLinecap="round"
     />

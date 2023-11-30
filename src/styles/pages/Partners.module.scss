@@ -5,7 +5,7 @@
     flex-direction: column;
     height: 105vh;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         height: 100svh;
     }
 }
@@ -23,7 +23,7 @@
     @include text(270px, 324px, 700);
     @include fontBackground();
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         @include text(187px, 224px, 500);  
     }
 }
@@ -33,7 +33,7 @@
     @include button(642px, 123px, 70px);
     cursor: default;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         @include text(24px, 35px, 700);  
         @include button(280px, 48px, 70px);
     }
@@ -45,7 +45,7 @@
     margin-top: 32px;
     margin-bottom: 2em;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         @include text(18px, 22px, 700);  
         color: black;
         width: 80%;
@@ -77,7 +77,7 @@
     margin-bottom: 10em;
     margin-top: 15em;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         gap: 5em;
         // margin-top: 22em;
     }
@@ -92,7 +92,7 @@
     //     transform: scale(1.05) !important;
     // }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         width: 140px;
         height: 140px;
     }
@@ -133,7 +133,7 @@
     position: relative;
     color: white;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         @include text(24px, 28.8px, 700);
         display: flex;
         align-items: center;

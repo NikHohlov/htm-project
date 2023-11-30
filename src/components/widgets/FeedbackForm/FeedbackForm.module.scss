@@ -10,6 +10,10 @@
         @include text(36px, 41.76px, 800, Codenext);
 
         @media (max-width: 1200px) {
+            @include text(30px, 35px, 800, Codenext);
+        }
+
+        @media (max-width: 800px) {
             @include text(20px, 23px, 800, Codenext);
         }
     }
@@ -17,7 +21,7 @@
     .inputName {
         @include text(24px, 28.8px, 700);
 
-        @media (max-width: 1200px) {
+        @media (max-width: 800px) {
             @include text(14px, 17px, 700);
         }
     }
@@ -44,6 +48,10 @@
         }
 
         @media (max-width: 1200px) {
+            @include text(20px, 24px, 700);
+        }
+
+        @media (max-width: 1000px) {
             @include text(16px, 19px, 700);
         }
     }
@@ -77,7 +85,7 @@
         }
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         width: 80vw;
         align-items: center;
     }

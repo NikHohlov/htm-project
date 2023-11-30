@@ -12,6 +12,7 @@ import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/lib/hooks/useIsMobile";
+import { MenuClosedGradient } from "@/assets/icons/MenuClosedGradient";
 
 const routes = [
   {
@@ -39,7 +40,7 @@ const routes = [
 export const MobileMenu: FC = () => {
   const { mobileMenu: styles } = useContext(StylesContext);
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
   const [menuTrigger, setMenuTrigger] = useState(false);
   const { theme } = useTheme();
   const { transitionHandler } = usePageTransition();
@@ -52,7 +53,7 @@ export const MobileMenu: FC = () => {
     transitionHandler(router.pathname, next);
   };
 
-  const inverted = router.pathname === "/" && isMobile
+  const inverted = router.pathname === "/" && isMobile;
 
   useEffect(() => {
     setTimeout(() => setMenuTrigger(isOpen), 300);
@@ -102,7 +103,11 @@ export const MobileMenu: FC = () => {
             />
           </Link>
           <div onClick={onToggleMenu}>
-            <MenuClosed gradient={theme === Theme.Light && !inverted} />
+            {theme === Theme.Light && !inverted ? (
+              <MenuClosedGradient />
+              ) : (
+              <MenuClosed />
+            )}
           </div>
         </motion.div>
       )}

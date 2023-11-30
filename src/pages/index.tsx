@@ -148,7 +148,7 @@ export default function About() {
             className={`${styles.secondaryText} ${styles.secondaryTextDescription}`}
             {...slideInItem("toLeft", 0)}
           >
-            Наша цель не только предоставить стратегии и инструменты, но и
+            Наша цель - не только предоставить стратегии и инструменты, но и
             достичь результата вместе с вами:
           </motion.p>
 

@@ -60,11 +60,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>HIT THE MARKET | МАРКЕТИНГОВОЕ АГЕНСТВО</title>
+        <title>HIT THE MARKET | МАРКЕТИНГОВОЕ АГЕНТСТВО</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="HIT THE MARKET | МАРКЕТИНГОВОЕ АГЕНСТВО"
+          content="HIT THE MARKET увеличивает продажи. Наша цель - не только предоставить стратегии и инструменты, но и достичь результата вместе с вами."
         />
       </Head>
 

@@ -6,7 +6,7 @@
     height: 100vh;
     overflow: hidden;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         flex-direction: column;
         height: 100svh;
         margin-bottom: 0;
@@ -23,7 +23,7 @@
     overflow: hidden;
     margin-bottom: 2em;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         flex-direction: column;
     }
 
@@ -87,7 +87,7 @@
     height: 800px !important;
     width: 620px !important;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         width: 70% !important;
         height: 50% !important;  
         margin-left: 15%;    
@@ -101,7 +101,7 @@
     height: 80%;
     bottom: 14%;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         object-fit: cover;
         overflow: inherit;
         width: 110%;
@@ -119,7 +119,7 @@
     gap: 2em;
     bottom: 5em;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         position: relative;
         bottom: 0;
     }
@@ -168,7 +168,7 @@
         margin-bottom: 40%;
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         margin-bottom: unset;
         @include text(34px, 45px, 800, Codenext);
         width: 88%;
@@ -180,7 +180,7 @@
         @include text(40px, 48px, 400);
         text-transform: uppercase;
         
-        @media (max-width: 1200px) {
+        @media (max-width: 800px) {
             @include text(28px, 32px, 400);
         }
         
@@ -203,7 +203,7 @@
     @include text(40px, 58.6px, 800, Codenext);
     @include fontBackground(); 
     
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         @include text(24px, 35px, 800, Codenext);
     }
 }
@@ -212,7 +212,7 @@
     @include text(24px, 28.8px, 400);
     color: black;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         @include text(16px, 19px, 400);
         color: black;
     }
@@ -226,7 +226,7 @@
         @include text(40px, 48px, 500);
         color: black;
 
-        @media (max-width: 1200px) {
+        @media (max-width: 800px) {
             @include text(19px, 23px, 500);
             color: black;
         }
@@ -239,7 +239,7 @@
     align-items: center;
     flex-direction: column;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         position: relative;
         width: 100%;
         height: 70%;
@@ -249,14 +249,14 @@
 .textures {
     position: absolute;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         height: 100%;
     }
 
     img {
         position: relative !important;
 
-        @media (max-width: 1200px) {
+        @media (max-width: 800px) {
             object-fit: cover;
             height: 60% !important;
         }
@@ -271,7 +271,7 @@
 .digit {
     width: 0.1vw;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         width: 2vw;
     }
 }

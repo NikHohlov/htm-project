@@ -14,7 +14,7 @@
     background: linear-gradient(5deg, #34C3FB 1%, var(--bg-top-color) 99%);
     align-items: flex-start;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         min-height: 200vh;
         height: 260vh;
     }
@@ -24,7 +24,17 @@
     @include text(70px, 83.36px, 700);
     width: 6em;
     position: relative;
+
     @media (max-width: 1200px) {
+        @include text(55px, 73.36px, 700);
+    }
+
+
+    @media (max-width: 1000px) {
+        @include text(40px, 53px, 700);
+    }
+
+    @media (max-width: 800px) {
         @include text(40px, 53px, 800, Codenext);
         text-align: center;
         left: 0;
@@ -39,7 +49,23 @@
     gap: 1.5em;
     margin-top: 3em;
     
-    @media (max-width: 1200px) {
+    @media (max-width: 1200px) and (min-width: 800px) {
+        div {
+            a {
+                div {
+                    width: 63px;
+                    height: 63px;
+                }
+            }
+        }
+    }
+    
+    @media (max-width: 800px) {
+        margin-top: 10em;
+        align-items: center;
+    }
+    
+    @media (max-width: 800px) {
         margin-top: 10em;
         align-items: center;
     }
@@ -58,13 +84,13 @@
 
     p {
         @include text(30px, 36px, 400);
-        @media (max-width: 1200px) {
+        @media (max-width: 800px) {
             @include text(16px, 19px, 400);
         }
     }
     p:first-child {
         @include text(48px, 63.36px, 800, Codenext);
-        @media (max-width: 1200px) {
+        @media (max-width: 800px) {
             @include text(24px, 32px, 800, Codenext);
         }
     }
@@ -73,7 +99,7 @@
         // margin-top: 1em;
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         align-items: center;
     }
 }
@@ -82,7 +108,7 @@
     width: 15% !important;
     height: 15% !important;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         width: 35% !important;
         height: 35% !important;
     }
@@ -92,7 +118,7 @@
     @include flexCenter();
     gap: 3em;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 800px) {
         flex-direction: column;
         position: absolute;
         left: 50%;
@@ -110,6 +136,10 @@
     transform: translateY(20vh);
 
     @media (max-width: 1200px) {
+        gap: 9vw;
+    }
+
+    @media (max-width: 800px) {
         transform: unset;
         flex-direction: column-reverse;
         align-items: center !important;
@@ -133,6 +163,10 @@
     color: white;
 
     @media (max-width: 1200px) {
+        @include text(34px, 36.8px, 700);
+    }
+
+    @media (max-width: 800px) {
         @include text(24px, 26.8px, 700);
         display: flex;
         align-items: center;
