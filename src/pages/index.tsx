@@ -25,6 +25,8 @@ export default function About() {
   const ref = useRef<HTMLDivElement>(null);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
+  const refMobile = useRef<HTMLDivElement>(null);
+
   const isMobile = useIsMobile();
 
   const { about: styles } = useContext(StylesContext);
@@ -75,7 +77,7 @@ export default function About() {
         </motion.div>
       </div>
 
-      <ArrowScroll scrollTo={ref} gradient />
+      <ArrowScroll scrollTo={isMobile ? refMobile : ref} gradient />
     </motion.section>
   );
 
@@ -88,6 +90,7 @@ export default function About() {
       {!isMobile && <FirstSection />}
 
       <motion.section
+        ref={refMobile}
         className={styles.secondSection}
         {...opacityFromZeroToOne}
       >
