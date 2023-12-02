@@ -10,6 +10,7 @@
         flex-direction: column;
         height: 100svh;
         margin-bottom: 0;
+        justify-content: normal;
     }
 }
 
@@ -48,7 +49,6 @@
 
     @media (max-width: 1200px) {
         display: block;
-        margin-top: 6vh;
 
         .contacts {
             display: block;
@@ -243,6 +243,7 @@
         position: relative;
         width: 100%;
         height: 70%;
+        margin-top: -5em;
     }
 }
 
@@ -251,14 +252,14 @@
 
     @media (max-width: 800px) {
         height: 100%;
+        width: 100%;
     }
 
     img {
         position: relative !important;
 
         @media (max-width: 800px) {
-            object-fit: cover;
-            height: 60% !important;
+            object-fit: contain;
         }
     }
 }
