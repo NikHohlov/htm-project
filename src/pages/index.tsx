@@ -7,7 +7,7 @@ import second from "@/assets/pictures/aboutPage/second.png";
 import third from "@/assets/pictures/aboutPage/third.png";
 
 import textures from "@/assets/pictures/aboutPage/textures.png";
-import texturesMobile from "@/assets/pictures/aboutPage/texturesMobile.png";
+import texturesMobile from "@/assets/pictures/aboutPage/glitchMobile.png";
 
 import { motion } from "framer-motion";
 
