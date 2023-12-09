@@ -162,4 +162,15 @@
 
         }
     }
+
+    @media (max-width: 800px) {
+        &:hover, &:active {
+            background: unset;
+            p {
+                background: unset;   
+                color: white; 
+                -webkit-text-fill-color: unset;
+            }
+        }
+    }
 }
