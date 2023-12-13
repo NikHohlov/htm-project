@@ -4,7 +4,7 @@ import useTheme from "@/lib/hooks/useTheme";
 import { Theme } from "@/lib/types";
 import { StylesContext } from "@/pages/_app";
 import Image from "next/image";
-import React, { FC, useContext, useEffect, useState } from "react";
+import React, { FC, useContext, useEffect, useMemo, useState } from "react";
 import logoWhite from "@/assets/pictures/logo-white.png";
 import logo from "@/assets/pictures/logo.png";
 import Link from "next/link";
@@ -45,6 +45,7 @@ export const MobileMenu: FC = () => {
   const { theme } = useTheme();
   const { transitionHandler } = usePageTransition();
   const router = useRouter();
+  const [inverted, setInv] = useState(false);
 
   const onToggleMenu = () => setTimeout(() => setIsOpen((prev) => !prev), 100);
 
@@ -53,10 +54,24 @@ export const MobileMenu: FC = () => {
     transitionHandler(router.pathname, next);
   };
 
-  const inverted = router.pathname === "/" && isMobile;
+  useEffect(() => {
+    if (router.pathname === "/" && isMobile) {
+      setInv(true);
+      return;
+    }
+    if (inverted) {
+      setTimeout(() => setInv(false), 1200);
+    }
+  }, [router.pathname, isMobile]);
+
+  // const inverted = router.pathname === "/" && isMobile;
 
   useEffect(() => {
     setTimeout(() => setMenuTrigger(isOpen), 300);
+  }, [isOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
 
   return (
@@ -89,9 +104,9 @@ export const MobileMenu: FC = () => {
           animate={{ y: 0, opacity: isOpen ? 0 : 1 }}
           initial={{ y: -200, opacity: isOpen ? 1 : 0 }}
           transition={{
-            type: "tween",
-            ease: "easeIn",
-            delay: isOpen ? 0 : 0.3,
+            // type: "tween",
+            // ease: "easeIn",
+            delay: isOpen || inverted ? 0 : 0.3,
           }}
         >
           <Link href="/">
@@ -105,7 +120,7 @@ export const MobileMenu: FC = () => {
           <div onClick={onToggleMenu}>
             {theme === Theme.Light && !inverted ? (
               <MenuClosedGradient />
-              ) : (
+            ) : (
               <MenuClosed />
             )}
           </div>

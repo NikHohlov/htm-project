@@ -58,7 +58,7 @@ export default function Contacts() {
         exit="exit"
         transition={{
           type: "linear",
-          duration: 1,
+          duration: 0.6,
           ease: "easeInOut",
           delay: router.asPath.includes("to") ? 0.3 : 0,
         }}
