@@ -6,7 +6,7 @@ export default function SendContact (req: NextApiRequest, res: NextApiResponse) 
         service: "Mail.ru",
         auth: {
             user: "htmproject@mail.ru",
-            pass: "cnEdqRhQyfpMcMhzwnve"
+            pass: "u326FqPy7Uwe5xkumAKZ"
         }
     });
 
