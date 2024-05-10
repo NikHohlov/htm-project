@@ -11,16 +11,15 @@ import SocialMediaList from "@/components/widgets/SocialMediaList/SocialMediaLis
 import FeedbackForm from "@/components/widgets/FeedbackForm/FeedbackForm";
 import { usePageTransition } from "@/lib/hooks/usePageTransition";
 import Head from "next/head";
-import { StylesContext } from "./_app";
-import { useIsMobile } from "@/lib/hooks/useIsMobile";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { isMobile } from "react-device-detect";
+import { StylesContext } from "./_app";
 
 export default function Contacts() {
   const [submitted, setSubmitted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useIsMobile();
-  const router = useRouter()
+  const router = useRouter();
 
   const [heightlosed, heightOpen] = isMobile
     ? ["1200px", "1640px"]
